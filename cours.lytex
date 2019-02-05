@@ -1,0 +1,316 @@
+\documentclass{article}
+
+\usepackage{fullpage}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[OT1]{fontenc}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{Cours 2018-2019}
+\author{David, noté par Alain}
+
+\maketitle
+
+% ****************************************************************************
+% ******************************************************************* Notation 
+% ****************************************************************************
+\section{Notation}
+
+\lilypondfile[staffsize=18]{all_notes.ly}
+
+% ****************************************************************************
+% *********************************************** Triolets Noires - 12/12/2018 
+% ****************************************************************************
+\section{Triolets Noires - 12/12/2018}
+
+Jouer en binaire d'une main (ou d'un pied) et ternaire de l'autre, voire des autres. La formule ternaire peut aussi être une séquence d'une longueur supérieure à trois, et répartie sur plusieurs membres.
+
+La base
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+  %% Notes
+  binaire = \drummode {
+    \numericTimeSignature
+    hh4 hh hh hh
+  }
+  ternaire = \drummode {
+    \tuplet 3/2 { sn4 sn sn }
+    \tuplet 3/2 { sn4 sn sn }
+  }
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \binaire }
+    \new DrumVoice { \voiceTwo \ternaire }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+qui peut aussi devenir un phrasé ``africain''
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+  %% Notes
+  binaire = \drummode {
+    \numericTimeSignature
+    hh4 hh hh hh
+  }
+  ternaire = \drummode {
+    \tuplet 3/2 { sn4 sn sn8 sn }
+    \tuplet 3/2 { sn4 sn sn }
+  }
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \binaire }
+    \new DrumVoice { \voiceTwo \ternaire }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+
+Une sequence ternaire de longueur 4.
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+  %% Notes
+  binaire = \drummode {
+    \numericTimeSignature
+    hh4 hh hh hh
+    hh4 hh hh hh
+  }
+  ternaire = \drummode {
+    \tuplet 3/2 { sn4 tommh tomml }
+    \tuplet 3/2 { tomfh sn tommh }
+    \tuplet 3/2 { tomml tomfh sn }
+    \tuplet 3/2 { tommh tomml tomfh }
+  }
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \binaire }
+    \new DrumVoice { \voiceTwo \ternaire }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+
+% ****************************************************************************
+% ************************************************** Morceau Jazz - 09/01/2019
+% ****************************************************************************
+\section{Morceau Jazz - 09/01/2019}
+
+Cha ba-da. L'accent est sur le ``cha'' (laisser tomber la main), et le ``ba-da'' va en diminuaut d'intensité, le ``da'' est une sorte de rebond. Bien penser au volume des autres éléments, en particulier grosse caisse, caisse claire.
+
+Pour s'approprier un morceau
+\begin{itemize}
+\item cha ba-da + se chanter le thème
+\item cha ba-da (+ grosse caisse sur temps) : thème à la caisse claire (puis l'inverse)
+\item jouer tous les temps et dernière croche, en accentuant le thème
+\item jouer tous les triolets, en accentuant le thème
+\item se chanter le thème pendant le solo, pour retrouver la grille (le début) mais aussi commencer à mettre quelques coups.
+\end{itemize}
+
+% ****************************************************************************
+% ********************************************* Double croches HH - 16/01/2019
+% ****************************************************************************
+\section{Double croches HH - 16/01/2019}
+
+En regardant : \url{https://www.youtube.com/watch?v=ferZnZ0_rSM} travaille double croches sur HH avec une seule main : rebond !
+
+\textbf{Fla} à travailler : 1 accent sur 4, les autres combinaisons sont beaucoup plus dures à caser (mais on peut aussi faire 2 fla). Voir aussi les DoubleCroche HH de Steve Gadd (DrummerWorld).
+
+\textbf{Shuffle} avec HH au pied pour le contre-temp.
+
+\vspace{5mm}
+Ecoute : Bill Stewart - Snide remarks
+\begin{itemize}
+\item \url{https://www.youtube.com/watch?v=xfZOx3nG3-o}
+\item \url{https://www.youtube.com/watch?v=SHPQHbLI-PM} : explique qq phrasés
+\item \url{https://www.youtube.com/watch?v=A-Iidiw8-uk} : solo sur Shape Up
+\end{itemize}
+
+\vspace{5mm}
+Pattern / Groove en 13/16, découper en pattern (ex 3 3 3 4).
+
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+  %% Notes
+  treizeseizeup = \drummode {
+    \time 13/16
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh16[ hh hh] hh16[ hh hh]
+    sn16[ hh hh] hh16[ hh hh hh]
+
+    |
+    
+    hh16[ \ghost sn \ghost sn]
+    hh[ \ghost sn \ghost sn]
+    sn[ \ghost sn \ghost sn]
+    hh[ \ghost sn] hh[ \ghost sn]
+
+  }
+  treizeseizedown = \drummode {
+
+    bd8.
+    bd8.
+    r8.
+    r8 bd
+    
+    |
+    
+    bd8.
+    bd8.
+    r8.
+    r8 bd
+    }
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \treizeseizeup }
+    \new DrumVoice { \voiceTwo \treizeseizedown }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+
+Un peu de konnakol \url{https://en.wikipedia.org/wiki/Konnakol}.
+
+Qqs leçons : \url{https://timteissen.net/video_lessons/the-power-of-konnakol-1-introduction}
+
+En 7/4 : \url{https://www.soundslice.com/slices/PzDcc/}
+
+\begin{itemize}
+\item 1 : Ta
+\item 2 : Ta-ka
+\item 3 : Ta-ki-da OU Ta-ki-te OU Ta-ki-ta 
+\item 4 : Ta-ka-di-mi OU Ta-ka-ti-mi OU Ta-ke-di-na
+\item 5 : Ta-tin-gé-na-dom OU Ta-tin-ge-na-to (2+3, 3+2)
+\item 6 : Ta-di-$\bullet$-ge-na-to 
+\item 7 : Ta-$\bullet$-di-$\bullet$-ge-na-dom
+\item 8 : Ta-ka-di-mi-Ta-ka-ju-na OU Ta-$\bullet$-$\bullet$-di-$\bullet$-ge-ba-dum
+\item 9 : Ta-$\bullet$di-$\bullet$-ge-$\bullet$-na-$\bullet$-dom
+\end{itemize}
+
+% ****************************************************************************
+% ********************************************** Débits complexes - 30/01/2019 
+% ****************************************************************************
+\section{Débits complexes - 30/01/2019}
+
+Marquer la pulsation (pied), jouer un débit (ex Ta-ka-di-mi) et en chanter un autre au même rythme (ex Ta-ki-te). Voire éventuellement, grosse caisse sur les ``Ta'' chantés. Cela fait des décalages.
+
+Avec une pulsation constante, augmenter le débit en mettant de plus en plus de notes dans une mesure. Ex:
+
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+  %% Notes
+  debit = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    sn1 |
+    sn2 sn |
+    \tuplet 3/2 {sn2 sn sn} |
+    sn4 sn sn sn |
+    \tuplet 3/2 {sn4 sn sn} \tuplet 3/2 { sn sn sn } |
+    sn8[ sn] sn[ sn] sn[ sn] sn[ sn] |
+    \tuplet 3/2 {sn8 sn sn} \tuplet 3/2 { sn sn sn } \tuplet 3/2 { sn sn sn } \tuplet 3/2 { sn sn sn } |
+    sn16[ sn sn sn] sn[ sn sn sn] sn[ sn sn sn] sn[ sn sn sn]
+    \tuplet 5/4 {sn16 sn sn sn sn} \tuplet 5/4 {sn16 sn sn sn sn} \tuplet 5/4 {sn16 sn sn sn sn}    \tuplet 5/4 {sn16 sn sn sn sn} |
+    \tuplet 6/4 {sn16 sn sn sn sn sn} \tuplet 6/4 {sn16 sn sn sn sn sn}
+    \tuplet 6/4 {sn16 sn sn sn sn sn} \tuplet 6/4 {sn16 sn sn sn sn sn} |
+    sn32 sn sn sn sn sn sn sn sn32 sn sn sn sn sn sn sn
+    sn32 sn sn sn sn sn sn sn sn32 sn sn sn sn sn sn sn  
+    }
+  pulse = \drummode {
+    hhp4 hhp hhp hhp |
+    hhp4 hhp hhp hhp |
+    hhp4 hhp hhp hhp |
+    hhp4 hhp hhp hhp |
+    hhp4 hhp hhp hhp |
+    hhp4 hhp hhp hhp |
+    hhp4 hhp hhp hhp |
+    hhp4 hhp hhp hhp |
+    hhp4 hhp hhp hhp |
+    hhp4 hhp hhp hhp |
+    hhp4 hhp hhp hhp
+  }
+
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \debit }
+    \new DrumVoice { \voiceTwo \pulse }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+
+On parle alors des claves en 5/4 (mission impossible) et 7/4.
+
+Et morceau de \textit{Porcupine Tree} «The start of something beautiful» en 9/4.\\
+\url{https://www.youtube.com/watch?v=Yw4Kq-hr63Y}
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+  %% Notes
+  hhpt = \drummode {
+    \time 9/4
+    \numericTimeSignature
+    hh8[ hh]
+    hh8[ hh]
+    hho4
+    hhc8[ hh]
+    hh8[ hh]
+    hh8[ hh]
+    hh8[ hh]
+    hh8[ hh]
+    hh8[ hh]
+  }
+  melopt = \drummode {
+    bd4 bd r sn
+    r8 bd r bd
+    r sn r bd
+    sn4
+  }
+  
+\score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hhpt }
+    \new DrumVoice { \voiceTwo \melopt}
+    >>
+    >>
+  }
+  
+\end{lilypond}
+
+
+
+\end{document}
