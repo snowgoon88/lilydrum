@@ -311,6 +311,111 @@ Et morceau de \textit{Porcupine Tree} «The start of something beautiful» en 9/
   
 \end{lilypond}
 
+% ****************************************************************************
+% ************************************************ Dhafer Youssef - 06/02/2019
+% ****************************************************************************
+\section{Dhafer Youssef - 06/02/2019}
 
+Ecoute et travail de repérage rythmique sur ``39th to Gülay (To Istanbul)'' de Dhafer Youssef.
+
+\url{https://www.youtube.com/watch?v=OY_bi_2yikU}
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  rythmdy = \drummode {
+    \numericTimeSignature
+    \override Beam.positions = #'(4 . 4)   %% left right
+    \bar ".|:"
+    \time 11/8
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn]
+    \bar ":|."
+
+    \time 6/8
+    \override NoteHead.transparent = ##f
+    sn8[ \once \override NoteHead.transparent = ##t sn sn]
+    \once \override NoteHead.transparent = ##t
+    sn8[ sn \once \override NoteHead.transparent = ##t sn]
+
+    \time 11/8
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+    }
+
+
+\score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \rythmdy }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+
+ou parfois
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  rythmdy = \drummode {
+    \numericTimeSignature
+    \override Beam.positions = #'(4 . 4)   %% left right
+    \bar ".|:"
+    \time 11/8
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn]
+    \bar ":|."
+
+    \time 11/8
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+
+    \time 6/8
+    \override NoteHead.transparent = ##f
+    sn8[ \once \override NoteHead.transparent = ##t sn sn]
+    \once \override NoteHead.transparent = ##t
+    sn8[ sn \once \override NoteHead.transparent = ##t sn]
+    
+    }
+
+
+\score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \rythmdy }
+    >>
+    >>
+  }
+\end{lilypond}
 
 \end{document}
