@@ -17,7 +17,7 @@ while true ; do
 	-nc|--no-clean)
             need_cleaning=false; shift 1;;
 	-oc|--only-clean)
-            need_compile=true; shift 1;;
+            need_compile=false; shift 1;;
         -h|--help)
 	    echo "usage $0 [-nc|--no-clean -oc|--only-clean -h|--help] <filename>"
 	    exit;;
@@ -70,5 +70,7 @@ if [ "$need_cleaning" = true ]; then
     rm -f ${obj}.dep ${obj}.tex
     echo "rm snippet*.ly"
     rm -f snippet*.ly
+
+    rm -f tmp*.pdf tmp*.out
 fi
 
