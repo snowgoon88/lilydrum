@@ -418,4 +418,93 @@ ou parfois
   }
 \end{lilypond}
 
+% ****************************************************************************
+% **************************************************** Quintolets - 27/02/2019 
+% ****************************************************************************
+\section{Quintolets - 27/02/2019}
+
+On discute plus qu'on ne tape sur les peaux. On parle d'abord ``
+Keyvan Chemirani''.
+
+Puis on aborde des quintolets, par le biais d'une boucle en 5-5-5-5-4-4. De base, chercher des variations autour de
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  %% Notes
+  basequinthh = \drummode {
+    \numericTimeSignature
+
+    \time 5/4
+
+    hh16[ hh hh hh hh]
+    hh16[ hh hh hh hh]
+    cymr16[ hh cymr hh cymr]
+    r16 cymr16[ hh cymr hh]
+
+    \time 2/4
+    hh16[ hh hh hh]
+    hh16[ hh hh hh]
+  }
+  basequintry = \drummode {
+    bd8 bd8 s16
+    sn4 s16
+    bd8. bd8
+    sn4 s16
+
+    bd4
+    sn4
+  }
+
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \basequinthh }
+    \new DrumVoice { \voiceTwo \basequintry}
+    >>
+    >>
+  }
+\end{lilypond}
+
+
+
+
+Plus tard ça me fait travailler des choses comme:
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  %% Notes
+  exoquinthh = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    hh8[ hh8] hh8[ hh]
+    s2
+  }
+  exoquintry = \drummode {
+    bd16[ bd8 bd16]
+    sn4
+    \tuplet 5/4 { sn16^"R" sn tommh tommh tomml }
+    \tuplet 5/4 { sn16^"L" tomml tommh tomml tomfh }
+  }
+
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \exoquinthh }
+    \new DrumVoice { \voiceTwo \exoquintry}
+    >>
+    >>
+  }
+\end{lilypond}
+
 \end{document}
