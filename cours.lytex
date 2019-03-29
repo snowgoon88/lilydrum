@@ -1,3 +1,4 @@
+% -*- mode : Tex -*-
 \documentclass{article}
 
 \usepackage{fullpage}
@@ -508,9 +509,9 @@ Plus tard ça me fait travailler des choses comme:
 \end{lilypond}
 
 % ****************************************************************************
-% ********************************************************** Rush - 13/02/2019 
+% ********************************************************** Rush - 13/03/2019 
 % ****************************************************************************
-\section{Rush - 13/02/2019}
+\section{Rush - 13/03/2019}
 
 Comme le premier break du morceau de Rush «Tom Sawyer» s'inspire de la clave classique en 5, on travaille un peu le rythme (double croches au HH, qu'il joue surement d'une main) et le break. Pour bien placer tout ça, travailler d'abord avec des croches, bien les entendre, et ajouter seulement ensuite la main gauche.
 
@@ -603,4 +604,124 @@ Pour sentir le break, on a travaillé aussi incrémentalement.
     >>
   }
 \end{lilypond}
+
+% ****************************************************************************
+% *********************************************** Doubles croches - 27/03/2019 
+% ****************************************************************************
+\section{Doubles croches - 27/03/2019}
+
+Commence par mesures de Rush, début. Parle de jouer doubles croches d'une seule main, et donc des différentes techniques pour le faire, car je suis trop crispé.
+\begin{itemize}
+\item poignet : baguette fermement tenue. Pas facile d'aller très vite
+\item doigts : baguette assez libre entre pouce et index, s'entraîner avec chaque doigt séparement.
+\item mix des deux.
+\item Anderson Pack : mouvement bas+haut. Au début, ça fait un peu shuffle, mais on peu le distendre pour finir par faire double croches régulières.
+\end{itemize}
+
+\vspace{5mm}
+Groove en 7/8 de milieu de Tow Sawyer, de Rush.
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  haut = \drummode {
+    % Customizations
+    \stemUp
+    \slurDown
+    \numericTimeSignature
+    \time 7/8
+
+    \mark #1
+    \bar ".|:"
+    hh8[ hh] hh8[ hh] hh8[ hh] hh8
+    hh8[ hh] hh8[ hh] hh8[ hh] hh8
+
+    \mark #2
+    \bar ":..:" \break
+    hh8[ hh] hh8[ hh16 hho] hh8[ hh] hh8
+    hh8[ hh] hh8[ hh16 hho] hh16[ hho hh8] hh8
+
+    \mark #3
+    \bar ":..:" \break
+    hh16[ hh hh hh] hh16[ hh hh hho] hh16[ hh hh hh] hh16[ hh]
+    hh16[ hh hh hh] hh16[ hh hh hho] hh16[ hho hh hh] hh16[ hh]
+    
+    \bar ":|."
+  }
+  bas = \drummode {
+    % Customizations
+    \stemDown
+    \override Beam.positions = #'(-4 . -4)   %% left right
+
+    bd8[ bd] sn8. bd8. bd8 sn8
+    bd8[ bd] sn8. bd8 bd8. sn8
+
+    bd8[ bd] sn8. bd8. bd8 sn8
+    bd8[ bd] sn8. bd8 bd8. sn8
+    
+    bd8[ bd] sn8.[ bd16] r8 bd8 sn8
+    bd8[ bd] sn8.[ bd16] r16 bd8. sn8
+
+
+    
+  }
+  \score {
+    <<
+    \set Score.markFormatter = #format-mark-circle-numbers
+    \override Score.RehearsalMark #'X-offset = #0.5
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable=#(alist->hash-table md)
+    \new DrumVoice {\voiceOne \haut}
+    \new DrumVoice {\voiceTwo \bas}
+    >>
+    >>
+  }
+\end{lilypond}
+
+\pagebreak
+
+Ce qui amène aussi à parler de jouer HH au pied comme double grosse caisse, par exemple
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  haut = \drummode {
+    % Customizations
+    \stemUp
+    \slurDown
+    \numericTimeSignature
+    \time 4/4
+    
+    cymr8[ cymr] <cymr sn>8[ cymr] cymr8[ cymr] <cymr sn>8[ cymr]
+    hh8[ hh] <hh sn>8[ hh] hh8[ hh] <hh sn>8[ hh]
+  }
+  bas = \drummode {
+    % Customizations
+    \stemDown
+    \override Beam.positions = #'(-5 . -5)   %% left right
+
+    bd16[ hhp bd hhp] r16 bd8. bd16[ hhp bd hhp] r16 bd4.
+    bd16[ hhp bd hhp] r16 bd8. bd16[ hhp bd hhp] r16 bd4. 
+  }
+  \score {
+    <<
+    \set Score.markFormatter = #format-mark-circle-numbers
+    \override Score.RehearsalMark #'X-offset = #0.5
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable=#(alist->hash-table md)
+    \new DrumVoice {\voiceOne \haut}
+    \new DrumVoice {\voiceTwo \bas}
+    >>
+    >>
+  }
+\end{lilypond}
+
+
+
 \end{document}
