@@ -722,6 +722,76 @@ Ce qui amène aussi à parler de jouer HH au pied comme double grosse caisse, pa
   }
 \end{lilypond}
 
+% ****************************************************************************
+% ********************************************** Deuxième triolet - 24/04/2019 
+% ****************************************************************************
+\section{Deuxième triolet - 24/04/2019}
+
+Aborde difficulté d'accentuer la deuxième croche du triolet, surtout en doublant les autres croches et en chantant le konakol. Aborde alors le style Maloya de la Réunion.
+
+\vspace{5mm}
+Pattern / Groove en 9/8
+
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  %% accent
+  act = \markup { \left-align \musicglyph #"scripts.sforzato" }
+  
+  %% Notes
+  maloyaup = \drummode {
+    \numericTimeSignature
+    \time 9/8
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    \override NoteHead.transparent = ##f
+    hh8[ hh-> \override NoteHead.transparent = ##t hh]
+    
+    \override NoteHead.transparent = ##f
+    hh8[ hh^\act \override NoteHead.transparent = ##t hh]
+    \override NoteHead.transparent = ##f
+    hh8[ hh^\act \override NoteHead.transparent = ##t hh]    
+
+    \bar ".|:"
+
+    \override NoteHead.transparent = ##f
+    hh8[ hh^\act sn]
+    hh8[ <sn hh>^\act \ghost sn]
+    hh8[ hh-> \ghost sn]
+
+    hh8[ hh-> \ghost sn]
+    hh8[ <sn hh>-> \ghost sn]
+    hh8[ hh-> \ghost sn]
+
+    \bar ":|."
+  }
+  maloyadw = \drummode {
+    s4. s4. s4.
+
+    bd8[ r8 bd8]
+    bd4.
+    r4.
+
+    bd8[ r8 bd8]
+    r4.
+    r4.
+  }
+  
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \maloyaup }
+    \new DrumVoice { \voiceTwo \maloyadw }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+
+Et en parlant de Konakol, regarder la chaîne de \href{https://www.youtube.com/watch?v=RLTDfoneAJ0&list=PLaq6h18rnEfXpwbOWwidMQPUvgds-7LSp}{Asaf Sirkis}.
 
 
 \end{document}
