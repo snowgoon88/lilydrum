@@ -793,5 +793,57 @@ Pattern / Groove en 9/8
 
 Et en parlant de Konakol, regarder la chaîne de \href{https://www.youtube.com/watch?v=RLTDfoneAJ0&list=PLaq6h18rnEfXpwbOWwidMQPUvgds-7LSp}{Asaf Sirkis}.
 
+% ****************************************************************************
+% ******************************************************** Balais - 21/05/2019 
+% ****************************************************************************
+\section{Balais - 21/05/2019}
+
+Des références
+\begin{itemize}
+\item The Art of Bop Drumming (John Riley) => PDF.
+\item Florian Alexandru Zorn : ``The Complete Guide to Playing Brushes''
+\item Florian Alexandru Zorn : \href{https://www.youtube.com/watch?v=Po-r992alQI&feature=related}{video1}
+\item Florian Alexandru Zorn : \href{https://www.youtube.com/watch?v=4_REBUosrJU}{video2}
+\end{itemize}
+
+On peut faire un pattern comme un trait, aller et retour, ou en rond. Si on frappe avec le balais, l'écraser évite les harmoniques de s'étendre.
+
+% ****************************************************************************
+% ************************************************************* 5B + HH 28/05/ 
+% ****************************************************************************
+\section{5B + HH 28/05/}
+
+Pour s'entraîner jouer les patterns du 5B avec soit la caisse claire, soit au pied, soit les deux en faisant le 2 et 4 avec caisse claire. Et avec différent patterns de HH. Et aussi en ternaire.
+
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  hhpat = \drummode {
+    \numericTimeSignature
+    \time 2/4
+
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh8 hh hh hh |
+    hh4 hh |
+    r8 hh r hh |
+    hh16 hh hh hh hh16 hh hh hh |
+    hh8 hh16 hh hh8 hh16 hh |
+    hh16 hh hh8 hh16 hh hh8
+  }
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hhpat }
+    >>
+    >>
+  }    
+\end{lilypond}
+
+
+
 
 \end{document}
