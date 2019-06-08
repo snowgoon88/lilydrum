@@ -124,6 +124,13 @@ Pour s'approprier un morceau
 \item se chanter le thème pendant le solo, pour retrouver la grille (le début) mais aussi commencer à mettre quelques coups.
 \end{itemize}
 
+Compléments du 05/06/2019 pour s'approprier un morceau.
+\begin{itemize}
+\item jouer les accents sur des Toms différents
+\item jouer le thème avec les notes longues (noires) à la GC, les courtes (croches) à la CC.
+\item jouer \emph{entre} le thème
+\end{itemize}
+
 % ****************************************************************************
 % ********************************************* Double croches HH - 16/01/2019
 % ****************************************************************************
@@ -842,6 +849,246 @@ Pour s'entraîner jouer les patterns du 5B avec soit la caisse claire, soit au p
     >>
   }    
 \end{lilypond}
+
+% ****************************************************************************
+% ***************************************************** 5B ternaire 05/06/2019 
+% ****************************************************************************
+\section{5B ternaire 05/06/2019}
+
+Le 5B peut facilement être interprêté en ternaire, avec GC ou CC, ou CC sur temps et GC sur croche (ou inversement). De la même manière que l'on travaille un thème, on peut jouer sur un débit de ``\textbf{baDa}'' en accentuant les notes, (voire sur les toms), ou un débit de \textbf{triolets}, ou même de \textbf{triolet doublé}.
+
+\vspace{5mm}
+Enfin, remplacer une note en fonction de sa durée en s'inspirant, par exemple, de la transposition suivante.
+
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  \score {
+    <<
+    \new DrumStaff \with {
+      \remove "Staff_symbol_engraver"
+      \remove "Clef_engraver"
+      \remove "Time_signature_engraver"
+    }
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice {
+      \drummode {
+        \stemUp
+        \numericTimeSignature
+        \time 1/8
+        %%\stopStaff sn4 \startStaff
+        sn8
+      }
+    }
+    >>
+    >>
+  }
+\end{lilypond}
+=
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  \score {
+    <<
+    \new DrumStaff \with {
+      %%\remove "Staff_symbol_engraver"
+      \remove "Clef_engraver"
+      \remove "Time_signature_engraver"
+    }
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice {
+      \drummode {
+        \stemUp
+        \numericTimeSignature
+        \time 1/8
+        \override Beam.positions = #'(5 . 5)   %% left right
+        %%\stopStaff sn4 \startStaff
+        <hh bd>16 sn
+      }
+    }
+    >>
+    >>
+  }
+\end{lilypond}
+,
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  \score {
+    <<
+    \new DrumStaff \with {
+      \remove "Staff_symbol_engraver"
+      \remove "Clef_engraver"
+      \remove "Time_signature_engraver"
+    }
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice {
+      \drummode {
+        \stemUp
+        \numericTimeSignature
+        \time 1/4
+        %%\stopStaff sn4 \startStaff
+        sn4
+      }
+    }
+    >>
+    >>
+  }
+\end{lilypond}
+=
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  \score {
+    <<
+    \new DrumStaff \with {
+      %%\remove "Staff_symbol_engraver"
+      \remove "Clef_engraver"
+      \remove "Time_signature_engraver"
+    }
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice {
+      \drummode {
+        \stemUp
+        \numericTimeSignature
+        \time 1/4
+        \override Beam.positions = #'(5 . 5)   %% left right
+        %%\stopStaff sn4 \startStaff
+        <hh bd>16 sn sn bd
+      }
+    }
+    >>
+    >>
+  }
+\end{lilypond}
+,
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  \score {
+    <<
+    \new DrumStaff \with {
+      \remove "Staff_symbol_engraver"
+      \remove "Clef_engraver"
+      \remove "Time_signature_engraver"
+    }
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice {
+      \drummode {
+        \stemUp
+        \numericTimeSignature
+        \time 3/8
+        %%\stopStaff sn4 \startStaff
+        sn4.
+      }
+    }
+    >>
+    >>
+  }
+\end{lilypond}
+=
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  \score {
+    <<
+    \new DrumStaff \with {
+      %%\remove "Staff_symbol_engraver"
+      \remove "Clef_engraver"
+      \remove "Time_signature_engraver"
+    }
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice {
+      \drummode {
+        \stemUp
+        \numericTimeSignature
+        \time 3/8
+        \override Beam.positions = #'(5 . 5)   %% left right
+        %%\stopStaff sn4 \startStaff
+        <hh bd>16 sn sn bd sn bd
+      }
+    }
+    >>
+    >>
+  }
+\end{lilypond}
+.
+
+\vspace{5mm}
+Ce qui fait que la première mesure du 5B se réécrit
+
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  \score {
+    <<
+    \new DrumStaff \with {
+      %%\remove "Staff_symbol_engraver"
+      %%\remove "Clef_engraver"
+      %%\remove "Time_signature_engraver"
+    }
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice {
+      \drummode {
+        \stemUp
+        \numericTimeSignature
+        \time 4/4
+        \override Beam.positions = #'(5 . 5)   %% left right
+        %%\stopStaff sn4 \startStaff
+        sn4 sn8[ sn] r8 sn8 sn4
+      }
+    }
+    >>
+    >>
+  }
+\end{lilypond}
+=
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  \score {
+    <<
+    \new DrumStaff \with {
+      %%\remove "Staff_symbol_engraver"
+      %%\remove "Clef_engraver"
+      %%\remove "Time_signature_engraver"
+    }
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice {
+      \drummode {
+        \stemUp
+        \numericTimeSignature
+        \time 4/4
+        \override Beam.positions = #'(5 . 5)   %% left right
+        %%\stopStaff sn4 \startStaff
+        <hh bd>16[sn sn bd]
+        <hh bd>16[sn]
+        <hh bd>16[sn sn bd]
+        <hh bd>16[sn]
+        <hh bd>16[sn sn bd]
+      }
+    }
+    >>
+    >>
+  }
+\end{lilypond}
+
 
 
 
