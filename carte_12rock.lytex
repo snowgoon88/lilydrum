@@ -1,0 +1,125 @@
+% -*- mode : Tex -*-
+\documentclass{article}
+
+\usepackage{fullpage}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[OT1]{fontenc}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{12 Rock}
+
+\maketitle
+
+\section{Cases 1 + 3}
+
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  cardUnTrois = \drummode {
+    \time 1/8
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    %% simple
+    <hh sn>8^"A"
+
+    %% moderé
+    hh8^"B"
+    <hh bd>16^"C" bd16
+
+    %% complexe
+    hh16^"D" bd
+    <hh bd>16^"E" sn16
+  }   
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \cardUnTrois }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+
+\section{Cases \&}
+
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  cardEt = \drummode {
+    \time 1/8
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    %% simple    
+    hh8^"F"
+    <hh bd>8^"G"
+    <hh sn>8^"H"
+
+    %% moderé
+    hh16^"I" bd
+    <hh bd>16^"J" bd16
+    hh16^"K" sn
+    <hh sn>16^"L" sn16
+
+    %% complexe
+    <hh bd>16^"M" sn16
+    <hh sn>16^"N" bd16
+  }   
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \cardEt }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+
+\section{Cases 2 + 4}
+
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  cardDeuxQuatre = \drummode {
+    \time 1/8
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    %% simple
+    <hh sn>8^"O"
+
+    %% moderé
+    hh8^"P"
+    <hh sn>16^"Q" sn16
+
+    %% complexe
+    hh16^"R" sn
+    <hh sn>16^"S" bd16
+
+  }   
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \cardDeuxQuatre }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+
+
+\end{document}
+  
