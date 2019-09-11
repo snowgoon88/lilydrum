@@ -9,7 +9,7 @@
 
 \begin{document}
 
-\title{Cours 2018-2019}
+\title{Cours 2018-2020}
 \author{David, noté par Alain}
 
 \maketitle
@@ -1084,6 +1084,43 @@ Ce qui fait que la première mesure du 5B se réécrit
         <hh bd>16[sn sn bd]
       }
     }
+    >>
+    >>
+  }
+\end{lilypond}
+
+% ****************************************************************************
+% ******************************************** Importance du ``lead'' 10/09/19 
+% ****************************************************************************
+\section{Importance du ``lead'' 10/09/19}
+
+Je parle de mon manque de stabilité et de ma gêne avec les pieds. Suggère de s'appuyer fortement sur l'élément stable du groove (ex. ride en jazz, charley ). On travaille ça sur du chabada binaire, à placer pieds, ou main, sur temps et contre temps.
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  hhbinchab = \drummode {
+    \numericTimeSignature
+    \time 4/4
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh4 hh8 hh hh4 hh8 hh |
+    hh4 hh8 hh hh4 hh8 hh
+  }
+  snbase = \drummode {
+    sn4 sn sn sn |
+    r8 sn8 r8 sn8 r8 sn8 r8 sn8
+  }
+    
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hhbinchab }
+    \new DrumVoice { \voiceTwo \snbase }
     >>
     >>
   }
