@@ -1,0 +1,53 @@
+"UnTrois" :
+  display : "1/3"
+  cards:
+    simple :
+      color : [112,216,109]
+      A : "<hh sn>8"
+    moyen :
+      color : [65,199,65]
+      B : "hh8"
+      C : "<hh bd>16 bd16"
+    complexe :
+      color : [0,152,0]
+      D : "hh16 bd"
+      E : "<hh bd>16 sn16"
+
+"Et" :
+  display : "\\&"
+  cards:
+    simple :
+      color : [255,131,133]
+      F : "hh8"
+      G : "<hh bd>8"
+      H : "<hh sn>8"
+    moyen :
+      color : [250,87,88]
+      I : "hh16 bd"
+      J : "<hh bd>16 bd16"
+      K : "hh16 sn"
+      L : "<hh sn>16 sn16"
+    complexe :
+      color : [195,27,14]
+      M : "<hh bd>16 sn16"
+      N : "<hh sn>16 bd16"
+
+"DeuxQuatre" :
+  display : "2/4"
+  cards:
+    simple :
+      color : [75,181,176]
+      O : "<hh sn>8"
+    moyen :
+      color : [21,151,146]
+      P : "hh8"
+      Q : "<hh sn>16 sn16"
+    complexe :
+      color : [0,116,109]
+      R : "hh16 sn"
+      S : "<hh sn>16 bd16"
+    
+
+
+
+
