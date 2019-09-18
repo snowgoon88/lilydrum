@@ -1126,8 +1126,60 @@ Je parle de mon manque de stabilité et de ma gêne avec les pieds. Suggère de 
   }
 \end{lilypond}
 
+% ****************************************************************************
+% *************************************************** Grille Jazz - 17/09/2019 
+% ****************************************************************************
+\section{Grille Jazz - 17/09/2019}
 
+Ecoute et joue sur quelques grilles de Blues, on parle aussi de la structure habituelle d'un jazz (non modal).
 
+Des séquence de 8 mesures sous la forme
+\begin{tabular}{|c|c|c|c|}
+  \hline 
+  A & A & B & A \\
+  \hline
+\end{tabular}
 
+Grille de blues
+\begin{tabular}{|c|c|c|c|}
+  \hline
+  I & I & I & I \\
+  \hline
+  IV & IV & I & I \\
+  \hline
+  V & V & I & $I_{(5)}$ \\
+  \hline
+\end{tabular}
+
+Un peu de chabada en trois temps
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  %% accent
+  act = \markup { \left-align \musicglyph #"scripts.sforzato" }
+  
+  hhbinchab = \drummode {
+    \numericTimeSignature
+    \time 3/4
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh4_"classique" hh8^\act hh hh4  |
+    
+    hh8_"all blues" hh8 hh4^\act hh4 
+  }
+    
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hhbinchab }
+    >>
+    >>
+  }
+\end{lilypond}
+sur ``All Blues'', voir aussi ``Black Narcissus'' de Joe Henderson \url{https://www.youtube.com/watch?v=MigYYKlttV8}
 
 \end{document}
