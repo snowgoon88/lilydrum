@@ -1182,4 +1182,68 @@ Un peu de chabada en trois temps
 \end{lilypond}
 sur ``All Blues'', voir aussi ``Black Narcissus'' de Joe Henderson \url{https://www.youtube.com/watch?v=MigYYKlttV8}
 
+% ****************************************************************************
+% ******************************************************* Shuffle - 24/09/2019 
+% ****************************************************************************
+\section{Shuffle - 24/09/2019}
+
+En écoutant le morceau ``Chicago'' (pour l'atelier), on parle de shuffle, classique et variations.
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  %% accent
+  act = \markup { \left-align \musicglyph #"scripts.sforzato" }
+  
+  upshuffle = \drummode {
+    \numericTimeSignature
+    \time 12/8
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    <hh \ghost sn>8_"classique"[ r <hh \ghost sn>] <hh sn>[ r <hh \ghost sn>] <hh \ghost sn>[ r <hh \ghost sn>] <hh sn>[ r <hh \ghost sn>] |
+
+    <hh \ghost sn>8_"variation"[ r <hh \ghost sn>] <hh sn>[ r <hh \ghost sn>] <hh \ghost sn>[ r <hh \ghost sn>] <hh sn>[ r <hh \ghost sn>] | \break
+
+    hh4._"S. Gaad simple" <hh sn>4. hh4. <hh sn>4. |
+
+    hh8_"S. Gaad"[ r hh] <hh sn>[ r hh] hh[ r hh] <hh sn>[ r hh] | \break
+
+    hh8_"3/2"[ \ghost sn hh]  <hh sn>[ r <hh \ghost sn>] hh8[ \ghost sn hh]  <hh sn>[ r <hh \ghost sn>]
+
+    hh8_"3/2 variations"[ \ghost sn hh]  <hh sn>[ r <hh \ghost sn>] hh8[ \ghost sn hh]  <hh sn>[ r <hh \ghost sn>]
+  }
+  downshuffle = \drummode {
+    bd4. bd4. bd4. bd4. |
+
+    bd4. <bd hhp>4. bd4. <bd hhp>4. |
+
+    bd8[r hhp] bd8[r hhp] bd8[r hhp] bd8[r hhp] |
+
+    bd8[r hhp] bd8[r hhp] bd8[r hhp] bd8[r hhp] 
+
+    bd4. bd4. bd4. bd4. |
+
+    bd4. <bd hhp>4. bd4. <bd hhp>4. |
+    }
+    
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upshuffle }
+    \new DrumVoice { \voiceTwo \downshuffle }
+    >>
+    >>
+  }
+\end{lilypond}
+
+\vspace{2mm}
+Sinon, pour le pied : {\Large \textbf{hanche et cuisse ne travaillent pas !!!!}}
+
+
+
+
 \end{document}
