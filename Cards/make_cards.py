@@ -160,15 +160,17 @@ def make_latex() :
            
     count = 0
     for type, type_dict in _cards.items():
-        for cplx, cplx_dict in type_dict["cards"].items():
-            ##print( "  C: "+ str(cplx) )
-            for letter, code in cplx_dict.items():
-                ##print( "    "+letter+" => "+str(code) )
-                if letter != "color":
-                    card_template( type, type_dict["display"], cplx, letter, code )
-                    count += 1
-                if count % 3 == 0:
-                    print( "  " )
+        nb_repeat = type_dict["nb_repeat"]
+        for nb in range(nb_repeat):
+            for cplx, cplx_dict in type_dict["cards"].items():
+                ##print( "  C: "+ str(cplx) )
+                for letter, code in cplx_dict.items():
+                    ##print( "    "+letter+" => "+str(code) )
+                    if letter != "color":
+                        card_template( type, type_dict["display"], cplx, letter, code )
+                        count += 1
+                    if count % 3 == 0:
+                        print( "  " )
                 
                 
 

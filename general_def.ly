@@ -19,7 +19,9 @@
   (lowmidtom     diamond    #f          0)
   (highfloortom  diamond    #f         -1)
   (lowfloortom   diamond    #f         -2)
-  (bassdrum     default     #f         -4)
+  (bassdrum      default    #f         -4)
+  (oneup         default    #f          5)
+  (longwhistle   slash      #t          0)
 ))
 
 allheads = \drummode { 

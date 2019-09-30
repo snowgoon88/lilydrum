@@ -12,7 +12,7 @@
 
 ## Définir les cartes => fichier .yaml
 Un exemple de fichier structuré est dans example.yaml (tiré de Rock12)
-- les types de cartes ("UnTrois", "Et", "DeuxQuatre"), la façon dont c'est affiché (1/3, &, 2/4). Attention au \\ avant le &.
+- les types de cartes ("UnTrois", "Et", "DeuxQuatre"), la façon dont c'est affiché (1/3, &, 2/4). Attention au \\ avant le &. Et combien carte de chaque type on imprime (nb_repeat).
 - les complexité (simple, moyen, complexe)
 - les couleurs des combinaison type x complexité
 - la lettre de la carte (A) et le code lilypond associé (<hh sn>8)

@@ -97,7 +97,7 @@
         \override Beam.positions = #'(5 . 5)   %% left right
 
         %% notes
-        <hh sn>8 \omit Score.BarLine
+        <hh bd>8 \omit Score.BarLine
 
         }
         \score {
