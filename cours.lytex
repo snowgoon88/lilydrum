@@ -1243,6 +1243,105 @@ En écoutant le morceau ``Chicago'' (pour l'atelier), on parle de shuffle, class
 \vspace{2mm}
 Sinon, pour le pied : {\Large \textbf{hanche et cuisse ne travaillent pas !!!!}}
 
+% ****************************************************************************
+% ************************************************** Africain (1) - 01/10/2019 
+% ****************************************************************************
+\section{Africain (1) - 01/10/2019}
+
+Travaille les base de quelques rythmes africains. On commence par la cloche ``bembé'' qui est la clave 12/8 
+
+Pour la mettre en place, travail sur triolet de noir en 6/8 ou 12/8, en ``marchant'' (presque littéralement). Pour le 1er triolet, peut penser ``tak tak-i-tak'', le deuxième en ``(hum)tak tak(avec tps) tak''.
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  upaff = \drummode {
+    \numericTimeSignature
+    \time 6/8
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    \bar ".|:"
+    sn4 sn sn | sn4. sn4.
+    \bar ":..:"
+
+    sn4. sn4. | r8 sn4 sn4 sn8
+    \bar ":|."
+  }
+  downaff = \drummode {
+    bd4. hhp4. | bd4. hhp4. |
+
+    bd4. hhp4. | bd4. hhp4.
+  }
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable=#(alist->hash-table md)
+    \new DrumVoice {\voiceOne \upaff}
+    \new DrumVoice {\voiceTwo \downaff}
+    >>
+    >>
+  }
+\end{lilypond}
+
+% ****************************************************************************
+% ************************************************** Africain (2) - 08/10/2019
+% ****************************************************************************
+\section{Africain (2) - 08/10/2019}
+
+On reparle Nanigo et de la façon d'utiliser les doigtés de base pour, ici, faire des phrasés africains. Mais aussi des rythmes, en distribuant les coups, et les accents, sur les différentes éléments. On peut aussi les jouer en marquant les temps tous les 3 temps (ce qui est intéressant avec les double moulin (para-para-diddle), mais aussi tous les 2, voire tout les 4...
+
+% ****************************************************************************
+% *************************************************** Maloyan 3p4 - 15/10/2019 
+% ****************************************************************************
+\section{Maloyan 3p4 - 15/10/2019}
+
+En évoquant le concert de ``Transe Kabaré'', on parle de musique Maloyan mais aussi de morceau où la pulsation en 12/8 peut s'entendre comme une mesure à 4 temps (ternaire) ou 3 temps (binaire). Ce qui fait travailler le 3 pour 4. On peut le penser en ``tak ta-ti ta ti-ta'', chaque main joue une pulsation et on compte soit trois, soit quatre en alternant. Ensuite, une fois qu'on a la pulsation, on peut jouer un pattern... Puis changer de pulsation :o)
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  uptroisquatre = \drummode {
+    \time 12/8
+    \numericTimeSignature
+
+    sn2 sn sn |
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+  }
+  downtroisquatre = \drummode {
+    bd4. bd bd bd |
+    \override NoteHead.transparent = ##f
+    bd8[ \override NoteHead.transparent = ##t bd bd]
+    \override NoteHead.transparent = ##f
+    bd8[ \override NoteHead.transparent = ##t bd bd]
+    \override NoteHead.transparent = ##f
+    bd8[ \override NoteHead.transparent = ##t bd bd]
+    \override NoteHead.transparent = ##f
+    bd8[ \override NoteHead.transparent = ##t bd bd]
+  }
+
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \uptroisquatre }
+    \new DrumVoice { \voiceTwo \downtroisquatre }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+    
 
 
 
