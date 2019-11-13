@@ -1342,6 +1342,95 @@ En évoquant le concert de ``Transe Kabaré'', on parle de musique Maloyan mais 
   
 \end{lilypond}
     
+% ****************************************************************************
+% ****************************************************** 05/11/19 - Bossa Nova 
+% ****************************************************************************
+\section{Bossa Nova - 05/11/2019}
+
+La Bossa se joue assez doucement, on évoque le manchon de tennisman pour étouffer la grosse caisse. Marquer le temps 3 un peu plus. Peut aussi jouer au balais. Avec une clave brésilienne ou XXX qui est plus ``traditionnelle''.
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  upbossa = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    \bar ".|:"
+    ss4 r8 ss8 r4 ss4 | r4 ss4 r8 ss8 r4
+    \bar ":..:"
+    ss4 ss r8 ss r ss | r8 ss r4 ss4 ss
+    \bar ":|."
+  }
+  downbossa = \drummode {
+    \override Beam.positions = #'(-5 . -5)   %% left right
+    
+    bd4 hhp8 bd bd4 hhp8 bd |
+    bd4 hhp8 bd bd4 hhp8 bd |
+
+    bd4 hhp8 bd bd4 hhp8 bd |
+    bd4 hhp8 bd bd4 hhp8 bd
+  }
+
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upbossa }
+    \new DrumVoice { \voiceTwo \downbossa }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+
+% ****************************************************************************
+% ************************************************ Appels en Jazz - 12/11/2019 
+% ****************************************************************************
+\section{Appels en Jazz - 12/11/2019}
+
+\paragraph{Travail au métronome} Pour un \emph{vrai} travail de ce point de vue, mettre sur un tempo 2 fois, ou 4 fois plus lent.
+
+\paragraph{Appel en jazz} Marquer une pêche, en l'annonçant avant. On le travaille en partant de la fin, par exemple ``é du 4'', ``4'' puis ``é du 3''.
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  upappel = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    hh4 hh8 hh hh4 hh8 hh | hh4 hh8 hh8 hh8[ sn] sn[ cymc]
+    hh4 hh8 hh hh4 hh8 hh | hh4 hh8 sn8 sn4 cymc4 
+    hh4 hh8 hh hh4 hh8 hh | hh4 hh8 sn8 sn8[ cymc] r4
+  }
+  downappel = \drummode {
+    r4 hhp r4 hhp | r4 hhp r4 hhp8 bd8
+    r4 hhp r4 hhp | r4 hhp r4 <hhp bd>4
+    r4 hhp r4 hhp | r4 hhp r8 bd8 hhp4
+  }
+
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upappel }
+    \new DrumVoice { \voiceTwo \downappel }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+
+
+
+
 
 
 
