@@ -3,9 +3,9 @@
 %% ***************************************************************************
 % ====== Drum notations customized
 #(define md '(
-  (ridecymbal    xcircle    #f          5)
+  (ridecymbal    cross    #f          6)
   (ridebell      triangle   #f          5)
-  (crashcymbal   cross      #f          6)
+  (crashcymbal   xcircle      #f          6)
   (splashcymbal  harmonic   #f          6)
   (pedalhihat    cross      #f         -5)
   (hihat         cross      #f          5)
