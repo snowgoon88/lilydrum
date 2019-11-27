@@ -1429,9 +1429,22 @@ La Bossa se joue assez doucement, on évoque le manchon de tennisman pour étouf
 \end{lilypond}
 
 
+% ****************************************************************************
+% ************************************************* Improvisation - 26/11/2019 
+% ****************************************************************************
+\section{Improvisation - 26/11/2019}
 
+Changer de baguettes en cours de morceau : tabouret/table à côté, poser les balais sur tom et caisse claire, coincer dans la grosse caisse...
 
-
-
+Quelques conseils et astuces pour improviser :
+\begin{itemize}
+\item inspirer par ce qui vient d'être fait, ou par le thème
+\item pour garder la mesure, se chanter le thème, ou des notes longues. (Attention, plus on met de notes, plus on a tendance à accélérer).
+\item commencer avec des contraintes (main gauche, caisse claire, sn+tom, ...)
+\item travailler avec thème, puis sans mais avec métronome, puis sans
+\item répéter des motifs
+\item un ``pain'', répété plusieurs fois, peut devenir de la musique
+\item ne pas hésiter à s'arrêter si on est ``perdu''
+\end{itemize}
 
 \end{document}
