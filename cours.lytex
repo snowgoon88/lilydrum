@@ -19,7 +19,41 @@
 % ****************************************************************************
 \section{Notation}
 
-\lilypondfile[staffsize=18]{all_notes.ly}
+%%\lilypondfile[staffsize=18]{all_notes.ly}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+
+%% Affiche tous les frappes possibles
+
+\include "general_def.ly"
+
+%% Toutes les têtes de notes
+\score {
+  <<
+    \new DrumStaff \with {
+      \remove "Time_signature_engraver"
+    }
+    << \allheads >>
+  >>
+}
+
+%% 
+\score {
+  <<
+    \new DrumStaff \with {
+      %%\remove "Bar_engraver"
+      \remove "Time_signature_engraver"
+      %%\hide Stem
+      \override Stem.Y-extent = ##f
+    }
+    <<
+      \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+      \new DrumVoice = "mus" { \defnote }
+      \new Lyrics \lyricsto "mus" \defname
+    >>
+  >>
+}
+\end{lilypond}
 
 % ****************************************************************************
 % *********************************************** Triolets Noires - 12/12/2018 
@@ -1392,9 +1426,9 @@ La Bossa se joue assez doucement, on évoque le manchon de tennisman pour étouf
 % ****************************************************************************
 \section{Appels en Jazz - 12/11/2019}
 
-\paragraph{Travail au métronome} Pour un \emph{vrai} travail de ce point de vue, mettre sur un tempo 2 fois, ou 4 fois plus lent.
+\textbf{Travail au métronome} Pour un \emph{vrai} travail de ce point de vue, mettre sur un tempo 2 fois, ou 4 fois plus lent.
 
-\paragraph{Appel en jazz} Marquer une pêche, en l'annonçant avant. On le travaille en partant de la fin, par exemple ``é du 4'', ``4'' puis ``é du 3''.
+\textbf{Appel en jazz} Marquer une pêche, en l'annonçant avant. On le travaille en partant de la fin, par exemple ``é du 4'', ``4'' puis ``é du 3''.
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
