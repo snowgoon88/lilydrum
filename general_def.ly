@@ -53,6 +53,11 @@ defname = \lyricmode {
   cymc cb
 }
 
+
+%% function to add an accent
+%% usage sn^\act
+act = \markup { \left-align \musicglyph #"scripts.sforzato" }
+
 %% function to add a ghost note
 %% usage \ghost sn
 ghost = #(define-music-function
