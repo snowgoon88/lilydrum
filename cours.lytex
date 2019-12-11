@@ -1490,4 +1490,75 @@ Enfin, il faut avoir à l'esprit les cinq paramètres de la musique avec lesquel
 \item Tonalité : cuivre, peaux, rebors, bords, pieds, etc..
 \end{itemize}
 
+% ****************************************************************************
+% *********************************************** Rudiments joués - 10/12/2019 
+% ****************************************************************************
+\section{Rudiments joués - 10/12/2019}
+
+Faire sonner les rudiments en les jouant sur les tom, cymbales, etc. On se concentre sur quelques phrasés en particulier. Le deuxième entremèle les claves cubaines.
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  hand = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    sn8_"R"[ sn8_"L"] sn4_"R" sn_"L" sn_"R" |
+    sn8_"L"[ sn8_"R"] sn4_"L" sn_"R" sn_"L"
+    \bar "||"
+    sn8_"R"[ sn8_"L"] sn4_"R" sn8_"L"[ sn_"R"] sn4_"L" |
+    sn8_"R"[ sn8_"L"] sn4_"R" sn8_"L"[ sn_"R"] sn4_"L"
+    
+    
+  }
+
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hand }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+
+On parle aussi du ``Mozambique'' de Steve GADD qui est esentiellement un remplissage à la main droite. Les ``accents'' de type \textbf{\^{}} sont des sons plus ronds sur la cloche, pas des vrais accents.
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  uphand = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    hh4-^ hh4-^ hh8 hh8-^ r8 hh8-^ |
+    r8 hh8 hh4-^ hh8 hh8-^ r8 hh8-^
+  }
+  downhand = \drummode {
+    sn4. sn4. sn4 | sn4. sn4. sn4
+  }
+
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \uphand }
+    \new DrumVoice { \voiceTwo \downhand }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+
+
+
+
 \end{document}
