@@ -7,5 +7,10 @@ Compiler .ly -> .pdf : `lilypond <filename>`
 
 Compiler .lytex -> .pdf : `./litex.sh <filename.lytex>
 
+### Version HTML
+- `./litex.sh -nc cours `  // compile sans nettoyer
+- `./deploy_html.sh`       // passe en HTML en utilisant les images sur disk
+- `./litex.sh cours `      // compile et nettoye
+
 ## Cartes
 voir le README du répertoire Cards :o)

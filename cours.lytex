@@ -1558,6 +1558,109 @@ On parle aussi du ``Mozambique'' de Steve GADD qui est esentiellement un remplis
   
 \end{lilypond}
 
+% ****************************************************************************
+% ******************************************** Rudiments et Impro - 17/12/2019 
+% ****************************************************************************
+\section{Rudiments et Impro - 17/12/2019}
+
+Pour aider à improviser dans le cas où on veut garder un pattern, par exemple~: bossa nova (pied), jazz avec charley (+ride), clave au pied, ou autre. Il est utile de travailler à placer toutes les notes tout en jouant le pattern. Mais aussi les rudiements, ce que je n'ai pas trop fait pour l'instant.
+
+Par exemple, avec bossa on pourrait avoir.
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  uphand = \drummode {
+    \time 2/4
+    \numericTimeSignature
+
+    sn4 r | r8 sn8 r4 | r4 sn4 | r4 r8 sn8
+  }
+  bossadown = \drummode {
+    \repeat unfold 4 {bd4 hhp8 bd8} 
+  }
+
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \uphand }
+    \new DrumVoice { \voiceTwo \bossadown }
+    >>
+    >>
+  }
+  
+  
+\end{lilypond}
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  uphand = \drummode {
+    \time 2/4
+    \numericTimeSignature
+
+    sn8 sn r4 | sn4 sn4 | sn4. sn8 | r8 sn sn4 | r8 sn r sn | r4 sn8 sn  
+  }
+  bossadown = \drummode {
+    \repeat unfold 6 {bd4 hhp8 bd8} 
+  }
+
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \uphand }
+    \new DrumVoice { \voiceTwo \bossadown }
+    >>
+    >>
+  }
+\end{lilypond}
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  uphand = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    tommh8 sn tommh sn tommh8 sn tommh sn |
+    sn8 tommh8 sn tommh sn tommh8 sn tommh |
+    tommh8 tommh sn sn tommh8 tommh sn sn |
+    tommh8 sn sn tommh8 tommh sn sn tommh |
+    sn8 sn tommh8 tommh sn sn tommh tommh |
+    s1^"etc..." | \break
+    tommh8 sn tommh tommh sn tommh sn sn |
+    sn8 tommh tommh sn tommh sn sn tommh8 |
+    tommh8 tommh sn tommh sn sn tommh8 sn |
+    s1^"etc..." |
+
+  }
+  bossadown = \drummode {
+    \repeat unfold 10 {bd4 hhp8 bd8 bd4 hhp8 bd8} 
+  }
+
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \uphand }
+    \new DrumVoice { \voiceTwo \bossadown }
+    >>
+    >>
+  }  
+\end{lilypond}
+
+
 
 
 
