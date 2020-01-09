@@ -1660,8 +1660,42 @@ Par exemple, avec bossa on pourrait avoir.
   }  
 \end{lilypond}
 
+% ****************************************************************************
+% ************************************************** Rhumba/Salsa - 07/01/2020 
+% ****************************************************************************
+\section{Rhumba/Salsa - 07/01/2020}
+
+Pour le morceau ``Sway'' de l'atelier, on aborde la rhumba, le chacha et donc un peu la salsa (quand c'est un peu mélangé). Parmi les différents patterns, je retiens un truc proche du Mozambique de S. Gadd.
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  hand = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    hh4 <hh ss>4 hh8[ hh8] tommh8[ <tommh hh>8] |
+    r8 hh8 <hh ss>4 hh8[ hh8] tomfh8[ <tomfh hh>8]
+  }
+  foot = \drummode {
+    bd4 hhp bd hhp |
+    bd4 hhp bd hhp
+  }
 
 
+ \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hand }
+    \new DrumVoice { \voiceTwo \foot }
+    >>
+    >>
+  }
+\end{lilypond}
 
 
 \end{document}
