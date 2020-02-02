@@ -1697,5 +1697,230 @@ Pour le morceau ``Sway'' de l'atelier, on aborde la rhumba, le chacha et donc un
   }
 \end{lilypond}
 
+% ****************************************************************************
+% ******************************************** Rudiment Pied/main - 21/01/2020 
+% ****************************************************************************
+\section{Rudiment Pied/main - 21/01/2020}
+
+Pour travailler des rudiments pieds-mains, un truc basique est de commencer à bien placer les pieds. Alors je fais des séries de ce qui suit, en alternant les pieds, et avec ou sans pied qui marque le temps :
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  hand = \drummode {
+    \time 1/4
+    \numericTimeSignature
+
+    \repeat unfold 10 {sn16 sn sn sn}
+  }
+  foot = \drummode {
+    <hhp bd>4 |
+    hhp16 bd16 r8 |
+    hhp8 bd8 |
+    hhp8. bd16 |
+    <hhp bd>16 bd16 r8 |
+    <hhp bd>8 bd8 |
+    <hhp bd>8. bd16 |
+    hhp16 bd bd8 |
+    hhp16 bd8 bd16 |
+    hhp8 bd16 bd 
+  }
+
+
+ \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hand }
+    \new DrumVoice { \voiceTwo \foot }
+    >>
+    >>
+  }
+\end{lilypond}
+
+\vspace{2mm}
+On peut aussi ne pas jouer les mains pendant les pieds, ce qui donne :
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  hand = \drummode {
+    \time 1/4
+    \numericTimeSignature
+
+    r16 sn16 sn16 sn16
+    sn16 r16 sn16 sn16
+    sn16 sn16 r16 sn16
+    sn16 sn16 sn16 r16
+    r8 sn16 sn16 
+    r16 sn16 r16 sn16
+    r16 sn16 sn16 r16
+    sn16 r8 sn16
+    sn16 r16 sn16 r16
+    sn16 sn16 r8
+  }
+  foot = \drummode {
+    <hhp bd>4 |
+    hhp16 bd16 r8 |
+    hhp8 bd8 |
+    hhp8. bd16 |
+    <hhp bd>16 bd16 r8 |
+    <hhp bd>8 bd8 |
+    <hhp bd>8. bd16 |
+    hhp16 bd bd8 |
+    hhp16 bd8 bd16 |
+    hhp8 bd16 bd 
+  }
+
+
+ \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hand }
+    \new DrumVoice { \voiceTwo \foot }
+    >>
+    >>
+  }
+\end{lilypond}
+
+\vspace{2mm}
+Il est aussi utile de travailler des coordinations mains-unpied ou deuxpieds. D'aord seuls, puis en séquence, et ensuite en clave ou break ou rythme...
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  hand = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    sn8 r8 r2.   |
+    sn8 sn8 r2.  |
+    sn8 sn sn r8 r2 |
+    sn8 sn sn sn r2 |
+    sn8 sn sn sn sn r8 r4 |
+    sn8 sn sn sn sn sn r4 |
+    \break
+    
+    sn8 r8 r2.   |
+    sn8 sn8 r2.  |
+    sn8 sn sn r8 r2 |
+    sn8 sn sn sn r2 |
+    sn8 sn sn sn sn r8 r4 |
+    sn8 sn sn sn sn sn r4 |
+
+  }
+  foot = \drummode {
+    r8 bd8 r2. |
+    r4 bd8 r8  r2 |
+    r4 r8 bd8 r2 |
+    r4 r4 bd8 r8 r4 |
+    r4 r4 r8 bd8 r4 |
+    r4 r4 r4 bd8 r8 |
+    
+    r8 bd8 bd8 r8 r2 |
+    r4 bd8 bd8  r2 |
+    r4 r8 bd8 bd8 r8 r4 |
+    r4 r4 bd8 bd8 r4 |
+    r4 r4 r8 bd8 bd8 r8 |
+    r4 r4 r4 bd8 bd8 |
+  }
+
+
+ \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hand }
+    \new DrumVoice { \voiceTwo \foot }
+    >>
+    >>
+  }
+\end{lilypond}
+
+% ****************************************************************************
+% **************************************************** Polyrythme - 28/01/2020 
+% ****************************************************************************
+\section{Polyrythme - 28/01/2020}
+
+Travaille du 3 pour 2 (ou 2 pour 3), je ne sais pas trop. L'idée est de jouer, d'abrd au pied, au sein d'un rossaythme classique en 4/4, un rythme où la croche utilise 3 double croche.
+
+D'abord une ligne de travail, puis une application avec [A] en 4/4, et [B] en 3 pour 2 je dirais...
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  hand = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    \bar ".|:"
+    \repeat unfold 3 {hh8[ hh] <hh sn>8[ hh] hh8[ hh] <hh sn>8[ hh]}
+    \bar ":|."
+  }
+  foot = \drummode {
+    bd8.[ bd8.] bd8.[ bd8.] bd8. bd8.  |
+    bd8.[ bd8.] bd8.[ bd8.] bd8.[ | 
+    bd8.] bd8.[ bd8.] bd8.[ bd8.]
+  }
+  
+\score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hand }
+    \new DrumVoice { \voiceTwo \foot }
+    >>
+    >>
+  }
+\end{lilypond}
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  hand = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    \bar ".|:"
+    \mark \markup {\box A}
+    \repeat unfold 3 {hh8[ hh] hh8[ hh] hh8[ hh] hh8[ hh]}
+    \bar "||"
+    \mark \markup {\box B}
+    \repeat unfold 3 {hh8[ hh] hh8[ hh] hh8[ hh] hh8[ hh]}
+    \bar ":|."
+  }
+  foot = \drummode {
+    \repeat unfold 3 {bd8 bd sn4 bd4 sn4}
+    \repeat unfold 2 {bd8.[ bd8.] sn4. bd4. sn4.} 
+  }
+  
+\score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hand }
+    \new DrumVoice { \voiceTwo \foot }
+    >>
+    >>
+  }
+\end{lilypond}
+
+
 
 \end{document}
