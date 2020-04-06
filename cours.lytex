@@ -460,6 +460,46 @@ ou parfois
   }
 \end{lilypond}
 
+J'essaye de retranscrire l'idée rythmique du thème. Mais la durée des notes pointée n'est pas simple à trouver. La première pourrait être une noire, les deux autres durer 5 doubles-croches...
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  theme = \drummode {
+    \numericTimeSignature
+    \time 11/16
+    sn8[ sn8 sn8] \ghost sn16 sn16 sn16 sn16 sn16 |
+    sn8[ sn8 sn8] \ghost sn16 sn16 sn16 sn16 sn16 |
+
+    \time 15/16
+    sn16 \ghost sn \ghost sn sn8 sn16 sn16 \ghost sn16 \ghost sn sn4.^"??"
+
+    \time 20/16
+    sn16 sn sn sn8 \ghost sn16 sn sn sn sn sn8 sn16 sn 16 sn4.^"??" |
+
+    \time 16/16
+    sn8 sn16 sn sn8 \ghost sn16 sn sn sn sn sn4.^"??" |
+
+    \time 10/16
+    sn16 sn sn sn sn8 sn16 sn sn8
+    
+  }
+
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \theme }
+    >>
+    >>
+  }
+\end{lilypond}
+
+  
+
 % ****************************************************************************
 % **************************************************** Quintolets - 27/02/2019 
 % ****************************************************************************
@@ -1921,6 +1961,279 @@ D'abord une ligne de travail, puis une application avec [A] en 4/4, et [B] en 3 
   }
 \end{lilypond}
 
+\vspace{2mm}
+Un autre version
 
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  hand = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    \bar ".|:"
+    \repeat unfold 3 {hh8[ hh] <hh sn>8[ hh] hh8[ hh] <hh sn>8[ hh]}
+    \bar ":|."
+  }
+  foot = \drummode {
+    bd4.[ bd4.] bd4.[ bd4.] bd4.[ bd4.] bd4.[ bd4.]
+  }
+  
+\score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hand }
+    \new DrumVoice { \voiceTwo \foot }
+    >>
+    >>
+  }
+\end{lilypond}
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  hand = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    \bar ".|:"
+    \mark \markup {\box A}
+    \repeat unfold 3 {hh8[ hh] hh8[ hh] hh8[ hh] hh8[ hh]}
+    \bar "||"
+    \mark \markup {\box B}
+    \repeat unfold 3 {hh8[ hh] hh8[ hh] hh8[ hh] hh8[ hh]}
+    \bar ":|."
+  }
+  foot = \drummode {
+    \repeat unfold 3 {bd8 bd sn4 bd4 sn4}
+    bd4.[ bd4.] sn2. bd2. sn2. 
+  }
+  
+\score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hand }
+    \new DrumVoice { \voiceTwo \foot }
+    >>
+    >>
+  }
+\end{lilypond}
+
+% ****************************************************************************
+% **************************************************** Placements - 11/02/2020 
+% ****************************************************************************
+\section{Placements - 11/02/2020}
+
+Plein de cymbales autour de nous, alors on va travailler des placements de cymbales. On se met un débit de doubles croches. L'idée est de fixer un point (ex: premier temps) et ensuite d'ajouter une autre cymbale une double croche avant, puis de la décaler. Puis ensuite on fixe une autre position et on recommence. Ensuite, on peut même intégrer dans un break. Jouer la grosse caisse en même temps que les cymbales.
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  cymbales = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    cymc8[ hh] hh8[ hh] hh8[ hh] hh8[ hh] |
+    cymc8[ hh] hh8[ hh] hh8[ hh] hh8 hh16 cymc16 |
+    cymc8[ hh] hh8[ hh] hh8[ hh] hh8[ cymc] |
+    cymc8[ hh] hh8[ hh] hh8[ hh] hh16 cymc hh8 |
+  }
+  groove = \drummode {
+    bd4 sn8 bd r16 bd8. sn4 |
+    bd4 sn8 bd r16 bd8. sn8. bd16 |
+    bd4 sn8 bd r16 bd8. sn8  bd |
+    bd4 sn8 bd r16 bd8. sn16  bd8. |
+  }
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \cymbales }
+    \new DrumVoice { \voiceTwo \groove }
+    >>
+    >>
+  }
+\end{lilypond}
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  cymbales = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    r8 hh hh8[ hh] hh8[ hh] hh8[ hh16 cymc16]  |
+    r8 hh hh8[ hh] hh8[ hh] hh8[ cymc16 cymc16]  |
+    r8 hh hh8[ hh] hh8[ hh] hh16[ cymc8 cymc16]  |
+  }
+  groove = \drummode {
+    r8 bd sn8[ bd] r16 bd8. sn8. bd16 |
+    r8 bd sn8[ bd] r16 bd8. sn8  bd16 bd16 |
+    r8 bd sn8[ bd] r16 bd8. sn16  bd8 bd16 |
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \cymbales }
+    \new DrumVoice { \voiceTwo \groove }
+    >>
+    >>
+  }
+\end{lilypond}
+
+% ****************************************************************************
+% ********************************************* Cantaloupe Island - 10/03/2020 
+% ****************************************************************************
+\section{Cantaloupe Island - 10/03/2020}
+
+Cantaloupe Island s'appuie sur un 3-3-2, ou une hémiole. C'est l'essence de la ligne de basse, et du groove.
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  hands = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    \bar ".|:"
+    hh8[ hh] hh[ <hh sn>] hh[ hh] <hh sn>[ <hh sn>]
+    \bar ":..:"
+    hh8[ hh16 hh] hh8[ <hh sn>] hh[ hh] <hh sn>[ <hh sn>16 sn]
+    \bar ":..:"
+    hhc8[ hh16 hh] hh8[ <hh sn>] hh[ hh] <hh sn>[ <hho sn>]( |
+    hhc8)[ hh16 hh] hh8[ <hh sn>] hh[ hh] <hh sn>[ <hho sn>]( |    
+    \bar ":|."
+  }
+  foot = \drummode {
+    bd4 r4 r8 bd8 r4
+    bd4 r4 r8 bd8 r4 
+    bd4 r4 r8 bd8 r4 
+    bd4 r4 r8 bd8 r4 
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hands }
+    \new DrumVoice { \voiceTwo \foot }
+    >>
+    >>
+  }
+\end{lilypond}
+
+On le retrouve au niveau du break, qu'on peut travailler avec les idées suivantes, en mettant (ou pas) la grosse caisse en même temps que les accents.
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  hands = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    \override NoteHead.transparent = ##t
+    sn8[ sn sn] sn[ sn sn] sn[ sn] |
+    \override NoteHead.transparent = ##f
+    
+    cymc8^\act_\right[ sn_\left sn_\right] cymc^\act_\left[ sn_\right sn_\left] sn^\act_\right[ sn_\left] |
+
+    cymc8^\act_\right[ sn_\left sn_\left] cymc^\act_\right[ sn_\left sn_\left] sn^\act_\right[ sn_\left] |
+
+    cymc16^\act[ sn] sn[ sn] sn[ sn] cymc16^\act[ sn] sn[ sn] sn[ sn] sn^\act[ sn sn sn ] |
+
+    \break
+    cymc4.^\act cymc4.^\act r8 r16 sn |
+    cymc4.^\act cymc4.^\act r8 sn16[ sn] |
+    cymc4.^\act cymc4.^\act r16 sn16[ sn sn] |
+    cymc4.^\act cymc4.^\act sn16[ sn sn sn] |
+    cymc4.^\act cymc4^\act r16 sn sn16[ sn sn sn] |
+    cymc4.^\act cymc4^\act sn16[ sn] sn[ sn sn sn] |
+    cymc4.^\act cymc8^\act sn16[ sn sn sn] sn[ sn sn sn] |
+    cymc4.^\act cymc16^\act sn16 sn16[ sn sn sn] sn[ sn sn sn] | 
+  }
+  
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hands }
+    >>
+    >>
+  }
+\end{lilypond}
+    
+% ****************************************************************************
+% *************************** Déséquilibre double croches au pied - 05/04/2020 
+% ****************************************************************************
+\section{Déséquilibre double croches au pied - 05/04/2020}
+
+Difficulté à faire des doubles croches à la grosse caisse, surtout au pied droit. En particulier pour la figure (A), même quand j'enlève le charley au pied.. J'ai travaillé le (B), qui passe plus facilement.
+
+Ça me "bloque" de pas pouvoir faire ces doubles croches, d'autant que des fois j'ai bien envie d'en mettre, et je me retrouve avec le pied droit en l'air, trop tôt, trop longtemps (déséquilibre). A cause du déséquilibre, et comme je stresse de la bien réussir, je déclenche souvent trop tôt. C'est encore plus souvent le cas pour la figure (A).
+
+Pour essayer de retravailler mon geste, je m'astreint à faire du 5B avec la grosse caisse, sauf les 2 et 4 à la caisse claire, lentement (tempo de 60 à la noire). Je me force à bien déplier le pied, en montant avec mollet et cheville, et sans utiliser la cuisse. Je fais bien attention à mon lead (croches main droite). Mais c'est chiant et, pour l'instant, je vois pas d'effet bénéfique.
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  hands = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    \mark #1
+    \bar ".|:"
+    hh8[ hh] hh8[ hh] hh8[ hh]  hh8[ hh]
+
+    \mark #2
+    \bar ":..:"
+    hh8[ hh] hh8[ hh] hh8[ hh]  hh8[ hh]
+    hh8[ hh] hh8[ hh] hh8[ hh]  hh8[ hh]
+    \bar ":|."
+  }
+  foot = \drummode {
+    
+    bd8[ bd16 bd16] sn4 bd8[ bd16 bd16] sn4
+
+    bd16[ bd] r8 bd16[ bd] r8 bd16[ bd] r8 bd16[ bd] r8
+    r16 bd16[ bd8] r16 bd16[ bd8] r16 bd16[ bd8] r16 bd16[ bd8]
+    }
+  
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set Score.markFormatter = #format-mark-circle-alphabet
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hands }
+    \new DrumVoice { \voiceTwo \foot }
+    >>
+    >>
+  }
+\end{lilypond}
 
 \end{document}
+
