@@ -1,0 +1,152 @@
+% pdflatex
+\documentclass[12pt]{article}
+
+%\usepackage[english]{babel} 
+\usepackage[french]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[OT1]{fontenc}
+\usepackage{fullpage}
+\usepackage{hyperref}
+\usepackage{xspace}
+\usepackage{pbox}
+%%\usepackage{bibunits} %% separate biblio into several parts (section or chapter)
+
+%% %\usepackage[timeinterval=10]{tdclock}
+\usepackage{graphicx}
+%% \usepackage{tikz}
+%% %\usepackage{changepage}     % for the adjustwidth environment
+%% \usepackage[tikz]{bclogo}   % nice boxes with logo
+%% \usepackage{amsmath}
+%% \usepackage{bm} %boldmath
+%% \usepackage{listingsutf8}
+%% \lstloadlanguages{R}
+
+
+% ------- Notations -------------------------------------------------
+%% \input{notations_u}
+% -------------------------------------------------------------------
+%%% Mettre en valeur
+\newcommand{\insist}[1]{{\color{blue}\textbf{#1}}}
+\newcommand{\warn}[1]{{\color{red}\textbf{#1}}}
+
+%% bool pour doigté
+\newif\ifdoigt
+%\doigttrue
+\newcommand{\bol}[2]{%
+  \ifdoigt
+  \pbox[t]{2cm}
+       {#1\\\hspace*{\fill}\scriptsize{#2}}
+  \else
+      {#1}
+  \fi
+}%
+\def\Go{\bol{Ge}{1}}
+\def\Gd{\bol{Ge}{2}}
+\def\K{\bol{Ke}{}}
+\def\Ka{\bol{Ka}{}}
+
+\def\To{\bol{Te}{gn1}}
+\def\Ro{\bol{Re}{gn1}}
+\def\Tt{\bol{Te}{g3}}
+\def\Rt{\bol{Re}{g3}}
+\def\N{\bol{Na}{g3}}
+\def\Ta{\bol{Ta}{}}
+\def\Taa{\bol{Ta!}{g4}}
+\def\Ti{\bol{Tin}{sn1}}
+\def\Tu{\bol{Tun}{}}
+
+\def\Da{\bol{Dha}{k/2}}
+\def\Dao{\bol{Dha}{k/1}}
+\def\Di{\bol{Dhin}{gsn1/2}}
+\def\Du{\bol{Dhun}{}}
+\def\Ka{\bol{Ka}{}}
+
+\def\sep{ - }
+
+\newcommand{\double}[1]{%
+  #1 \bol{++}{}
+  }%
+
+\newcounter{nbexo}% Counter
+\setcounter{nbexo}{1}
+\newcommand{\exo}[1]{%
+  \subsubsection*{Exercice \thenbexo{} #1}
+  \stepcounter{nbexo}
+  }%
+
+\newcounter{nbtal}% Counter
+\setcounter{nbtal}{1}
+\newcommand{\kihai}[1]{%
+  \subsubsection*{Kihai \thenbtal{} #1}
+  \stepcounter{nbtal}
+  }%
+
+\setlength{\parindent}{0cm} % Default is 15pt.
+%\linespread{1.3}
+
+% Document title, author, date and institution
+% ---------------------------------------------
+\title{%
+  Tabla
+}
+%\subtitle{%
+%}
+% ****** Modif si Date différent de Date du jour
+%\date{04/10/2017}
+
+
+% =============================================================================
+\begin{document}
+\bibliographystyle{apalike}
+
+\maketitle
+
+\doigttrue
+\exo{}
+\Da \Tt \To
+%\vspace{1em}
+
+\exo{}
+\Gd \Go \Gd \sep \Go \Gd \Go \sep \K \K \K \sep \Go \Gd \Go
+\vspace{1em}
+
+\Da \Go \Gd \sep \Dao \Gd \Go \sep \Ka \K \K \sep \Da \Gd \Go
+
+
+\exo{(TeReKeTe)}
+\Tt \To \K \Tt
+
+\exo{(KeTeTaKa)}
+\K \Tt \To \K
+\doigtfalse
+
+\kihai{Tintal}
+\Gd \Go \Tt \To \sep \Gd \Go \N \N \sep \K \K \Tt \To \sep \Gd \Go \N \N
+
+\kihai{Tintal}
+\Go \Gd \Tt \To \Go \Gd \Tt \To  \sep
+\Go \Gd \N \Go \Di \N \Go \N \sep
+\vspace{1em}
+
+\Ka \Ta \Ka \Ta \Gd \Go \Tt \To \sep
+\Go \Gd \N \Go \Di \N \Go \N
+
+\exo{(TeReKeTeTaKa)}
+\Tt \Ro \K \Tt \Ta \Ka
+
+
+\kihai{Tintal}
+\doigttrue
+\double{\Da} \Tt \Ro \K \Tt \Ta \Ka \sep
+\Taa \Ka \Tt \Ro \K \Tt \Ta \Ka \sep
+\vspace{1em}
+
+\Tt \To \Tt \To \K \Tt \Ta \Ka \sep
+\double{\Tu} \double{\N} \K \Tt \Ta \Ka
+
+% ****************************************************************************
+% ***************************************************************** Références 
+% ****************************************************************************
+%\section{Références}
+
+\end{document}
