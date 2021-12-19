@@ -2235,5 +2235,148 @@ Pour essayer de retravailler mon geste, je m'astreint à faire du 5B avec la gro
   }
 \end{lilypond}
 
+% ****************************************************************************
+% ********************************************************* 8=3+5 - 23/06/2020 
+% ****************************************************************************
+\section{8=3+5 - 23/06/2020}
+
+On part d'une décomposition que je pense en 3+5 que David entend en 2+6 pour jouer (distribuer sur les toms, rendre plus ``caraibesqu'', marquer les temps, etc). On pourrait aussi doubler certains coups.
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  hand = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    \mark \markup{3+5 en dble}
+    hh8[ hh16] sn16[ hh16 hh sn hh]  hh8[ hh16] sn16[ hh16 hh sn hh] |
+    \mark \markup{distribué}
+    cymr8[ tommh16] sn16[ tomml16 tomml sn tomfh]
+    cymr8[ tommh16] sn16[ tomml16 tomml sn tomfh] | \break
+    hh8[ hh8] hh16[ hh ss <hh ss>]  tommh8[ tommh8] hh16[ hh ss <hh ss>] |
+  }
+  
+  foot = \drummode {
+    bd8[ bd8] r4 bd8[ bd8]r4 |
+    bd8[ bd8] r4 bd8[ bd8]r4 |
+    bd8.[ bd16] hhp4 bd8.[ bd16] hhp4 |
+  }
+
+    \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \hand }
+    \new DrumVoice { \voiceTwo \foot }
+    >>
+    >>
+  }
+\end{lilypond}
+
+Le pattern à la main droite c'est aussi le No 40 du 5B. On enchaîne alors sur le fait de le travailler en ternaire, en ternaire doublé, et en 5 (noire) et 3 (croche). Il faut un peu tricher avec la mesure.
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  cinqb = \drummode {
+     \time 4/4
+     \numericTimeSignature
+
+     sn4 sn4 sn8 sn8 r8 sn8 |
+     
+     \tuplet 3/2 {sn8_\right sn16[ sn] sn[ sn]}
+     \tuplet 3/2 {sn8_\left sn16[ sn] sn[ sn]}
+     \tuplet 3/2 {sn8_\right sn16[ sn] sn8_\right}
+     \tuplet 3/2 {sn16[ sn] sn16[ sn] sn8_\left}
+
+     \tuplet 5/4 {sn16^\act_\right sn16 sn16 sn16 sn16}
+     \tuplet 5/4 {sn16^\act_\left sn16 sn16 sn16 sn16}
+     sn16^\act_\right sn16 sn16 sn16^\act_\right
+     \tuplet 5/4 {sn16 sn16 sn16 sn16 sn16^\act_\left}
+
+  }
+  \score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \cinqb }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+
+% ****************************************************************************
+% ************************************************ Latin ternaire - 16/11/2021 
+% ****************************************************************************
+\section{Latin ternaire - 16/11/2021}
+
+Des propositions de latin en ternaire, sur 6 temps en fait, se trouvent chez le Cruise Ship Drummer. Autour de la ``cascara'' ou ``mozanbique'' coupé.
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  up = \drummode {
+    \numericTimeSignature
+    \time 6/8
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh4 hh4 hh8 hh8  | r8 hh8 r8 hh8 hh4
+  }
+  down = \drummode {
+    bd4 sn4 r4 | r2 tommh8 tommh8
+  }
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable=#(alist->hash-table md)
+    \new DrumVoice {\voiceOne \up}
+    \new DrumVoice {\voiceTwo \down}
+    >>
+    >>
+  }
+\end{lilypond}
+
+En parlant de cascara, une version à la batterie. Le HH au pied est sensé rappeler le shaker... On peut aussi jouer la grosse caisse sur le 4, mais pas toujours. La cascara peut/doit aussi être jouée sur le fût du tom basse.
+
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  up = \drummode {
+    \numericTimeSignature
+    \time 4/4
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh4^\act hh4^\act  hh8 hh8^\act r8 hh8 |
+    hh4^\act hh8 hh8^\act r8 hh8^\act r8 hh8
+  }
+
+  down = \drummode {
+    hhp4 ss8 bd8 <ss hhp>4 r4 |
+    <hhp ss>4 r8 <bd ss>8 hhp4 ss4
+  }
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable=#(alist->hash-table md)
+    \new DrumVoice {\voiceOne \up}
+    \new DrumVoice {\voiceTwo \down}
+    >>
+    >>
+  }
+\end{lilypond}
+
 \end{document}
 

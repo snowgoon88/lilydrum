@@ -13,7 +13,7 @@
   (closedhihat   cross      "stopped"   5)
   (openhihat     cross      "open"      5)
   (snare         default    #f          1)
-  (sidestick     harmonic   #f          1)
+  (sidestick     cross   #f          1)
   (cowbell       triangle   #f          6)
   (himidtom      diamond    #f          2)
   (lowmidtom     diamond    #f          0)
