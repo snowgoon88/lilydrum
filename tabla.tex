@@ -29,6 +29,10 @@
 \newcommand{\insist}[1]{{\color{blue}\textbf{#1}}}
 \newcommand{\warn}[1]{{\color{red}\textbf{#1}}}
 
+%%% Matra from Math
+\usepackage{amsmath,mathabx}
+\newcommand{\matra}[1]{$\undergroup{\text{#1}}$}
+
 %% bool pour doigté
 \newif\ifdoigt
 %\doigttrue
@@ -61,26 +65,35 @@
 \def\Du{\bol{Dhun}{}}
 \def\Ka{\bol{Ka}{}}
 
-\def\sep{ - }
+\def\sep{ / }
+\def\sepnl{\\}
+
+\def\cont{\bol{+}{}}
 
 \newcommand{\double}[1]{%
-  #1 \bol{++}{}
+  #1\bol{+}{}
   }%
 
 \newcounter{nbexo}% Counter
 \setcounter{nbexo}{1}
 \newcommand{\exo}[1]{%
-  \subsubsection*{Exercice \thenbexo{} #1}
+  \subsection*{Exercice \thenbexo{} #1}
   \stepcounter{nbexo}
   }%
 
 \newcounter{nbtal}% Counter
 \setcounter{nbtal}{1}
 \newcommand{\kihai}[1]{%
-  \subsubsection*{Kihai \thenbtal{} #1}
+  \subsection*{Kihai \thenbtal{} #1}
   \stepcounter{nbtal}
   }%
 
+\newcommand{\var}[1]{%
+  \subsubsection*{Variante #1}
+}
+
+\def\GGTT{\matra{\Go \Gd \Tt \To}}
+\def\KTKT{\matra{\Ka \Ta \Ka \Ta}}
 \setlength{\parindent}{0cm} % Default is 15pt.
 %\linespread{1.3}
 
@@ -116,17 +129,67 @@
 \exo{(TeReKeTe - KeTeTaKa)}
 \Tt \To \K \Tt \sep \K \Tt \To \K
 
+% ****************************************************************************
+% ***************************************************************** Practice 1 
+% ****************************************************************************
+\newpage
+\exo{Practice 1}
+(\matra{\double{\Da} \Tt \Ro} \matra{\K \Tt}) x 4 \sepnl
+(\matra{\double{\Da} \Tt \Ro} \matra{\K \Tt \Ta \Ka}) x 4 \sepnl
+\matra{\double{\Tu} \double{\N}} \matra{\K \Tt \Ta \Ka} \sepnl
++ Moudi
+\vspace{1em}
+
+Ce qui donne:
+\vspace{1em}
+
+\matra{\double{\Da} \Tt \Ro} \matra{\K \Tt \double{\Da}} \sep
+\matra{\Tt \Ro \K \Tt} \matra{\double{\Da} \Tt \Ro} \sepnl
+\matra{\K \Tt \double{\Da}} \matra{\Tt \Ro \K \Tt} \sep
+\matra{\double{\Da} \Tt \Ro} \matra{\K \Tt \Ta \Ka} \sepnl
+\vspace{1em}
+
+\matra{\double{\Da} \Tt \Ro} \matra{\K \Tt \Ta \Ka} \sep
+\matra{\double{\Da} \Tt \Ro} \matra{\K \Tt \Ta \Ka} \sepnl
+\matra{\double{\Da} \Tt \Ro} \matra{\K \Tt \Ta \Ka} \sep
+\matra{\double{\Tu} \double{\N}} \matra{\K \Tt \Ta \Ka} \sepnl
+\vspace{1em}
+
+\matra{\double{\Ta} \Tt \Ro} \matra{\K \Tt \double{\Ta}} \sep
+\matra{\Tt \Ro \K \Tt} \matra{\double{\Ta} \Tt \Ro} \sepnl
+\matra{\K \Tt \double{\Ta}} \matra{\Tt \Ro \K \Tt} \sep
+\matra{\double{\Ta} \Tt \Ro} \matra{\K \Tt \Ta \Ka} \sepnl
+\vspace{1em}
+
+\matra{\double{\Da} \Tt \Ro} \matra{\K \Tt \Ta \Ka} \sep
+\matra{\double{\Da} \Tt \Ro} \matra{\K \Tt \Ta \Ka} \sepnl
+\matra{\double{\Da} \Tt \Ro} \matra{\K \Tt \Ta \Ka} \sep
+\matra{\double{\Tu} \double{\N}} \matra{\K \Tt \Ta \Ka} \sepnl
+\vspace{1em}
+
+
+\newpage
 \doigtfalse
 \kihai{Tintal}
 \Gd \Go \Tt \To \sep \Gd \Go \N \N \sep \K \K \Tt \To \sep \Gd \Go \N \N
 
-\kihai{Tintal}
-\Go \Gd \Tt \To \Go \Gd \Tt \To  \sep
-\Go \Gd \N \Go \Di \N \Go \N \sep
+\doigttrue
+\kihai{Tintal - Maître Amit}
+\GGTT{}                 \GGTT{} \sep
+\matra{\Go \Gd \N \Go}  \matra{ \Di \N \Go \N} \sepnl
 \vspace{1em}
 
-\Ka \Ta \Ka \Ta \Gd \Go \Tt \To \sep
-\Go \Gd \N \Go \Di \N \Go \N
+\KTKT{} \GGTT{} \sep
+\matra{\Go \Gd \N \Go}  \matra{ \Di \N \Go \N}
+\doigtfalse
+
+\var{1}
+\GGTT{}                 \matra{\Go \Gd \Go \Gd} \sep
+\matra{\Tt \To \Go \Gd} \GGTT{} \sepnl
+\KTKT{}                 \GGTT{} \sep
+\matra{\Go \Gd \N \Go}  \matra{\Di \N \Go \N}
+
++ thème + Moudi + thème
 
 \exo{(TeReKeTeTaKa)}
 \Tt \Ro \K \Tt \Ta \Ka
@@ -140,6 +203,30 @@
 
 \Tt \To \Tt \To \K \Tt \Ta \Ka \sep
 \double{\Tu} \double{\N} \K \Tt \Ta \Ka
+
+\kihai{Laggi}
+Accompagnement léger, par exemple d'un Bajan comme ce qui suit
+
+\matra{\double{\Di} \N \Di} \matra{\cont \Di \N \To} \sepnl
+\matra{\double{\Ti} \N \Ti} \matra{\cont \Ti \N \K} \sepnl
+
+\vspace{1em}
+Le Laggi, en mnémotechnique
+
+\vspace{1em}
+\Da \Go \N \N \Go \N \sepnl
+\Da \Go \N \Gd \N \sepnl
+\Da \Go \N \Gd \N \sepnl
+
+
+Ce qui donne ensuite, détaillé
+
+\vspace{1em}
+\matra{\Da \Go \N \N} \sep \matra{\Go \N \Da \Go} \sepnl
+\matra{\N \Gd \N \Da} \sep \matra{\Go \N \Gd \N} \sepnl
+
+\matra{\Ta \K \N \N} \sep \matra{\K \N \Ta \K} \sepnl
+\matra{\N \Gd \N \Da} \sep \matra{\Go \N \Gd \N} \sepnl
 
 % ****************************************************************************
 % ***************************************************************** Références 
