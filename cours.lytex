@@ -2378,5 +2378,29 @@ En parlant de cascara, une version à la batterie. Le HH au pied est sensé rapp
   }
 \end{lilypond}
 
+% ****************************************************************************
+% ************************************************** Coordination - 26/01/2022 
+% ****************************************************************************
+\section{Coordination - 26/01/2022}
+
+Proposition pour travailler la coordination, l'intro de du groupe Gojira.
+
+$ \circ \circ \circ \circ \bullet \times 3$
+
+$ \circ \circ \bullet \times 3$
+
+$ \circ \circ \circ \circ \bullet \times 3$
+
+$ \circ \circ \bullet \times 2$
+
+en mettant la grosse caisse toutes les $4$ notes. Ce qui fait qu'on retombe sur nos pattes tous les $4$ patterns.
+
+\vspace{1em}
+Un exercice de coordination de Thomas Lang, le ``1, 2, 3, 4, 5, etc...''. C'est le nombre de coups de suite joué par la main droite puis la main gauche à l'unison avec un des pieds, pieds qui eux aussi peuvent suivre un pattern de ce ``1, 2, ...''. On peut aussi remplacer les $3$, par exemple, par des RRL ou LLR.
+
+
+
+
+
 \end{document}
 
