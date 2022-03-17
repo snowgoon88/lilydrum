@@ -8,7 +8,8 @@
 \usepackage{fullpage}
 \usepackage{hyperref}
 \usepackage{xspace}
-\usepackage{pbox}
+\usepackage{pbox} % parbox of variable width
+\usepackage{framed}
 %%\usepackage{bibunits} %% separate biblio into several parts (section or chapter)
 
 %% %\usepackage[timeinterval=10]{tdclock}
@@ -38,8 +39,8 @@
 %\doigttrue
 \newcommand{\bol}[2]{%
   \ifdoigt
-  \pbox[t]{2cm}
-       {#1\\\hspace*{\fill}\scriptsize{#2}}
+  \pbox[b]{2cm}
+       {\hspace*{\fill}{\scriptsize #2}\\#1}
   \else
       {#1}
   \fi
@@ -77,18 +78,23 @@
 \newcounter{nbexo}% Counter
 \setcounter{nbexo}{1}
 \newcommand{\exo}[1]{%
+  %\begin{framed}
   \subsection*{Exercice \thenbexo{} #1}
   \stepcounter{nbexo}
-  }%
+  %\end{framed}
+}%
 
 \newcounter{nbtal}% Counter
 \setcounter{nbtal}{1}
 \newcommand{\kihai}[1]{%
-  \subsection*{Kihai \thenbtal{} #1}
-  \stepcounter{nbtal}
-  }%
+  \begin{framed}
+    \subsection*{Kihai \thenbtal{} #1}
+    \stepcounter{nbtal}
+  \end{framed}
+}%
 
 \newcommand{\var}[1]{%
+  \vspace{1em}
   \subsubsection*{Variante #1}
 }
 
@@ -116,7 +122,7 @@
 
 \doigttrue
 \exo{}
-\Da \Tt \To
+\Da \Tt \To \hspace{1cm} et \Da \To \Tt
 %\vspace{1em}
 
 \exo{}
@@ -129,11 +135,15 @@
 \exo{(TeReKeTe - KeTeTaKa)}
 \Tt \To \K \Tt \sep \K \Tt \To \K
 
+\exo{(TeReKeTeTaKa)}
+\Tt \Ro \K \Tt \Ta \Ka
+
+
 % ****************************************************************************
 % ***************************************************************** Practice 1 
 % ****************************************************************************
 \newpage
-\exo{Practice 1}
+\kihai{Practice 1}
 (\matra{\double{\Da} \Tt \Ro} \matra{\K \Tt}) x 4 \sepnl
 (\matra{\double{\Da} \Tt \Ro} \matra{\K \Tt \Ta \Ka}) x 4 \sepnl
 \matra{\double{\Tu} \double{\N}} \matra{\K \Tt \Ta \Ka} \sepnl
@@ -191,19 +201,28 @@ Ce qui donne:
 
 + thème + Moudi + thème
 
-\exo{(TeReKeTeTaKa)}
-\Tt \Ro \K \Tt \Ta \Ka
+\subsubsection*{Tihaï}
+
+\GGTT{} \GGTT{} \sep
+\matra{\Go \Gd \N \Go}  \matra{\Di \N \Go \N} \sepnl
+
+(\double{\Da} \matra{\Gd \Go \N \Go} \matra{\Di \N \Go \N} ) x 2
+
+\matra{\double{\Da} \K \Ta} \matra{\double{\underline{\Da}} \double{\cont}} (dernier ``one'' seulement pour 1 et 2)
 
 
-\kihai{Tintal}
+
+\newpage
+\kihai{Tintal - Majax}
 \doigttrue
-\double{\Da} \Tt \Ro \K \Tt \Ta \Ka \sep
-\Taa \Ka \Tt \Ro \K \Tt \Ta \Ka \sep
+\matra{\double{\Da} \Tt \Ro} \matra{\K \Tt \Ta \Ka} \sep
+\matra{\Taa \Ka \Tt \Ro}    \matra{\K \Tt \Ta \Ka} \sepnl
 \vspace{1em}
 
-\Tt \To \Tt \To \K \Tt \Ta \Ka \sep
-\double{\Tu} \double{\N} \K \Tt \Ta \Ka
+\matra{\Tt \To \Tt \To}  \matra{\K \Tt \Ta \Ka} \sep
+\matra{\double{\Tu} \double{\N}} \matra{\K \Tt \Ta \Ka} 
 
+\newpage
 \kihai{Laggi}
 Accompagnement léger, par exemple d'un Bajan comme ce qui suit
 
@@ -219,15 +238,20 @@ Le Laggi, en mnémotechnique
 \Da \Go \N \Gd \N \sepnl
 
 
-Ce qui donne ensuite, détaillé
+Ce qui donne ensuite, détaillé, le moudi conserve la structure
 
 \vspace{1em}
 \matra{\Da \Go \N \N} \sep \matra{\Go \N \Da \Go} \sepnl
 \matra{\N \Gd \N \Da} \sep \matra{\Go \N \Gd \N} \sepnl
 
-\matra{\Ta \K \N \N} \sep \matra{\K \N \Ta \K} \sepnl
+\matra{\Ta \K \N \N} \sep \matra{\K \N \Da \Go} \sepnl
 \matra{\N \Gd \N \Da} \sep \matra{\Go \N \Gd \N} \sepnl
 
+\var{2}
+
+\Da \Go \N \N \Go \N \sep \Da \Go \N \N \Go \N \sepnl
+\Da \Go \N \N \sepnl
++ 1/2 thème
 % ****************************************************************************
 % ***************************************************************** Références 
 % ****************************************************************************
