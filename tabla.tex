@@ -34,6 +34,12 @@
 \usepackage{amsmath,mathabx}
 \newcommand{\matra}[1]{$\undergroup{\text{#1}}$}
 
+%%% Gamak
+\newcommand{\gamak}[1]{$\overrightarrow{\text{#1}}$}
+%%% Press
+%\newcommand{\press}[1]{$\breve{\text{#1}}$}
+\newcommand{\press}[1]{$\overset{\bullet}{\text{#1}}$}
+
 %% bool pour doigté
 \newif\ifdoigt
 %\doigttrue
@@ -301,38 +307,71 @@ Ce qui donne:
 \kihai{Laggi}
 Accompagnement léger, par exemple d'un Bajan comme ce qui suit
 
-\matra{\double{\Di} \N \Di} \matra{\cont \Di \N \To} \sepnl
+\matra{\double{\Di} \N \Di} \matra{\cont \Di \N \To} \sep
 \matra{\double{\Tin} \N \Tin} \matra{\cont \Tin \N \K} \sepnl
 
 \vspace{1em}
 Le Laggi, en mnémotechnique
 
 \vspace{1em}
-\Da \Go \N \N \Go \N \sepnl
-\Da \Go \N \Gd \N \sepnl
-\Da \Go \N \Gd \N \sepnl
+\Da \Go \N \N \Go \N \sep 
+( \Da \Go \N \Gd \N ) x 2 \sepnl
+%\Da \Go \N \Gd \N \sepnl
 
 
-Ce qui donne ensuite, détaillé, le moudi conserve la structure
+%Ce qui donne ensuite, détaillé, le moudi conserve la structure
+\doigtfalse
 
 \vspace{1em}
-\matra{\Da \Go \N \N} \sep \matra{\Go \N \Da \Go} \sepnl
+\matra{\Da \Go \N \N} \sep \matra{\Go \N \Da \Go} \sep
 \matra{\N \Gd \N \Da} \sep \matra{\Go \N \Gd \N} \sepnl
 
-\matra{\Ta \K \N \N} \sep \matra{\K \N \Da \Go} \sepnl
+\matra{\Ta \K \N \N} \sep \matra{\K \N \Da \Go} \sep
 \matra{\N \Gd \N \Da} \sep \matra{\Go \N \Gd \N} \sepnl
 
-\var{2}
+\paragraph{Var 2}
+\Da \Go \N \N \Go \N \sep \Da \Go \N \N \Go \N \sep
+\Da \Go \N \N \sep
 
-\Da \Go \N \N \Go \N \sep \Da \Go \N \N \Go \N \sepnl
-\Da \Go \N \N \sepnl
-+ 1/2 thème
+\paragraph{Var 3}
+\Da \Go \N \N \Go \N \sep \Da \Go \N \N \sep \Da \Go \N \N \Go \N \sep
 
+\paragraph{Var 4}
+\Da \Go \N \N \Go \N \sep \cont \Da \Go \N \Da \Go \N \Da \Go \N \sep
+
+\paragraph{Var 5}
+\Da \Go \N \N \Go \N \sep \cont \Da \Go \N \sep \cont \Da \Go \N \Go \N \sep
+
+\paragraph{Var 6}
+\Da \Go \N \N \sep \Da \Go \N \N \sep \Da \Go \N \N \sep \Da \Go \N \N \sep
+
+\paragraph{Var 7}
+\Da \Go \N \N \sep \cont \Da \Go \N \N \sep \cont \Da \Go \N \N \Go \N \sep
+
+\paragraph{Var 8}
+\Da \Go \N \N \sep \Go\N\Go\N\sep \Go\N\Go\N\sep \Go\N\Go\N\sep
+
+\paragraph{Var 9}
+\Da \Go \N \N \Go \N \sep \cont \Go\N\sep \cont \Go\N\sep \cont \Go\N\N\sep
+
+\paragraph{Var 10}
+\Da \Go \N \N \Go \N \sep \cont \Go\N\Go\N\Go\N\sep \Go\N\N
+
+\paragraph{Var 11}
+\Da \Go \N \N \Go \N \sep \cont \Da \Go\N\N\N \sep \Go\N \sep \Go\N\N
+
+\subsubsection*{Tihaï}
+\Da \Go \N \N \Go \N \sepnl
+( \cont \Go\N\N \sep \Go\N \Da \Go\N\N\N \cont \sep ) x3 \cont \cont
+%\cont \Go\N\N \sep \Go\N \Da \Go\N\N\N \cont \sep
+%\cont \Go\N\N \sep \Go\N \Da \Go\N\N\N \cont \sep \cont \cont
+
+\newpage
 % ****************************************************************************
 % *********************************************************** Damien en Tintak 
 % ****************************************************************************
 \kihai{Damien en Tintal}
-
+\doigttrue
 Le tekka :
 
 \matra{\Da} \matra{\Di} \matra{\Di} \matra{\Da} \sepnl
@@ -347,6 +386,10 @@ Break à partir de 9è bol.
 \matra{\Ta \K} \matra{\Tt \Ta} \matra{\K \Rt \N \Ka} \TRKT{} \sepnl
 \matra{\Ti \Gd \double{\Da}} \TRKT{} \matra{\Ti \Gd \double{\Da}} \TRKT{} \sepnl\sepnl
 
+Break en ternaire
+
+\matra{\Da \Tt \To} \matra{\Da \Go \N} \matra{\Da \Go \Tu} \matra{\N \K \N}
+
 
 % ****************************************************************************
 % ******************************************* Accompagnement "Bombay JAYASHRI" 
@@ -357,12 +400,16 @@ En Dadra (6)
 
 \Da \Di \N \sep \Ta \Di \N \sepnl
 
-Joué sur le disque
 
 \Da \matra{\Tt \To} \matra{\Tt \To}  \sep \Ta \Di \Di \sepnl
 
+\doigtfalse
+En fait, des ``press'' et des ``gamak''
+\press{\Da} \matra{\Tt \To} \matra{\Tt \To}  \sep \Ta \gamak{\Di} \gamak{\Di} \sepnl
 
+Peut aussi inclure ce break (Practice 2) sut 3 temps
 
+\matra{\double{\Da}  \Tt \Ro} \matra{\K \Tt \Ta \Ka} \matra{\Tt \Ro \K \Tt} \sepnl
 
 % ****************************************************************************
 % ***************************************************************** Références 
