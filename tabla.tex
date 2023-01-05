@@ -30,6 +30,18 @@
 \newcommand{\insist}[1]{{\color{blue}\textbf{#1}}}
 \newcommand{\warn}[1]{{\color{red}\textbf{#1}}}
 
+% ****************************************************************************
+% *************************************************************** Indian Names
+\def\kihai{kihai}
+\def\tala{tâla}
+\def\theka{thekâ}
+\def\tihai{tihai}
+
+
+\def\jhaptal{jhaptâl}
+\def\keherwa{keherwa}
+\def\tintal{tintal}
+
 %%% Matra from Math
 \usepackage{amsmath,mathabx}
 \newcommand{\matra}[1]{$\undergroup{\text{#1}}$}
@@ -96,12 +108,12 @@
 
 \newcounter{nbtal}% Counter
 \setcounter{nbtal}{1}
-\newcommand{\kihai}[1]{%
-  \begin{framed}
-    \subsection*{Kihai \thenbtal{} #1}
-    \stepcounter{nbtal}
-  \end{framed}
-}%
+%% \newcommand{\kihai}[1]{%
+%%   \begin{framed}
+%%     \subsection*{Kihai \thenbtal{} #1}
+%%     \stepcounter{nbtal}
+%%   \end{framed}
+%% }%
 \newcommand{\subtitle}[1]{%
   \begin{framed}
     \subsection*{#1}
@@ -283,9 +295,13 @@ Avec accent sur 1 (\Da) et 3 (\N), puis shuffle pour le groove.
 \matra{\double{\Da} \Tt \Ro} \matra{\K \Tt \Ta \Ka}
 \matra{\Taa \Ka \Tt \Ro} \matra{\K \Tt \Ta \Ka}
 
+% ****************************************************************************
+% ***************************************************************** Kihai Amit
+% ****************************************************************************
 \newpage
-\doigttrue
-\kihai{Tintal - Maître Amit}
+%\doigttrue
+%\kihai{Tintal - Maître Amit}
+\subtitle{\kihai{} «Maître Amit» - \tintal{}}
 \GGTT{}                 \GGTT{} \sep
 \matra{\Go \Gd \N \Go}  \matra{ \Di \N \Go \N} \sepnl
 \vspace{1em}
@@ -332,7 +348,8 @@ Avec accent sur 1 (\Da) et 3 (\N), puis shuffle pour le groove.
 
 
 \newpage
-\kihai{Laggi (p191)}
+%\kihai{Laggi (p191)}
+\subtitle{Laggi (p191)}
 Accompagnement léger, par exemple d'un Bajan comme ce qui suit
 
 \matra{\double{\Di} \N \Di} \matra{\cont \Di \N \To} \sep
@@ -428,7 +445,8 @@ Exercice : remplacer un matra par
 % ****************************************************************************
 % *********************************************************** Damien en Tintak 
 % ****************************************************************************
-\kihai{Damien en Tintal}
+%\kihai
+\subtitle{Damien en Tintal}
 \doigttrue
 Le tekka :
 
@@ -452,7 +470,8 @@ Break en ternaire
 % ****************************************************************************
 % ******************************************* Accompagnement "Bombay JAYASHRI" 
 % ****************************************************************************
-\kihai{Bombay AYASHRI - Shravanam}
+%\kihai
+\subtitle{Bombay AYASHRI - Shravanam}
 
 En Dadra (6)
 
@@ -477,11 +496,14 @@ Peut aussi inclure ce break (Practice 2) sut 3 temps
 % ********************************************************************* Japtal
 % ****************************************************************************
 \newpage
-\begin{framed}
-\section*{tâla «Jhaptâl» (10 temps)}
-\end{framed}
+%% \begin{framed}
+%% \section*{tâla «Jhaptâl» (10 temps)}
+%% \end{framed}
+\subtitle{\tala{} «\jhaptal{}» (10 temps)}
 
-\subsection*{Thekâ du \textbf{Jhaptâl}}
+
+%\subsection*{Thekâ du \textbf{Jhaptâl}}
+\subsection*{\theka{} du \textbf{\jhaptal{}}}
 
 \begin{tabular}{lllll}
 \Di & \N & \press{\Di} & \Di &  \N \\ \Thi & \N & \press{\Di} & \Di & \N \\
@@ -503,13 +525,13 @@ Peut aussi inclure ce break (Practice 2) sut 3 temps
 \Di & \matra{\N\N} & \matra{\Di\cont\cont\N} & \matra{\press{\Di}\Di} & \N \\ \Thi & \matra{\N\N} & \matra{\Di\cont\cont\N} & \matra{\press{\Di}\Di} & \N \\
 \end{tabular}
 
-\textbf{Tihai}
+\textbf{\kihai{}}
 
 \matra{\Di} \matra{\N\Da} \matra{\K\N\Ta\Go} \matra{\Di\N} \sepnl
 \matra{\cont \Da} \matra{\K\N\Ta\Go} \matra{\Di\N} \sepnl
 \matra{\cont \Da} \matra{\K\N\Ta\Go} \matra{\Di\N}
 
-\subsection*{Kihai}
+\subsection*{\kihai{}}
 
 \begin{tabular}{lllll}
 A & B & C & D & E\\  
@@ -529,11 +551,10 @@ A + B + B + B + C
 % ****************************************************************************
 % ********************************************************************* Kherva
 % ****************************************************************************
-\begin{framed}
-  \section*{tâla «Keherwa» (8 temps)}
-\end{framed}
+\newpage
+\subtitle{\tala{} «\keherwa{}» (8 temps)}
 
-\subsection*{Thekâ du \textbf{Keherwa}}
+\subsection*{\theka{}}
 
 \begin{tabular}{llll}
   \press{\Da} & \Go & \N & \Thi \\
@@ -543,9 +564,7 @@ A + B + B + B + C
 % ****************************************************************************
 % ********************************************************************* Kherva
 % ****************************************************************************
-\begin{framed}
-  \section*{Groove ``Koucherov''}
-\end{framed}
+\subtitle{Groove ``Koucherov''}
 
 \matra{\Da \cont \cont \K} \matra{\N\Gd\press{\Go}\cont}
 
