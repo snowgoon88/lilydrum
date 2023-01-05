@@ -2398,9 +2398,86 @@ en mettant la grosse caisse toutes les $4$ notes. Ce qui fait qu'on retombe sur 
 \vspace{1em}
 Un exercice de coordination de Thomas Lang, le ``1, 2, 3, 4, 5, etc...''. C'est le nombre de coups de suite joué par la main droite puis la main gauche à l'unison avec un des pieds, pieds qui eux aussi peuvent suivre un pattern de ce ``1, 2, ...''. On peut aussi remplacer les $3$, par exemple, par des RRL ou LLR.
 
+% ****************************************************************************
+% *********************************************************** Rudiments - 2022 
+% ****************************************************************************
+\section{Rudiments - 2022}
+
+Travailler les doigtés:
+\begin{itemize}
+\item en variant les débits : noires, croches, triolets croches, double croches.
+\item pour les triolets, alterner avec chabada quand possible
+\item en remplaçant main droite, puis main gauche, par grosse caisse (et hh ?)
+\item en continuant de chanter les temps !
+\item en distribuant sur les élements
+\item en ajoutant, ensuite, des espaces
+\end{itemize}
 
 
+% ****************************************************************************
+% ********************************************************** Funk - 04/01/2023 
+% ****************************************************************************
+\section{Funk - 04/01/2023}
 
+Groove (proposé par Vincent). En funk, penser (et chanter) les «É». Puis, plusieurs exercice où le métronome marque: les «É», le 2 et 4, les double-croches 2 et 4, la double croche 4 et, plus dur, la double croche 4.
+
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  up = \drummode {
+    \numericTimeSignature
+    \time 4/4
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    r8 hh r hh r hh r hh | r8 hh r hh r hh r hh
+  }
+
+  down = \drummode {
+    bd4 sn8. bd16 r16 bd16 r8 sn4 | bd4 sn8. bd16 r4 sn8 sn8
+  }
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable=#(alist->hash-table md)
+    \new DrumVoice {\voiceOne \up}
+    \new DrumVoice {\voiceTwo \down}
+    >>
+    >>
+  }
+\end{lilypond}
+
+Pour travailler le pied, exo en boucle
+
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  up = \drummode {
+    \numericTimeSignature
+    \time 4/4
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh8[ hh] hh8[ hh] hh8[ hh]  hh8[ hh] | hh8[ hh] hh8[ hh] hh8[ hh]  hh8[ hh] |
+    r8 hh r hh r hh r hh | r8 hh r hh r hh r hh
+  }
+
+  down = \drummode {
+        bd4 sn8. bd16_\act r16 bd16_\act r8 sn4 | bd4 sn8. bd16 r16 bd16 bd8 sn4 | 
+    bd4 sn8. bd16_\act r16 bd16_\act r8 sn4 | bd4 sn8. bd16 r16 bd16 bd8 sn4 | 
+  }
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable=#(alist->hash-table md)
+    \new DrumVoice {\voiceOne \up}
+    \new DrumVoice {\voiceTwo \down}
+    >>
+    >>
+  }
+\end{lilypond}
 
 \end{document}
 
