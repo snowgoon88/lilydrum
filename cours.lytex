@@ -2479,5 +2479,160 @@ Pour travailler le pied, exo en boucle
   }
 \end{lilypond}
 
+% ****************************************************************************
+% **************************************************** Watermelon - 09/01/2023 
+% ****************************************************************************
+\section{Watermelon - 09/01/2023}
+
+En écoutant la version des headhunter de Watermelon Man, voilà des idées jouées autour de la ligne de basse.
+
+Rythme de la ligne de basse
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  rythmdy = \drummode {
+    \numericTimeSignature
+    \override Beam.positions = #'(4 . 4)   %% left right
+
+    \time 16/8
+
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+
+    \override NoteHead.transparent = ##t
+    sn8[ sn \once \override NoteHead.transparent = ##f sn sn]
+
+    \override NoteHead.transparent = ##t
+    sn8[ \once \override NoteHead.transparent = ##f sn sn sn]
+
+     \override NoteHead.transparent = ##t
+    \once \override NoteHead.transparent = ##f
+    sn8[ sn sn \once \override NoteHead.transparent = ##f sn]
+}
+
+
+\score {
+    <<
+    \new DrumStaff 
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \rythmdy }
+    >>
+    >>
+  }
+  
+\end{lilypond}
+
+Deux patterns à la batterie, groove et break ?
+
+\vspace{2mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  up = \drummode {
+    \numericTimeSignature
+    \time 4/4
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh16[ hh hh hh] hh16[ hh hh hh] hh16[ hh hh8] hh16[ hh hh hh] |
+    hh16[ hh hh hh] hh16[ hh hh hh] hh16[ hh hh hh] hh16[ hh hh hh]
+  }
+  down = \drummode {
+    bd8 bd sn4 r8 bd8 sn4 |
+    bd8. bd16 r8 sn8 r16 bd8. sn16 tomml tomfh \ghost bd
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable=#(alist->hash-table md)
+    \new DrumVoice {\voiceOne \up}
+    \new DrumVoice {\voiceTwo \down}
+    >>
+    >>
+  }
+\end{lilypond}
+
+% ****************************************************************************
+% ************************************************* Grooves sympa - 18/01/2023 
+% ****************************************************************************
+\section{Grooves sympa - 18/01/2023}
+
+Le premier est tiré d'un morceau de Hard Rock
+
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  up = \drummode {
+    \numericTimeSignature
+    \time 4/4
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh8[ hh] hh8[ hh] hh8[ hh] hh8[ hh] |
+    rb8[ tomfl] cymr[ tomfl] rb8[ tomfl] cymr[ tomfl] 
+  }
+
+  down = \drummode {
+    bd16 \ghost sn8 bd16 sn16 bd8 \ghost sn16
+    bd16 \ghost sn8 bd16 sn16 bd8 \ghost sn16 |
+    bd16 tommh8 bd16 sn16 bd8 tommh16
+    bd16 tommh8 bd16 sn16 bd8 tommh16
+    
+  }
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable=#(alist->hash-table md)
+    \new DrumVoice {\voiceOne \up}
+    \new DrumVoice {\voiceTwo \down}
+    >>
+    >>
+  }
+\end{lilypond}
+
+Le deuxième du morceau «breath» de l'album «antiphon» d'Alfa Mist. C'est en 7/8
+
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  up = \drummode {
+    \numericTimeSignature
+    \time 7/8
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh8[ hh] hh8[ hh] hh8[ hh hh] |
+    sn16[ sn sn sn16:32] sn16^\act[ sn sn sn^\act] sn16[ sn16:32 sn] sn16[ sn sn]
+    \bar ".|:" \break
+    sn16[ sn sn sn16:32] sn16^\act[ sn sn sn^\act] sn16[ sn16:32 sn] sn16[ sn sn] |
+    sn16[ sn sn sn16:32] sn16^\act[ sn sn sn^\act] sn16[ sn16:32 sn] sn16[ sn sn]
+    \bar ":|."
+  }
+
+  down = \drummode {
+    bd4 sn8. sn4 bd8. |
+    bd4 r4 r8. bd8. |
+    bd8[ hhp8] r8 hhp8 r8 hhp16 bd8. |
+    <bd hhp>4 hhp4 hhp8. bd16[ hhp8]
+    
+  }
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable=#(alist->hash-table md)
+    \new DrumVoice {\voiceOne \up}
+    \new DrumVoice {\voiceTwo \down}
+    >>
+    >>
+  }
+\end{lilypond}
+
 \end{document}
 
