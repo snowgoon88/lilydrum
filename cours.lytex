@@ -2634,5 +2634,65 @@ Le deuxième du morceau «breath» de l'album «antiphon» d'Alfa Mist. C'est en
   }
 \end{lilypond}
 
+Le troisième est Funk, on a fait des varations et des 4x4 dessus.
+
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  up = \drummode {
+    \numericTimeSignature
+    \time 4/4
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh8[ hh] hh8[ hh] hh8[ hh] hh8[ hh]
+  }
+
+  down = \drummode {
+    bd8. sn16 r8 bd16 bd16 r8 bd8 sn4
+  }
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable=#(alist->hash-table md)
+    \new DrumVoice {\voiceOne \up}
+    \new DrumVoice {\voiceTwo \down}
+    >>
+    >>
+  }
+\end{lilypond}
+
+
+Le quatrième est de Bill Stewart, plutôt latin.
+
+\begin{lilypond}[staffsize=18]
+  \version "2.18.2"
+  \include "general_def.ly"
+
+  up = \drummode {
+    \numericTimeSignature
+    \time 12/8
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    <hh sn>8[ hh] sn8 hh8[ <hh sn>] r <hh sn> r <hh sn> sn hh sn
+  }
+
+  down = \drummode {
+    <bd hhp>4. <bd hhp>4. <bd hhp>4. <bd hhp>4.
+  }
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable=#(alist->hash-table md)
+    \new DrumVoice {\voiceOne \up}
+    \new DrumVoice {\voiceTwo \down}
+    >>
+    >>
+  }
+\end{lilypond}
+
+
 \end{document}
 
