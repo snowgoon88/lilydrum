@@ -51,6 +51,8 @@
 %%% Press
 %\newcommand{\press}[1]{$\breve{\text{#1}}$}
 \newcommand{\press}[1]{$\overset{\bullet}{\text{#1}}$}
+%%% Accent
+\newcommand{\acc}[1]{$\underline{\text{#1}}$}
 
 %% bool pour doigté
 \newif\ifdoigt
@@ -68,15 +70,17 @@
 \def\K{\bol{Ke}{}}
 \def\Ka{\bol{Ka}{}}
 \def\Ko{\bol{Ko}{}}
+\def\Ki{\bol{Ki}{}}
 
 \def\To{\bol{Te}{gn1}}
 \def\Ro{\bol{Re}{gn1}}
 \def\Tt{\bol{Te}{g3}}
+\def\Ti{\bol{Ti}{g3}}
 \def\ti{\bol{ti}{gn2}}
 \def\Rt{\bol{Re}{g3}}
 \def\N{\bol{Na}{k}}
 \def\Ta{\bol{Ta}{k}}
-\def\Ti{\bol{Ti}{s/k}}
+%\def\Ti{\bol{Ti}{s/k}}
 \def\Thi{\bol{Thin}{s/k}}
 \def\Taa{\bol{Ta!}{g4}}
 \def\Tin{\bol{Tin}{sn1}}
@@ -279,7 +283,7 @@ Avec accent sur 1 (\Da) et 3 (\N), puis shuffle pour le groove.
 \matra{\K \Tt \Ta \Ka} \matra{\double{\Da}\double{\Da}} + \textbf{Majax}
 
 \subsubsection*{Practice 4}
-(\matra{\double{\Da} \double{\Ti}} \matra{\double{\Da} \Tt \Ro}
+(\matra{\double{\Da} \double{\ti}} \matra{\double{\Da} \Tt \Ro}
 \matra{\K \Tt \Ta \Ka}  \TRKT ) x 2 \sepnl
 \matra{\double{\Da} \Tt \Ro} \matra{\K \Tt \N \Ka}
 \TRKT \matra{\N \Ka \N \Ka} \sepnl
@@ -294,6 +298,44 @@ Avec accent sur 1 (\Da) et 3 (\N), puis shuffle pour le groove.
 \matra{\Tt \Ro \K \Tt} \matra{\Ta \Ka \double{\Da}} \sepnl
 \matra{\double{\Da} \Tt \Ro} \matra{\K \Tt \Ta \Ka}
 \matra{\Taa \Ka \Tt \Ro} \matra{\K \Tt \Ta \Ka}
+
+\subsection*{Practice Debo Nov17}
+\matra{\double{\Da} \Tt \Ro} \matra{\K \Tt \double{\Da}}
+\matra{\Tt \Ro \K \Tt} \matra{\Ta \Ka \Tt \Ro} \sepnl
+\matra{\K \Tt \Ta \Ka} \matra{\Taa \Ka \Tt \Ro}
+\matra{\K \Tt \double{\Da}} \matra{\Tt \Ro \K \Tt}
+
+
+% ****************************************************************************
+% *************************************************************** Kaida JMLP-2
+% ****************************************************************************
+\newpage
+\subtitle{Kaïda JMLP-2 - \tintal{}}
+
+\begin{tabular}{lllll}
+  A & \Da \Go & \Ti \To & \Gd \Go & \Tt \To \\
+  &\Gd \Go &   \Ti \To & \Ki \To & \Ta \Ka \\
+  \hline
+  B & \Ta \acc{\Go} & \Ti \To & \K \K & \Tt \To \\
+  & \Gd \Go &   \Ti \To & \Ki \To & \Ta \Ka \\
+\end{tabular}
+
+  \textbf{var 1} \\
+  (\Da \Go TT \sep GGTT) x 2 + A \hspace{1cm}
+  (\Ta \Go TT \sep KKTT) x 2 + A
+
+  \textbf{var 2} \\
+  \Da \Go TT \sep (GGTT) x 3 + A \hspace{1cm}
+  \Ta \Go TT \sep (KKTT) x 3 + A
+
+  \textbf{var 3} \\
+  \Da \Go TT \sep \Go{}TT\Gd \sep \Go\Gd{}TT \sep KTTK + A\\
+  \Ta \Go TT \sep KTTK \sep KKTT \sep KTTK + A
+
+  \textbf{var 4} \\
+  \Da \Go TT \sep TTGG \sep GGTT \sep KTTK + A\\
+  \Ta \Go TT \sep TTKK \sep KKTT \KTTK + A
+
 
 % ****************************************************************************
 % ***************************************************************** Kihai Amit
@@ -435,8 +477,8 @@ Exercice : remplacer un matra par
 
 \paragraph{Mukra 2} (TODO)\\
 
-\matra{\Ta \Ti} \matra{\Ta \K} \matra{\Tin \N} \matra{\K\N} \sep
-\matra{\Da\Ti} \matra{\Da\cont \Tt\Ro} \matra{\K\Tt\Ta\Ka} \TRKT
+\matra{\Ta \ti} \matra{\Ta \K} \matra{\Tin \N} \matra{\K\N} \sep
+\matra{\Da\ti} \matra{\Da\cont \Tt\Ro} \matra{\K\Tt\Ta\Ka} \TRKT
 
 
 
@@ -457,10 +499,10 @@ Le tekka :
 
 Pour annoncer un break ternaire, le 8è temps peut être remplacé par une formule ternaire \matra{\Ta \K \N}.
 
-Break à partir de 9è bol.
+Break à partir de 9è bol (TODO Vérifier que Ti est Tin ou Thin ou ti).
 
 \matra{\Ta \K} \matra{\Tt \Ta} \matra{\K \Rt \N \Ka} \TRKT{} \sepnl
-\matra{\Ti \Gd \double{\Da}} \TRKT{} \matra{\Ti \Gd \double{\Da}} \TRKT{} \sepnl\sepnl
+\matra{TI \Gd \double{\Da}} \TRKT{} \matra{TI \Gd \double{\Da}} \TRKT{} \sepnl\sepnl
 
 Break en ternaire
 
