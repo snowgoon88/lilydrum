@@ -21,7 +21,7 @@
 
 %%\lilypondfile[staffsize=18]{all_notes.ly}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
 
 %% Affiche tous les frappes possibles
 
@@ -64,7 +64,7 @@ Jouer en binaire d'une main (ou d'un pied) et ternaire de l'autre, voire des aut
 
 La base
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
   %% Notes
   binaire = \drummode {
@@ -89,7 +89,7 @@ La base
 \end{lilypond}
 qui peut aussi devenir un phrasé ``africain''
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
   %% Notes
   binaire = \drummode {
@@ -115,7 +115,7 @@ qui peut aussi devenir un phrasé ``africain''
 
 Une sequence ternaire de longueur 4.
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
   %% Notes
   binaire = \drummode {
@@ -188,7 +188,7 @@ Ecoute : Bill Stewart - Snide remarks
 Pattern / Groove en 13/16, découper en pattern (ex 3 3 3 4).
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
   %% Notes
   treizeseizeup = \drummode {
@@ -262,7 +262,7 @@ Marquer la pulsation (pied), jouer un débit (ex Ta-ka-di-mi) et en chanter un a
 Avec une pulsation constante, augmenter le débit en mettant de plus en plus de notes dans une mesure. Ex:
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
   %% Notes
   debit = \drummode {
@@ -317,7 +317,7 @@ Et morceau de \textit{Porcupine Tree} «The start of something beautiful» en 9/
 
 \vspace{5mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
   %% Notes
   hhpt = \drummode {
@@ -364,13 +364,13 @@ Ecoute et travail de repérage rythmique sur ``39th to Gülay (To Istanbul)'' de
 
 \vspace{5mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   rythmdy = \drummode {
     \numericTimeSignature
     \override Beam.positions = #'(4 . 4)   %% left right
-    \bar ".|:"
+    \bar ".|:-|"
     \time 11/8
     \override NoteHead.transparent = ##f
     sn8[ \override NoteHead.transparent = ##t sn sn sn]
@@ -414,13 +414,13 @@ ou parfois
 
 \vspace{5mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   rythmdy = \drummode {
     \numericTimeSignature
     \override Beam.positions = #'(4 . 4)   %% left right
-    \bar ".|:"
+    \bar ".|:-|"
     \time 11/8
     \override NoteHead.transparent = ##f
     sn8[ \override NoteHead.transparent = ##t sn sn sn]
@@ -464,7 +464,7 @@ J'essaye de retranscrire l'idée rythmique du thème. Mais la durée des notes p
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   theme = \drummode {
@@ -512,7 +512,7 @@ Puis on aborde des quintolets, par le biais d'une boucle en 5-5-5-5-4-4. De base
 
 \vspace{5mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   %% Notes
@@ -559,7 +559,7 @@ Plus tard ça me fait travailler des choses comme:
 
 \vspace{5mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   %% Notes
@@ -602,7 +602,7 @@ Quelques mesures (9 à 13)
 
 \vspace{5mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   % Notes 
@@ -634,8 +634,8 @@ Quelques mesures (9 à 13)
 
   \score {
     <<
-    \set Score.markFormatter = #format-mark-circle-numbers
-    \override Score.RehearsalMark #'X-offset = #0.5
+    \set Score.rehearsalMarkFormatter = #format-mark-circle-numbers
+    \override Score.RehearsalMark.X-offset = #0.5
     \new DrumStaff
     <<
     \set DrumStaff.drumStyleTable=#(alist->hash-table md)
@@ -651,7 +651,7 @@ Pour sentir le break, on a travaillé aussi incrémentalement.
 
 \vspace{5mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   haut = \drummode {
@@ -674,8 +674,8 @@ Pour sentir le break, on a travaillé aussi incrémentalement.
   }
   \score {
     <<
-    \set Score.markFormatter = #format-mark-circle-numbers
-    \override Score.RehearsalMark #'X-offset = #0.5
+    \set Score.rehearsalMarkFormatter = #format-mark-circle-numbers
+    \override Score.RehearsalMark.X-offset = #0.5
     \new DrumStaff
     <<
     \set DrumStaff.drumStyleTable=#(alist->hash-table md)
@@ -704,7 +704,7 @@ Groove en 7/8 de milieu de Tow Sawyer, de Rush.
 
 \vspace{5mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   haut = \drummode {
@@ -715,7 +715,7 @@ Groove en 7/8 de milieu de Tow Sawyer, de Rush.
     \time 7/8
 
     \mark #1
-    \bar ".|:"
+    \bar ".|:-|"
     hh8[ hh] hh8[ hh] hh8[ hh] hh8
     hh8[ hh] hh8[ hh] hh8[ hh] hh8
 
@@ -750,8 +750,8 @@ Groove en 7/8 de milieu de Tow Sawyer, de Rush.
   }
   \score {
     <<
-    \set Score.markFormatter = #format-mark-circle-numbers
-    \override Score.RehearsalMark #'X-offset = #0.5
+    \set Score.rehearsalMarkFormatter = #format-mark-circle-numbers
+    \override Score.RehearsalMark.X-offset = #0.5
     \new DrumStaff
     <<
     \set DrumStaff.drumStyleTable=#(alist->hash-table md)
@@ -768,7 +768,7 @@ Ce qui amène aussi à parler de jouer HH au pied comme double grosse caisse, pa
 
 \vspace{5mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   haut = \drummode {
@@ -791,8 +791,8 @@ Ce qui amène aussi à parler de jouer HH au pied comme double grosse caisse, pa
   }
   \score {
     <<
-    \set Score.markFormatter = #format-mark-circle-numbers
-    \override Score.RehearsalMark #'X-offset = #0.5
+    \set Score.rehearsalMarkFormatter = #format-mark-circle-numbers
+    \override Score.RehearsalMark.X-offset = #0.5
     \new DrumStaff
     <<
     \set DrumStaff.drumStyleTable=#(alist->hash-table md)
@@ -814,11 +814,11 @@ Aborde difficulté d'accentuer la deuxième croche du triolet, surtout en doubla
 Pattern / Groove en 9/8
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   %% accent
-  act = \markup { \left-align \musicglyph #"scripts.sforzato" }
+  act = \markup { \left-align \musicglyph "scripts.sforzato" }
   
   %% Notes
   maloyaup = \drummode {
@@ -834,7 +834,7 @@ Pattern / Groove en 9/8
     \override NoteHead.transparent = ##f
     hh8[ hh^\act \override NoteHead.transparent = ##t hh]    
 
-    \bar ".|:"
+    \bar ".|:-|"
 
     \override NoteHead.transparent = ##f
     hh8[ hh^\act sn]
@@ -897,7 +897,7 @@ On peut faire un pattern comme un trait, aller et retour, ou en rond. Si on frap
 Pour s'entraîner jouer les patterns du 5B avec soit la caisse claire, soit au pied, soit les deux en faisant le 2 et 4 avec caisse claire. Et avec différent patterns de HH. Et aussi en ternaire.
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   hhpat = \drummode {
@@ -935,7 +935,7 @@ Le 5B peut facilement être interprêté en ternaire, avec GC ou CC, ou CC sur t
 Enfin, remplacer une note en fonction de sa durée en s'inspirant, par exemple, de la transposition suivante.
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   \score {
@@ -962,7 +962,7 @@ Enfin, remplacer une note en fonction de sa durée en s'inspirant, par exemple, 
 \end{lilypond}
 =
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   \score {
@@ -990,7 +990,7 @@ Enfin, remplacer une note en fonction de sa durée en s'inspirant, par exemple, 
 \end{lilypond}
 ,
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   \score {
@@ -1017,7 +1017,7 @@ Enfin, remplacer une note en fonction de sa durée en s'inspirant, par exemple, 
 \end{lilypond}
 =
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   \score {
@@ -1045,7 +1045,7 @@ Enfin, remplacer une note en fonction de sa durée en s'inspirant, par exemple, 
 \end{lilypond}
 ,
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   \score {
@@ -1072,7 +1072,7 @@ Enfin, remplacer une note en fonction de sa durée en s'inspirant, par exemple, 
 \end{lilypond}
 =
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   \score {
@@ -1104,7 +1104,7 @@ Enfin, remplacer une note en fonction de sa durée en s'inspirant, par exemple, 
 Ce qui fait que la première mesure du 5B se réécrit
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   \score {
@@ -1132,7 +1132,7 @@ Ce qui fait que la première mesure du 5B se réécrit
 \end{lilypond}
 =
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   \score {
@@ -1172,7 +1172,7 @@ Je parle de mon manque de stabilité et de ma gêne avec les pieds. Suggère de 
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   hhbinchab = \drummode {
@@ -1228,11 +1228,11 @@ Grille de blues
 Un peu de chabada en trois temps
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   %% accent
-  act = \markup { \left-align \musicglyph #"scripts.sforzato" }
+  act = \markup { \left-align \musicglyph "scripts.sforzato" }
   
   hhbinchab = \drummode {
     \numericTimeSignature
@@ -1265,11 +1265,11 @@ En écoutant le morceau ``Chicago'' (pour l'atelier), on parle de shuffle, class
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   %% accent
-  act = \markup { \left-align \musicglyph #"scripts.sforzato" }
+  act = \markup { \left-align \musicglyph "scripts.sforzato" }
   
   upshuffle = \drummode {
     \numericTimeSignature
@@ -1328,7 +1328,7 @@ Pour la mettre en place, travail sur triolet de noir en 6/8 ou 12/8, en ``marcha
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   upaff = \drummode {
@@ -1336,7 +1336,7 @@ Pour la mettre en place, travail sur triolet de noir en 6/8 ou 12/8, en ``marcha
     \time 6/8
     \override Beam.positions = #'(5 . 5)   %% left right
 
-    \bar ".|:"
+    \bar ".|:-|"
     sn4 sn sn | sn4. sn4.
     \bar ":..:"
 
@@ -1376,7 +1376,7 @@ En évoquant le concert de ``Transe Kabaré'', on parle de musique Maloyan mais 
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   uptroisquatre = \drummode {
@@ -1425,14 +1425,14 @@ La Bossa se joue assez doucement, on évoque le manchon de tennisman pour étouf
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   upbossa = \drummode {
     \time 4/4
     \numericTimeSignature
 
-    \bar ".|:"
+    \bar ".|:-|"
     ss4 r8 ss8 r4 ss4 | r4 ss4 r8 ss8 r4
     \bar ":..:"
     ss4 ss r8 ss r ss | r8 ss r4 ss4 ss
@@ -1472,7 +1472,7 @@ La Bossa se joue assez doucement, on évoque le manchon de tennisman pour étouf
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   upappel = \drummode {
@@ -1539,7 +1539,7 @@ Faire sonner les rudiments en les jouant sur les tom, cymbales, etc. On se conce
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   hand = \drummode {
@@ -1571,7 +1571,7 @@ On parle aussi du ``Mozambique'' de Steve GADD qui est esentiellement un remplis
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   uphand = \drummode {
@@ -1609,7 +1609,7 @@ Par exemple, avec bossa on pourrait avoir.
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   uphand = \drummode {
@@ -1638,7 +1638,7 @@ Par exemple, avec bossa on pourrait avoir.
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   uphand = \drummode {
@@ -1665,7 +1665,7 @@ Par exemple, avec bossa on pourrait avoir.
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   uphand = \drummode {
@@ -1709,7 +1709,7 @@ Pour le morceau ``Sway'' de l'atelier, on aborde la rhumba, le chacha et donc un
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   hand = \drummode {
@@ -1746,7 +1746,7 @@ Pour travailler des rudiments pieds-mains, un truc basique est de commencer à b
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   hand = \drummode {
@@ -1786,7 +1786,7 @@ On peut aussi ne pas jouer les mains pendant les pieds, ce qui donne :
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   hand = \drummode {
@@ -1835,7 +1835,7 @@ Il est aussi utile de travailler des coordinations mains-unpied ou deuxpieds. D'
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   hand = \drummode {
@@ -1898,14 +1898,14 @@ D'abord une ligne de travail, puis une application avec [A] en 4/4, et [B] en 3 
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   hand = \drummode {
     \time 4/4
     \numericTimeSignature
 
-    \bar ".|:"
+    \bar ".|:-|"
     \repeat unfold 3 {hh8[ hh] <hh sn>8[ hh] hh8[ hh] <hh sn>8[ hh]}
     \bar ":|."
   }
@@ -1929,14 +1929,14 @@ D'abord une ligne de travail, puis une application avec [A] en 4/4, et [B] en 3 
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   hand = \drummode {
     \time 4/4
     \numericTimeSignature
 
-    \bar ".|:"
+    \bar ".|:-|"
     \mark \markup {\box A}
     \repeat unfold 3 {hh8[ hh] hh8[ hh] hh8[ hh] hh8[ hh]}
     \bar "||"
@@ -1966,14 +1966,14 @@ Un autre version
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   hand = \drummode {
     \time 4/4
     \numericTimeSignature
 
-    \bar ".|:"
+    \bar ".|:-|"
     \repeat unfold 3 {hh8[ hh] <hh sn>8[ hh] hh8[ hh] <hh sn>8[ hh]}
     \bar ":|."
   }
@@ -1995,14 +1995,14 @@ Un autre version
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   hand = \drummode {
     \time 4/4
     \numericTimeSignature
 
-    \bar ".|:"
+    \bar ".|:-|"
     \mark \markup {\box A}
     \repeat unfold 3 {hh8[ hh] hh8[ hh] hh8[ hh] hh8[ hh]}
     \bar "||"
@@ -2036,7 +2036,7 @@ Plein de cymbales autour de nous, alors on va travailler des placements de cymba
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   cymbales = \drummode {
@@ -2068,7 +2068,7 @@ Plein de cymbales autour de nous, alors on va travailler des placements de cymba
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   cymbales = \drummode {
@@ -2106,14 +2106,14 @@ Cantaloupe Island s'appuie sur un 3-3-2, ou une hémiole. C'est l'essence de la 
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   hands = \drummode {
     \time 4/4
     \numericTimeSignature
 
-    \bar ".|:"
+    \bar ".|:-|"
     hh8[ hh] hh[ <hh sn>] hh[ hh] <hh sn>[ <hh sn>]
     \bar ":..:"
     hh8[ hh16 hh] hh8[ <hh sn>] hh[ hh] <hh sn>[ <hh sn>16 sn]
@@ -2145,7 +2145,7 @@ On le retrouve au niveau du break, qu'on peut travailler avec les idées suivant
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   hands = \drummode {
@@ -2197,7 +2197,7 @@ Pour essayer de retravailler mon geste, je m'astreint à faire du 5B avec la gro
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   hands = \drummode {
@@ -2205,7 +2205,7 @@ Pour essayer de retravailler mon geste, je m'astreint à faire du 5B avec la gro
     \numericTimeSignature
 
     \mark #1
-    \bar ".|:"
+    \bar ".|:-|"
     hh8[ hh] hh8[ hh] hh8[ hh]  hh8[ hh]
 
     \mark #2
@@ -2226,7 +2226,7 @@ Pour essayer de retravailler mon geste, je m'astreint à faire du 5B avec la gro
     <<
     \new DrumStaff
     <<
-    \set Score.markFormatter = #format-mark-circle-alphabet
+    \set Score.rehearsalMarkFormatter = #format-mark-circle-alphabet
     \set DrumStaff.drumStyleTable = #(alist->hash-table md)
     \new DrumVoice { \voiceOne \hands }
     \new DrumVoice { \voiceTwo \foot }
@@ -2244,7 +2244,7 @@ On part d'une décomposition que je pense en 3+5 que David entend en 2+6 pour jo
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   hand = \drummode {
@@ -2281,7 +2281,7 @@ Le pattern à la main droite c'est aussi le No 40 du 5B. On enchaîne alors sur 
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   cinqb = \drummode {
@@ -2322,7 +2322,7 @@ Des propositions de latin en ternaire, sur 6 temps en fait, se trouvent chez le 
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   up = \drummode {
@@ -2350,7 +2350,7 @@ Des propositions de latin en ternaire, sur 6 temps en fait, se trouvent chez le 
 En parlant de cascara, une version à la batterie. Le HH au pied est sensé rappeler le shaker... On peut aussi jouer la grosse caisse sur le 4, mais pas toujours. La cascara peut/doit aussi être jouée sur le fût du tom basse.
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   up = \drummode {
@@ -2422,7 +2422,7 @@ Travailler les doigtés:
 Groove (proposé par Vincent). En funk, penser (et chanter) les «É». Puis, plusieurs exercice où le métronome marque: les «É», le 2 et 4, les double-croches 2 et 4, la double croche 4 et, plus dur, la double croche 4.
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   up = \drummode {
@@ -2451,7 +2451,7 @@ Groove (proposé par Vincent). En funk, penser (et chanter) les «É». Puis, pl
 Pour travailler le pied, exo en boucle
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   up = \drummode {
@@ -2489,7 +2489,7 @@ En écoutant la version des headhunter de Watermelon Man, voilà des idées jou�
 Rythme de la ligne de basse
 \vspace{5mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   rythmdy = \drummode {
@@ -2529,7 +2529,7 @@ Deux patterns à la batterie, groove et break ?
 
 \vspace{2mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   up = \drummode {
@@ -2565,7 +2565,7 @@ Deux patterns à la batterie, groove et break ?
 Le premier est tiré d'un morceau de Hard Rock
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   up = \drummode {
@@ -2599,7 +2599,7 @@ Le premier est tiré d'un morceau de Hard Rock
 Le deuxième du morceau «breath» de l'album «antiphon» d'Alfa Mist. C'est en 7/8
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   up = \drummode {
@@ -2609,7 +2609,7 @@ Le deuxième du morceau «breath» de l'album «antiphon» d'Alfa Mist. C'est en
 
     hh8[ hh] hh8[ hh] hh8[ hh hh] |
     sn16[ sn sn sn16:32] sn16^\act[ sn sn sn^\act] sn16[ sn16:32 sn] sn16[ sn sn]
-    \bar ".|:" \break
+    \bar ".|:-|" \break
     sn16[ sn sn sn16:32] sn16^\act[ sn sn sn^\act] sn16[ sn16:32 sn] sn16[ sn sn] |
     sn16[ sn sn sn16:32] sn16^\act[ sn sn sn^\act] sn16[ sn16:32 sn] sn16[ sn sn]
     \bar ":|."
@@ -2637,7 +2637,7 @@ Le deuxième du morceau «breath» de l'album «antiphon» d'Alfa Mist. C'est en
 Le troisième est Funk, on a fait des varations et des 4x4 dessus.
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   up = \drummode {
@@ -2667,7 +2667,7 @@ Le troisième est Funk, on a fait des varations et des 4x4 dessus.
 Le quatrième est de Bill Stewart, plutôt latin.
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \include "general_def.ly"
 
   up = \drummode {

@@ -44,7 +44,7 @@ if [ "$need_compile" = true ]; then
    echo "lilypond-book --format=latex --pdf ${obj}.lytex"
    echo "latexmk --pdf ${obj}.tex"
 
-   lilypond-book --format=latex --pdf ${obj}.lytex && latexmk --pdf $obj.tex
+   lilypond-book --format=latex --pdf ${obj}.lytex && latexmk -pdf $obj.tex
 fi
 
 if [ "$need_cleaning" = true ]; then
@@ -72,5 +72,6 @@ if [ "$need_cleaning" = true ]; then
     rm -f snippet*.ly
 
     rm -f tmp*.pdf tmp*.out
+    rm -f lock
 fi
 

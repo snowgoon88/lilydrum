@@ -1,3 +1,4 @@
+\version "2.24.0"
 %% ***************************************************************************
 %% ** notes, \swing, \ghost sn ***********************************************
 %% ***************************************************************************
@@ -9,9 +10,9 @@
   (splashcymbal  harmonic   #f          6)
   (pedalhihat    cross      #f         -5)
   (hihat         cross      #f          5)
-  (halfopenhihat cross      "halfopen"  5)
-  (closedhihat   cross      "stopped"   5)
-  (openhihat     cross      "open"      5)
+  (halfopenhihat cross      halfopen  5)
+  (closedhihat   cross      stopped   5)
+  (openhihat     cross      open      5)
   (snare         default    #f          1)
   (sidestick     cross   #f          1)
   (cowbell       triangle   #f          6)
@@ -27,12 +28,12 @@
 allheads = \drummode { 
   \stemUp
   sn4 
-  \override NoteHead #'style = #'cross sn4
-  \override NoteHead #'style = #'xcircle sn4
-  \override NoteHead #'style = #'diamond sn4
-  \override NoteHead #'style = #'slash sn4
-  \override NoteHead #'style = #'harmonic sn4
-  \override NoteHead #'style = #'triangle sn4
+  \override NoteHead.style = #'cross sn4
+  \override NoteHead.style = #'xcircle sn4
+  \override NoteHead.style = #'diamond sn4
+  \override NoteHead.style = #'slash sn4
+  \override NoteHead.style = #'harmonic sn4
+  \override NoteHead.style = #'triangle sn4
 }
 
 defnote = \drummode {
@@ -56,7 +57,7 @@ defname = \lyricmode {
 
 %% function to add an accent
 %% usage sn^\act
-act = \markup { \left-align \musicglyph #"scripts.sforzato" }
+act = \markup { \left-align \musicglyph "scripts.sforzato" }
 
 %% function to add right or left (open or filled circle) below notes
 %% usage sn_\left
@@ -66,7 +67,7 @@ right= \markup {\center-column {\draw-circle #0.5 #0.1 ##f }}
 %% function to add a ghost note
 %% usage \ghost sn
 ghost = #(define-music-function
-          (parser location note)
+          (note)
           (ly:music?)
           #{
           \parenthesize \tweak font-size -4 #note
@@ -76,7 +77,7 @@ ghost = #(define-music-function
 %% usage \makePercent note
 makePercent =
 #(define-music-function
-  (parser location note) (ly:music?)
+  (note) (ly:music?)
   "Make a percent repeat the same length as NOTE."
   (make-music 'PercentEvent
    'length (ly:music-length note)))
@@ -86,7 +87,7 @@ makePercent =
 %% usage  \makePercentRepeat "     x2" s1
 makePercentRepeat =
 #(define-music-function
-  (parser location txt note) (string? ly:music?)
+  (txt note) (string? ly:music?)
   "Make a percent repeat the same length as NOTE."
   #{
   \mark \markup { #txt }
@@ -98,14 +99,13 @@ swing = \mark \markup {
   \line \general-align #Y #DOWN { \score { 
   \new Staff \with {
     fontSize = #-2
-    \override StaffSymbol #'line-count = #0 
-    \override VerticalAxisGroup #'Y-extent = #'(0 . 0)
+    \override StaffSymbol.line-count = #0 
+    \override VerticalAxisGroup.Y-extent = #'(0 . 0)
   }
   \relative { 
     \stemUp 
-    \override Score.SpacingSpanner 
-      #'common-shortest-duration = #(ly:make-moment 3 16) 
-    \override Beam #'positions = #'(2.5 . 2.5)
+    \override Score.SpacingSpanner.common-shortest-duration = #(ly:make-moment 3 16) 
+    \override Beam.positions = #'(2.5 . 2.5)
     b'8[ b8] 
   }
   \layout {
@@ -117,14 +117,13 @@ swing = \mark \markup {
   }} " ="
   \score { \new Staff \with {
     fontSize = #-2
-    \override StaffSymbol #'line-count = #0 
-    \override VerticalAxisGroup #'Y-extent = #'(0 . 0)
+    \override StaffSymbol.line-count = #0 
+    \override VerticalAxisGroup.Y-extent = #'(0 . 0)
   }
   \relative { 
     \stemUp 
-    \override Score.SpacingSpanner 
-      #'common-shortest-duration = #(ly:make-moment 3 16)
-    \override Beam #'positions = #'(2.5 . 2.5)
+    \override Score.SpacingSpanner.common-shortest-duration = #(ly:make-moment 3 16)
+    \override Beam.positions = #'(2.5 . 2.5)
     \times 2/3 { b'8[ r b8] } 
   }
   \layout {
