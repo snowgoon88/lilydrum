@@ -1740,7 +1740,8 @@ Pour le morceau ``Sway'' de l'atelier, on aborde la rhumba, le chacha et donc un
 % ****************************************************************************
 % ******************************************** Rudiment Pied/main - 21/01/2020 
 % ****************************************************************************
-\section{Rudiment Pied/main - 21/01/2020}
+\section{Rudiment Pied/main - 21/01/2020
+  \label{sec:gcwork}}
 
 Pour travailler des rudiments pieds-mains, un truc basique est de commencer à bien placer les pieds. Alors je fais des séries de ce qui suit, en alternant les pieds, et avec ou sans pied qui marque le temps :
 
@@ -2693,6 +2694,26 @@ Le quatrième est de Bill Stewart, plutôt latin.
   }
 \end{lilypond}
 
+% ****************************************************************************
+% ******************************************************** linear - 29/01/2024
+% ****************************************************************************
+\section{linear - 29/01/2024
+\label{sec::linfill}}
+
+TODO
+
+% ****************************************************************************
+% ************************************************** A travailler - 29/01/2024
+% ****************************************************************************
+\section{A travailler - 29/01/2024}
+
+\begin{itemize}
+\item Echauffement : double croche en frisé (+ HH) + GC sur chaque $16$, $2x16$, $3x16$.
+\item Grosse caisse : cf feuille ``''.
+\item Grosse caisse : schéma HH classiques + GC sur chaque $16$, $2x16$, $3x16$. (\ref{sec:gcwork})
+\item linear fill (\ref{sec:linfill})
+\item Solo Jazz : cf pXX de ``''.
+\item Revoir DVD de XXX
+\end{itemize}
 
 \end{document}
-
