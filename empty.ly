@@ -2,7 +2,7 @@
 %% ** Create an empty musicscore
 %% ***************************************************************************
 
-\version "2.18.0"
+\version "2.24.0"
 
 
 
@@ -22,9 +22,9 @@ emptymusic = {
   pagenumber = no
 }
 \new Score \with {
-  \override TimeSignature #'transparent = ##t
-  \override Clef #'transparent = ##t
-  defaultBarType = #""
+  \override TimeSignature.transparent = ##t
+  \override Clef.transparent = ##t
+  measureBarType = #""
   \remove Bar_number_engraver
   \remove Clef_engraver
 } <<

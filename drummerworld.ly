@@ -1,4 +1,4 @@
-\version "2.18.0"
+\version "2.24.0"
 
 \include "general_def.ly"
 
@@ -17,7 +17,7 @@ fiftyways = \drummode {
   \override Beam.positions = #'(5 . 5)   %% left right
   % Notes
   s4 s s s8 sn32_"R" sn_"R" sn_"L" sn_"L"
-  \bar ".|:"
+  \bar ".|:-|"
   <bd hhp>16 hh_"L" sn_"R" hhp
   hh_"L" sn_"R" hh_"L" bd 
   <bd tomfh>4
@@ -34,8 +34,8 @@ fiftyways = \drummode {
 \score
 {
   <<
-    \set Score.markFormatter = #format-mark-circle-numbers
-    \override Score.RehearsalMark #'X-offset = #0.5
+    \set Score.rehearsalMarkFormatter = #format-mark-circle-numbers
+    \override Score.RehearsalMark.X-offset = #0.5
     \new DrumStaff
     <<
       \set DrumStaff.drumStyleTable=#(alist->hash-table md)
@@ -62,7 +62,7 @@ lineargroove = \drummode {
   \numericTimeSignature
   \override Beam.positions = #'(5 . 5)   %% left right
   % Notes
-  \bar ".|:"
+  \bar ".|:-|"
 
   <bd hh>16_"R" \ghost sn_"L" hh_"R" sn^>_"L"
   hh_"R" hh_"R" \ghost sn_"L" bd
@@ -79,8 +79,8 @@ lineargroove = \drummode {
 \score
 {
   <<
-    \set Score.markFormatter = #format-mark-circle-numbers
-    \override Score.RehearsalMark #'X-offset = #0.5
+    \set Score.rehearsalMarkFormatter = #format-mark-circle-numbers
+    \override Score.RehearsalMark.X-offset = #0.5
     \new DrumStaff
     <<
       \set DrumStaff.drumStyleTable=#(alist->hash-table md)
@@ -108,7 +108,7 @@ hhpnvar = \drummode {
   \override Beam.positions = #'(5 . 5)   %% left right
   % Notes
   \mark #1 
-   \bar ".|:"
+   \bar ".|:-|"
    hh8[ hh] hh[ hh] hh[ hho] hhc[ hh] |
    hh8[ hh] hh[ hh] hh[ hh]  hh[ hh]
 
@@ -186,8 +186,8 @@ sbpnvar = \drummode {
 \score
 {
   <<
-    \set Score.markFormatter = #format-mark-circle-numbers
-    \override Score.RehearsalMark #'X-offset = #0.5
+    \set Score.rehearsalMarkFormatter = #format-mark-circle-numbers
+    \override Score.RehearsalMark.X-offset = #0.5
     \new DrumStaff
     <<
       \set DrumStaff.drumStyleTable=#(alist->hash-table md)
@@ -226,8 +226,8 @@ tripletsoloroach = \drummode {
 \score
 {
   <<
-    \set Score.markFormatter = #format-mark-circle-numbers
-    \override Score.RehearsalMark #'X-offset = #0.5
+    \set Score.rehearsalMarkFormatter = #format-mark-circle-numbers
+    \override Score.RehearsalMark.X-offset = #0.5
     \new DrumStaff
     <<
       \set DrumStaff.drumStyleTable=#(alist->hash-table md)
@@ -266,7 +266,7 @@ hhgrovesg = \drummode {
   \numericTimeSignature
 
   % Notes
-  \bar ".|:"
+  \bar ".|:-|"
   \mark #1
   hh16^"R" hh^"L" hh^"R" hh^"L"
   hh^"L"   hh^"L" hh^"R" hh^"L"
@@ -297,8 +297,8 @@ snbdgrovesg = \drummode {
 \score
 {
   <<
-    \set Score.markFormatter = #format-mark-circle-numbers
-    \override Score.RehearsalMark #'X-offset = #0.5
+    \set Score.rehearsalMarkFormatter = #format-mark-circle-numbers
+    \override Score.RehearsalMark.X-offset = #0.5
     \new DrumStaff
     <<
       \set DrumStaff.drumStyleTable=#(alist->hash-table md)
@@ -316,8 +316,8 @@ snbdgrovesg = \drummode {
 \score
 {
   <<
-    \set Score.markFormatter = #format-mark-circle-numbers
-    \override Score.RehearsalMark #'X-offset = #0.5
+    \set Score.rehearsalMarkFormatter = #format-mark-circle-numbers
+    \override Score.RehearsalMark.X-offset = #0.5
     \new DrumStaff
     <<
       \set DrumStaff.drumStyleTable=#(alist->hash-table md)

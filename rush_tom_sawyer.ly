@@ -1,4 +1,4 @@
-\version "2.18.0"
+\version "2.24.0"
 
 \include "general_def.ly"
 
@@ -52,8 +52,8 @@ vonemel = \drummode {
 \score
 {
   <<
-    \set Score.markFormatter = #format-mark-circle-numbers
-    \override Score.RehearsalMark #'X-offset = #0.5
+    \set Score.rehearsalMarkFormatter = #format-mark-circle-numbers
+    \override Score.RehearsalMark.X-offset = #0.5
     \new DrumStaff
     <<
       \set DrumStaff.drumStyleTable=#(alist->hash-table md)

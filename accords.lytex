@@ -27,7 +27,7 @@ Dans les exemples, on part d'un accord de Do septième (C7) [do-mi-sol-$si^b$] p
 Exemple 1 : [1-b7-5-3]
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \score {
     <<
     % set the starting point to middle C
@@ -46,7 +46,7 @@ Exemple 1 : [1-b7-5-3]
 Exemple 2 : [1-2-3-5]
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \score {
     <<
     % set the starting point to middle C
@@ -65,7 +65,7 @@ Exemple 2 : [1-2-3-5]
 Exemple 3 : [1-3-5-1], à la fin on a une quinte (do/c vers fa/f)
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \score {
     <<
     % set the starting point to middle C
@@ -84,7 +84,7 @@ Exemple 3 : [1-3-5-1], à la fin on a une quinte (do/c vers fa/f)
 Exemple 4 : [1-b7-6-5], échelle mixolydienne (11\sfrac{1}{2}11\sfrac{1}{2}1 vs 11\sfrac{1}{2}111\sfrac{1}{2})
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \score {
     <<
     % set the starting point to middle C
@@ -103,7 +103,7 @@ Exemple 4 : [1-b7-6-5], échelle mixolydienne (11\sfrac{1}{2}11\sfrac{1}{2}1 vs 
 Exemple 5 : [1-2-b3-3], chromatique (deux demi-tons inégaux)
 
 \begin{lilypond}[staffsize=18]
-  \version "2.18.2"
+  \version "2.24.0"
   \score {
     <<
     % set the starting point to middle C
