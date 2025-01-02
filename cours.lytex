@@ -2716,4 +2716,213 @@ TODO
 \item Revoir DVD de XXX
 \end{itemize}
 
+
+% ****************************************************************************
+% ************************************************** Rythme Gnawa - 02/01/2024
+% ****************************************************************************
+\section{Rythme Gnawa et Chaani - 02/01/2024}
+
+Ce qu'on joue aux ``karkabas''. C'est presque des triolets, avec l'accent sur le ??? coup. Si j'écris un temps en 12/8 cela ressemble à:
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  rythmdy = \drummode {
+    \numericTimeSignature
+    \override Beam.positions = #'(4 . 4)   %% left right
+
+    \time 12/8
+
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+
+    sn8[ \override NoteHead.transparent = ##f
+    sn8 \override NoteHead.transparent = ##t sn sn]
+
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+}
+
+\score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \rythmdy }
+    >>
+    >>
+  }
+\end{lilypond}
+
+Et donc, en 4 temps (toujours en 12/8), on aurait:
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  rythmdy = \drummode {
+    \numericTimeSignature
+    \override Beam.positions = #'(6 . 6)   %% left right
+
+    \time 12/8
+
+    %% 1
+    \override NoteHead.transparent = ##f
+    hh32[ \override NoteHead.transparent = ##t hh hh hh]
+
+    hh32[ \override NoteHead.transparent = ##f
+    hh32 \override NoteHead.transparent = ##t hh hh]
+
+    \override NoteHead.transparent = ##f
+    hh32[ \override NoteHead.transparent = ##t hh hh hh]
+
+    %% 2
+    \override NoteHead.transparent = ##f
+    hh32[ \override NoteHead.transparent = ##t hh hh hh]
+
+    hh32[ \override NoteHead.transparent = ##f
+    hh32 \override NoteHead.transparent = ##t hh hh]
+
+    \override NoteHead.transparent = ##f
+    hh32[ \override NoteHead.transparent = ##t hh hh hh]
+
+    %% 3
+    \override NoteHead.transparent = ##f
+    hh32[ \override NoteHead.transparent = ##t hh hh hh]
+
+    hh32[ \override NoteHead.transparent = ##f
+    hh32 \override NoteHead.transparent = ##t hh hh]
+
+    \override NoteHead.transparent = ##f
+    hh32[ \override NoteHead.transparent = ##t hh hh hh]
+
+    %% 4
+    \override NoteHead.transparent = ##f
+    hh32[ \override NoteHead.transparent = ##t hh hh hh]
+
+    hh32[ \override NoteHead.transparent = ##f
+    hh32 \override NoteHead.transparent = ##t hh hh]
+
+    \override NoteHead.transparent = ##f
+    hh32[ \override NoteHead.transparent = ##t hh hh hh]
+  }
+
+\score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \rythmdy }
+    >>
+    >>
+  }
+\end{lilypond}
+
+C'est tiré de: \url{https://www.youtube.com/watch?v=sRaDSA6DGu8}
+
+Ce qui peut permettre de jouer du Chaabi (voir Yogev Gabai, \url{https://www.youtube.com/watch?v=xM83XVw83yk})
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  rythmdy = \drummode {
+    \numericTimeSignature
+    \override Beam.positions = #'(6 . 6)   %% left right
+    \time 6/8
+
+    %% 1
+    \override NoteHead.transparent = ##f
+    hh32[ \override NoteHead.transparent = ##t hh hh hh]
+
+    hh32[ \override NoteHead.transparent = ##f
+    hh32 \override NoteHead.transparent = ##t hh hh]
+
+    \override NoteHead.transparent = ##f
+    hh32[ \override NoteHead.transparent = ##t hh hh hh]
+
+    %% 2
+    \override NoteHead.transparent = ##f
+    hh32[ \override NoteHead.transparent = ##t hh hh hh]
+
+    hh32[ \override NoteHead.transparent = ##f
+    hh32 \override NoteHead.transparent = ##t hh hh]
+
+    \override NoteHead.transparent = ##f
+    hh32[ \override NoteHead.transparent = ##t hh hh hh] |
+
+    %% 3
+    \override NoteHead.transparent = ##f
+    hh32[ \override NoteHead.transparent = ##t hh hh hh]
+
+    hh32[ \override NoteHead.transparent = ##f
+    hh32 \override NoteHead.transparent = ##t hh hh]
+
+    \override NoteHead.transparent = ##f
+    hh32[ \override NoteHead.transparent = ##t hh hh hh]
+
+    %% 4
+    \override NoteHead.transparent = ##f
+    hh32[ \override NoteHead.transparent = ##t hh hh hh]
+
+    hh32[ \override NoteHead.transparent = ##f
+    hh32 \override NoteHead.transparent = ##t hh hh]
+
+    \override NoteHead.transparent = ##f
+    hh32[ \override NoteHead.transparent = ##t hh hh hh]
+  }
+
+  down = \drummode {
+
+    r4 sn8 r8 bd4 |
+    r8 sn4 r8 bd4
+  }
+
+\score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \rythmdy }
+    \new DrumVoice { \voiceTwo \down }
+    >>
+    >>
+  }
+\end{lilypond}
+
+que pour simplifier on écrit comme ça :
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  rythmdy = \drummode {
+    \numericTimeSignature
+    %% \override Beam.positions = #'(6 . 6)   %% left right
+    \time 6/8
+
+    hh8[ hh hh]
+    hh8[ hh hh] |
+
+    hh8[ hh hh]
+    hh8[ hh hh]
+  }
+
+  down = \drummode {
+    r4 sn8 r8 bd4 |
+    r8 sn4 r8 bd4
+  }
+
+\score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \rythmdy }
+    \new DrumVoice { \voiceTwo \down }
+    >>
+    >>
+  }
+\end{lilypond}
 \end{document}
