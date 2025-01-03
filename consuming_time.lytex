@@ -1,0 +1,95 @@
+
+% -*- mode : Tex -*-
+\documentclass{article}
+
+\usepackage{fullpage}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[OT1]{fontenc}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{Consuming Time - Yogev Gabay}
+\author{Retranscrit par Alain}
+
+\maketitle
+
+% ****************************************************************************
+% ********************************************** Rosetta Stoned - Tool - Ep #1
+% ****************************************************************************
+\section{Rosetta Stoned - Tool - Ep \#1}
+
+\url{https://www.youtube.com/watch?v=UN4lV64U1JA}
+
+Le polyrithme vient du fait que la basse/grosse caisse joue
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  \score {
+    <<
+    \new DrumStaff \with {
+      %%\remove "Staff_symbol_engraver"
+      \remove "Clef_engraver"
+      %%\remove "Time_signature_engraver"
+    }
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice {
+      \drummode {
+        \stemUp
+        \numericTimeSignature
+        \time 5/16
+
+        \override NoteHead.transparent = ##f
+        sn16[ \override NoteHead.transparent = ##t sn]
+
+
+        \override NoteHead.transparent = ##f
+        sn16[ \override NoteHead.transparent = ##t sn sn]
+      }
+    }
+    >>
+    >>
+  }
+\end{lilypond}
+
+sur un débit de doubles croches pendant que la caisse claire marque le 3° temps sur du 3/4. La basse joue des ``G'' en même temps que la grosse caisse, et une descente sur la caisse claire. Ce qui donne:
+
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  up = \drummode {
+    \numericTimeSignature
+    \time 3/4
+    %% \override Beam.positions = #'(5 . 5)   %% left right
+
+    \bar ".|:"
+    bd8 bd8 r16 bd8[ bd16] sn8 bd |
+    bd8. bd16 r16 bd8. sn8 bd |
+    r16 bd8 bd16  r8 bd8 sn8. bd16 |
+    r16 bd8. bd8 bd sn16[ bd8 bd16] |
+    r8 bd8  bd8. bd16  sn16 bd8.
+    \bar ":|."
+
+  }
+  \score {
+    <<
+    \chords {
+      \set noChordSymbol = ""
+      R2 g2. f2. ees2. c2. bes2.  }
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable=#(alist->hash-table md)
+    \new DrumVoice {\voiceOne \up}
+    >>
+    >>
+  }
+\end{lilypond}
+
+
+\end{document}
