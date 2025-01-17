@@ -22,8 +22,7 @@
 
 \url{https://www.youtube.com/watch?v=UN4lV64U1JA}
 
-Le polyrithme vient du fait que la basse/grosse caisse joue
-
+Le polyrythme vient du fait que la basse/grosse caisse joue
 \begin{lilypond}[staffsize=18]
   \version "2.24.0"
   \include "general_def.ly"
@@ -81,7 +80,7 @@ sur un débit de doubles croches pendant que la caisse claire marque le 3° temp
     <<
     \chords {
       \set noChordSymbol = ""
-      R2 g2. f2. ees2. c2. bes2.  }
+      R2 g2. f2. ees2. c2. bes4  }
     \new DrumStaff
     <<
     \set DrumStaff.drumStyleTable=#(alist->hash-table md)
@@ -91,5 +90,138 @@ sur un débit de doubles croches pendant que la caisse claire marque le 3° temp
   }
 \end{lilypond}
 
+Si on ajoute les mains qui jouent ``flaR R L''sur un débit de double croche, cela tourne sur 2x5 mesures de 3/4, soit 5 mesures de 6/4.
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  up = \drummode {
+    \numericTimeSignature
+    \time 6/4
+    %% \override Beam.positions = #'(5 . 5)   %% left right
+
+    <tommh tomml>16 tomml tommh <tommh tomml>
+    tomml tommh <tommh tomml> tomml
+    tommh <tommh tomml> tomml tommh
+
+    <tommh tomml>16 tomml tommh <tommh tomml>
+    tomml tommh <tommh tomml> tomml
+    sn <tommh tomml> tomml tommh |
+
+    <tommh tomml>16 tomml tommh <tommh tomml>
+    tomml tommh <tommh tomml> tomml
+    tommh <tommh tomml> tomml tommh
+
+    <tommh tomml>16 tomml tommh <tommh tomml>
+    tomml tommh <tommh tomml> tomml
+    sn <tommh tomml> tomml tommh |
+
+    <tommh tomml>16 tomml tommh <tommh tomml>
+    tomml tommh <tommh tomml> tomml
+    tommh <tommh tomml> tomml tommh
+
+    <tommh tomml>16 tomml tommh <tommh tomml>
+    tomml tommh <tommh tomml> tomml
+    sn <tommh tomml> tomml tommh |
+
+    <tommh tomml>16 tomml tommh <tommh tomml>
+    tomml tommh <tommh tomml> tomml
+    tommh <tommh tomml> tomml tommh
+
+    <tommh tomml>16 tomml tommh <tommh tomml>
+    tomml tommh <tommh tomml> tomml
+    sn <tommh tomml> tomml tommh |
+
+    <tommh tomml>16 tomml tommh <tommh tomml>
+    tomml tommh <tommh tomml> tomml
+    tommh <tommh tomml> tomml tommh
+
+    <tommh tomml>16 tomml tommh <tommh tomml>
+    tomml tommh <tommh tomml> tomml
+    sn <tommh tomml> tomml tommh |
+
+}
+
+  down = \drummode {
+
+    \bar ".|:"
+    bd8 bd r16 bd8[ bd16] r8 bd8
+    bd8.[ bd16] r16 bd8. bd8[ bd8] |
+
+    r16 bd8[ bd16] r8 bd8 bd8. bd16
+    r16 bd8. bd8[ bd] r16 bd8[ bd16] |
+
+    r8 bd8  bd8. bd16  r16 bd8.
+    bd8 bd8 r16 bd8[ bd16] r8 bd |
+
+    bd8. bd16 r16 bd8. bd8[ bd]
+    r16 bd8 bd16  r8 bd8 bd8. bd16 |
+
+    r16 bd8. bd8[ bd] r16 bd8[ bd16]
+    r8 bd8  bd8. bd16  r16 bd8.
+    \bar ":|."
+
+  }
+  \score {
+    <<
+    \chords {
+      \set noChordSymbol = ""
+      R2 g2. f2. ees2. c2. bes2. g2. f2. ees2. c2. bes4 }
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable=#(alist->hash-table md)
+    \new DrumVoice {\voiceOne \up}
+    \new DrumVoice {\voiceTwo \down}
+    >>
+    >>
+  }
+\end{lilypond}
+
+% ****************************************************************************
+% ************************************************* Chaabi - Maghreb - Ep \#35
+% ****************************************************************************
+\section{Chaabi - Maghreb - Ep \#35}
+
+\url{https://www.youtube.com/watch?v=xM83XVw83yk}
+
+Le Chaabi se jour en 6/8, avec les temps fort (Sn) et faible (GC) qui ne sont pas sur les temps. Et le 1er temps n'est pas le temps fort (alors que c'est souvent le cas dans la musique occidentale). En plus, il faudrait jouer le groove un peu spécial des Karakabou à la place de faire des croches régulières au HH.
+
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  up = \drummode {
+    \numericTimeSignature
+    \time 6/8
+    %% \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh8 hh hh hh8 hh hh |
+    hh8 hh hh hh8 hh hh
+    }
+
+  down = \drummode {
+
+    \bar ".|:"
+    r4 sn8 r8 bd4 |
+    r8 sn4 r8 bd4
+
+    \bar ":|."
+
+  }
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable=#(alist->hash-table md)
+    \new DrumVoice {\voiceOne \up}
+    \new DrumVoice {\voiceTwo \down}
+    >>
+    >>
+  }
+\end{lilypond}
+
+Il faut écouter ``Ifrikya'' de Karim ZIAD, et tout spécialiement ``The Joker'', puis ``Gwarir'' (break intro/outro peuvent se terminer sur le beat 1 ou, mieux, sur le beat 5), et ``Amaliya'', rapide, qu'on peut entendre ``faux'' (en 2), ok en 3 et ok mieux en 4.
 
 \end{document}
