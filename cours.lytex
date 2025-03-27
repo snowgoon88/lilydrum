@@ -2925,4 +2925,102 @@ que pour simplifier on écrit comme ça :
     >>
   }
 \end{lilypond}
+
+% ****************************************************************************
+% *********************************************************** Quelques grooves
+% ****************************************************************************
+\section{Quelques grooves - 26/03/25}
+
+Tiré de Taylor Swift
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    r4 rb r8 rb r8 rb |
+    r4 rb rb rb8 rb
+  }
+  downnotes = \drummode {
+    bd4 sn8 bd8 r4 sn8 bd |
+    bd4 sn r8 bd8 sn4
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes}
+    >>
+    >>
+  }
+\end{lilypond}
+
+Tiré de ???
+
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    bd4 sn8 bd tommh16 bd8 tomfh16 sn8 tomfh8 |
+    bd4 sn8 bd tommh16 bd8 tomfh16 sn8 tomfh16 tomfh16
+  }
+  downnotes = \drummode {
+    r8 hhp r hhp r hhp r hhp |
+    r8 hhp r hhp r hhp r hhp
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes}
+    >>
+    >>
+  }
+\end{lilypond}
+
+Groove linéaire de ``A vos baguettes''
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    \override Beam.positions = #'(6 . 6)   %% left right
+    bd16 tommh bd tomfh sn hh hh tommh32 tommh bd16 tommh tomfh bd sn bd tomfh bd
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+
+
+
 \end{document}
