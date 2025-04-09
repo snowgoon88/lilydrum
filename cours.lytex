@@ -3021,6 +3021,97 @@ Groove linéaire de ``A vos baguettes''
   }
 \end{lilypond}
 
+% ****************************************************************************
+% *********************************************** Clash et ostinato - 01/04/25
+% ****************************************************************************
+\section{Clash et ostinato - 01/04/25}
+
+Un ostinato de ``The Clash'', inhabituel.
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    %% \override Beam.positions = #'(6 . 6)   %% left right
+    sn4 ssl8 ss8 r8 ss ss4 |
+    ss8 ss r8 ss ss4 sn
+  }
+  downnotes = \drummode {
+    bd4 r bd r |
+    bd4 r bd4 r
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+
+et aussi un rythme qui fait presque ``Afro''. Inspiré par:
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    sn4. sn4. sn4
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    hh8.[ hh16] r8 hh8 hh8.[ hh16] r8 hh8
+  }
+  downnotes = \drummode {
+    bd4 bd bd bd
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+
+
+
 
 
 \end{document}

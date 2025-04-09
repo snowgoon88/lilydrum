@@ -14,7 +14,8 @@
   (closedhihat   cross      stopped   5)
   (openhihat     cross      open      5)
   (snare         default    #f          0)
-  (sidestick     cross   #f          1)
+  (sidestick     cross   #f          0)
+  (losidestick   triangle   #f       0)
   (cowbell       triangle   #f          6)
   (himidtom      diamond    #f          2)
   (lowmidtom     diamond    #f          1)
@@ -24,6 +25,12 @@
   (oneup         default    #f          5)
   (longwhistle   slash      #t          0)
 ))
+%% drumPitchNames =
+%%   #(append
+%%     '((leftsnap . sidestick)
+%%       (rightsnap . ridecymbal))
+%%     drumPitchNames)
+%% drumPitchName.sb = #'bothside
 
 allheads = \drummode { 
   \stemUp
@@ -37,7 +44,7 @@ allheads = \drummode {
 }
 
 defnote = \drummode {
-  sn4^"snare" ss s2 |
+  sn4^"snare" ss ssl s |
   bd4^"feet" s hhp s |
   hh4^"hat" hho hhho hhc
   cymr4^"ride" s rb s |  
@@ -46,7 +53,7 @@ defnote = \drummode {
 }
 
 defname = \lyricmode {
-  sn ss |
+  sn ss ssl |
   bd hhp |
   hh hho hhho hhc |
   cymr rb |
