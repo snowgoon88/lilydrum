@@ -3110,6 +3110,67 @@ et aussi un rythme qui fait presque ``Afro''. Inspiré par:
   }
 \end{lilypond}
 
+% ****************************************************************************
+% ******************************************************************** Punk -
+% ****************************************************************************
+\section{Punk - 23/04/25}
+
+Des trucs ``classique'' en Punk, penser les noires comme des doubles croches.
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    hh4 hh hh hh
+  }
+  downnotes = \drummode {
+    bd4 sn r8 bd8 sn4
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    hh4 hh hh hh | hh hh hh hh
+  }
+  downnotes = \drummode {
+    bd4 sn r8 bd8 sn4 | bd4 sn8 bd r bd sn4
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+
 
 
 
