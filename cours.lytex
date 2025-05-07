@@ -3171,8 +3171,147 @@ Des trucs ``classique'' en Punk, penser les noires comme des doubles croches.
   }
 \end{lilypond}
 
+% ****************************************************************************
+% ************************************************* Quelques grooves Africains
+% ****************************************************************************
+\section{Quelques grooves Africains - 07/05/2025}
 
+Le premier vient du double moulin distribué entre cloche (main droite) et toms, caisse claire (rimshot, sans snare) à la main gauche.
 
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
 
+  %% Notes
+  upnotes = \drummode {
+    \time 12/8
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
 
+    cb8^\right tommh^\left cb^\right tomml^\left cb^\right cb^\right
+    tommh^\left cb^\right tomml^\left cb^\right tomfl^\left tomfl^\left |
+
+    cb8^\right sn^\left cb^\right sn^\left cb^\right cb^\right
+    sn^\left cb^\right sn^\left cb^\right sn^\left cb^\right
+  }
+  downnotes = \drummode {
+    bd4. bd bd bd |
+    <bd hhp>4. <bd hhp>4. <bd hhp>4. <bd hhp>4.
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+
+Parfois aussi pensé en $12=5+5+2$ (mais sonne moins africain).
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upnotes = \drummode {
+    \time 12/8
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    cb8^\right sn^\left cb^\right cb^\right sn^\left
+    cb8^\right sn^\left cb^\right cb^\right sn^\left
+    cb^\right sn^\left
+  }
+  downnotes = \drummode {
+    <bd hhp>4. <bd hhp>4. <bd hhp>4. <bd hhp>4.
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+
+Et aussi une adaptation du rythme ``Gawa (??)'' qui, de base s'écrit.
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upnotes = \drummode {
+    \time 12/8
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh4.  r8 hh4  r8 hh4 hh4 hh8
+  }
+  downnotes = \drummode {
+    bd4. hhp4 \parenthesize bd8 bd4. hhp4 \parenthesize bd8
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+
+David fait le lien avec la presque clave cubaine (en 3-2), en pensant triolet de noires et un deuxième décalées d'une croche. Et propose aussi de travailler avec des frisé.
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upnotes = \drummode {
+    \time 12/8
+    \numericTimeSignature
+    % \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh4 hh4 hh4  r8 hh4 hh4 hh8 |
+    hh4 hh4 hh4  r8 hh4 hh4 r8 |
+    sn8^\right sn^\left sn8^\right sn^\left sn8^\right sn^\left
+    sn8^\right sn^\left sn8^\right sn^\left sn8^\right sn^\left |
+    sn8^\left sn^\right sn8^\left sn^\right sn8^\left sn^\right
+    sn8^\left sn^\right sn8^\left sn^\right sn8^\left sn^\right |
+  }
+  downnotes = \drummode {
+    bd4. hhp4 \parenthesize bd8 bd4. hhp4 \parenthesize bd8 |
+    bd4. hhp4 \parenthesize bd8 bd4. hhp4 \parenthesize bd8 |
+    bd4. hhp4 \parenthesize bd8 bd4. hhp4 \parenthesize bd8 |
+    bd4. hhp4 \parenthesize bd8 bd4. hhp4 \parenthesize bd8
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
 \end{document}
