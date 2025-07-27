@@ -1,0 +1,323 @@
+
+% -*- mode : Tex -*-
+\documentclass{article}
+
+\usepackage{fullpage}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[OT1]{fontenc}
+\usepackage{hyperref}
+
+%% cannot define an environemnt as lilypond-book in run BEFORE latexe
+%% \newenvironment{drum}
+%% {
+%%   \begin{lilypond}[staffsize=18]
+%%     \version "2.24.0"
+%%     \include "general_def.ly"
+%% }
+%% {
+%%   \end{lilypond}
+%% }
+%% %% end newenvironment drum
+
+\begin{document}
+
+\title{Grooves, classés par "styles"}
+\author{Compilés par Alain}
+
+\maketitle
+
+
+% ****************************************************************************
+% ***************************************************************** Mozambique
+% ****************************************************************************
+\section{Mozambique}
+
+\subsection{Traditionnal}
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  congas = \drummode {
+    cgho8_"R" cgho_"L" cgho4_"R" ssh8_"R" ssh_"L" ssh_"R" ssh_"L" |
+    r8 ssh8_"R" ssh8_"L" cglo8_"R" r8 ssh_"L" cglo_"R" ssh_"L"
+  }
+  clave = \drummode {
+    r4 cl cl r | cl4 r8 cl8 r4 r8 cl8
+  }
+  cloche = \drummode {
+    cb4^"o" cab cb4^"o" cab8 cb8^"o" | r8 cab cab cab cb4^"o" cab8 cab
+  }
+  surdoHigh = \drummode {
+    r4 r8 cab cab4 cl | r8 cab r cab cab4 cl4
+  }
+  surdoLow = \drummode {
+    cl4 r8 cab cab4 cab8 cab8 | r8 cab r cab r4 cl
+  }
+  shakere = \drummode {
+    cab4^"<" cab8 cab8 cab4^"<" cab8 cab | cab4^"<" cab8 cab8 cab4^"<" cab8 cab
+  }
+
+  \score {
+    <<
+    \new DrumStaff \with {
+      instrumentName = "clave"
+      drumStyleTable = #percussion-style
+      \override StaffSymbol.line-count = #1
+      %%\override BarLine.bar-extent = #'(-1 . 1)
+    }
+      <<
+        \clave
+      >>
+
+    \new DrumStaff \with {
+      instrumentName = "cloche"
+      drumStyleTable = #percussion-style
+      \override StaffSymbol.line-count = #1
+      %%\override BarLine.bar-extent = #'(-1 . 1)
+    }
+      <<
+        \cloche
+      >>
+
+    \new DrumStaff \with {
+      instrumentName = "shakere"
+      drumStyleTable = #percussion-style
+      \override StaffSymbol.line-count = #1
+      %%\override BarLine.bar-extent = #'(-1 . 1)
+    }
+      <<
+        \shakere
+      >>
+
+    \new DrumStaff \with {
+      instrumentName = "congas"
+      drumStyleTable = #congas-style
+      \override StaffSymbol.line-count = #2
+      %%\override BarLine.bar-extent = #'(-1 . 1)
+    }
+      <<
+        \congas
+      >>
+
+    \new DrumStaff \with {
+      instrumentName = "surdo petit"
+      drumStyleTable = #percussion-style
+      \override StaffSymbol.line-count = #1
+      %%\override BarLine.bar-extent = #'(-1 . 1)
+    }
+      <<
+        \surdoHigh
+      >>
+
+    \new DrumStaff \with {
+      instrumentName = "surdo gros"
+      drumStyleTable = #percussion-style
+      \override StaffSymbol.line-count = #1
+      %%\override BarLine.bar-extent = #'(-1 . 1)
+    }
+      <<
+        \surdoLow
+      >>
+
+    >>
+  }
+\end{lilypond}
+
+\subsection{by John Riley}
+
+Latin Jazz, see (Riley 94, p60).
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upward = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    rb4-o rb4-o rb8 rb8-o r8 rb8-o |
+    r8 rb8 rb4-o rb8 rb8-o r8 rb8
+  }
+
+  downward = \drummode {
+    bd4 <hhp ss>8 bd8 r4 hhp8 tommh8 | r4 hhp8 ss8 r4 <hhp tomfh>8 tomfh
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upward }
+    \new DrumVoice { \voiceTwo \downward }
+    >>
+    >>
+  }
+\end{lilypond}
+
+
+\subsection{by Franck Malabe et Bob Weiner}
+
+Afro-cuban, see (Malabe \& Weiner, 1994).
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upward = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    rb4-o rb4-o rb8 rb8-o r8 rb8-o |
+    r8 rb8 rb4-o rb8 rb8-o r8 rb8
+  }
+
+  downward = \drummode {
+    <tommh bd hhp>4 r8 sn8 hhp4 r8 tommh8 |
+    hhp4 r8 tomfh8 hhp4 tomfh4
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upward }
+    \new DrumVoice { \voiceTwo \downward }
+    >>
+    >>
+  }
+\end{lilypond}
+
+\subsection{by Steeve Gadd}
+
+Pop rock, in ``Late in the evening'' by Paul Simon. see (version 1) \url{https://www.youtube.com/watch?v=8zV2mjpSx4A} ou (version 2) \url{https://www.youtube.com/watch?v=NEDGI497_fE}.
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upward = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    rb4-o rb4-o rb8 rb8-o r8 rb8-o |
+    r8 rb8 rb4-o rb8 rb8-o r8 rb8
+  }
+
+  downwardOne = \drummode {
+    <sn bd hhp>4 r8 sn8 <hhp bd>4 r8 sn8 |
+    <hhp bd>4 r8 tommh8 <hhp bd>4 tomml4
+  }
+  downwardTwo = \drummode {
+    <tomfh bd hhp>4 r8 tommh8 <hhp bd>4 tomfh4 |
+    <tommh hhp bd>4 r8 tomfh8 <hhp bd>4 tommh4
+  }
+
+  \score {
+    <<
+    \new DrumStaff \with {
+      instrumentName = "version 1"
+      }
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upward }
+    \new DrumVoice { \voiceTwo \downwardOne }
+    >>
+
+    \new DrumStaff \with {
+      instrumentName = "version 2"
+      }
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upward }
+    \new DrumVoice { \voiceTwo \downwardTwo }
+    >>
+    >>
+  }
+\end{lilypond}
+
+\subsection{Samba variation}
+
+samba, la cloche est jouée sur la caisse claire, à penser en double croches en fait. see \url{https://www.youtube.com/watch?v=8zV2mjpSx4A}
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upward = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+
+    \ghost sn8 hh \ghost sn hh^\act sn^\act \ghost sn hh \ghost sn |
+    hh \ghost sn \ghost sn hh^\act sn^\act \ghost sn hh \ghost sn
+  }
+
+  downward = \drummode {
+    bd4 r8 bd8 bd4 r8 bd8 |
+    bd4 r8 bd8 bd4 r8 bd8
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upward }
+    \new DrumVoice { \voiceTwo \downward }
+    >>
+    >>
+  }
+\end{lilypond}
+
+\subsection{Funk variation}
+
+Funk, pattern à la cloche, ou ride, ou rimshot, ou... see \url{https://www.youtube.com/watch?v=8zV2mjpSx4A}
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upward = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    rb16-o \ghost sn rb8-o <rb sn>16 rb16-o \ghost sn rb16-o
+    \ghost sn16 rb16 rb16-o sn rb16 rb16-o \ghost sn rb16
+  }
+
+  downward = \drummode {
+    <bd hhp>8 bd8 hhp8. bd16 hhp16 bd8. hhp4
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upward }
+    \new DrumVoice { \voiceTwo \downward }
+    >>
+    >>
+  }
+\end{lilypond}
+% ****************************************************************************
+% ******************************************************************* Notation
+% ****************************************************************************
+\section*{Références}
+
+\begin{itemize}
+  \item Franck Malabe and Bob Weiner. Afro-cuban rythms for dumset. Partition Warner. 1994.
+  \item John Riley. The Art of Bop Drumming. Manhattan Music. 1994.
+\end{itemize}
+
+\end{document}
