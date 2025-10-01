@@ -3314,4 +3314,127 @@ David fait le lien avec la presque clave cubaine (en 3-2), en pensant triolet de
     >>
   }
 \end{lilypond}
+
+% ****************************************************************************
+% ******************************************************* Charley - 01/10/2025
+% ****************************************************************************
+\section{Charley - 01/10/2025}
+
+Travail au charley, avec un bases GC+SN solide.
+
+Charley qui fait presque une clave brésilienne (sur un morceau des Red Hot).
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% accent
+  act = \markup { \left-align \musicglyph "scripts.sforzato" }
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh8 hh8^\act hh16 hh8^\act hh16 hh8^\act hh16 hh16^\act r16 hh16 hh8^\act
+  }
+  downnotes = \drummode {
+    bd4 sn bd sn
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+
+Un morceau des DaftPunk où le carley tourne en 3 (joue 1 et 2).
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% accent
+  act = \markup { \left-align \musicglyph "scripts.sforzato" }
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh16 hh8 hh16  hh8 hh16 hh16  r16 hh16 hh8  hh16 hh8 hh16 |
+    hh8 hh16 hh16  r16 hh16 hh8  hh16 hh8 hh16  hho8 hhc8
+
+  }
+  downnotes = \drummode {
+    bd4 sn bd sn |
+    bd4 sn bd sn
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+
+Pattern sur 5 croches que David trouve un peu cubain.
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% accent
+  act = \markup { \left-align \musicglyph "scripts.sforzato" }
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh8 hh8  r16 hh8 hh16  r8 hh8  hh8. hh16  |
+    r16 hh8.  hh8 hh8  r16 hh8 hh16  r8 hh8 |
+    hh8. hh16  r16 hh8.  hh8 hh8  r16 hh8 hh16 |
+    r8 hh8  hh8. hh16  r16 hh8.  hh8 hh8 |
+    r16 hh8 hh16  r8 hh8  hh8. hh16  r16 hh8.
+  }
+  downnotes = \drummode {
+    bd4 sn bd sn |
+    bd4 sn bd sn |
+    bd4 sn bd sn |
+    bd4 sn bd sn |
+    bd4 sn bd sn
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+
+Ou n'utiiser que le pattern HH des 4 premiers temps, ou des patterns de 4 temps en commençant à divers endroits
+
 \end{document}
