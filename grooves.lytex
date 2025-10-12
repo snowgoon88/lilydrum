@@ -1,4 +1,3 @@
-
 % -*- mode : Tex -*-
 \documentclass{article}
 
@@ -28,6 +27,48 @@
 \maketitle
 
 
+% ****************************************************************************
+% ******************************************************************* Notation
+% ****************************************************************************
+\section{Notation}
+
+%%\lilypondfile[staffsize=18]{all_notes.ly}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+
+%% Affiche tous les frappes possibles
+
+\include "general_def.ly"
+
+%% Toutes les têtes de notes
+\score {
+  <<
+    \new DrumStaff \with {
+      \remove "Time_signature_engraver"
+    }
+    << \allheads >>
+  >>
+}
+
+%%
+\score {
+  <<
+    \new DrumStaff \with {
+      %%\remove "Bar_engraver"
+      \remove "Time_signature_engraver"
+      %%\hide Stem
+      \override Stem.Y-extent = ##f
+    }
+    <<
+      \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+      \new DrumVoice = "mus" { \defnote }
+      \new Lyrics \lyricsto "mus" \defname
+    >>
+  >>
+}
+\end{lilypond}
+
+%% \newpage
 % ****************************************************************************
 % ***************************************************************** Mozambique
 % ****************************************************************************
@@ -126,6 +167,7 @@
   }
 \end{lilypond}
 
+\newpage
 \subsection{by John Riley}
 
 Latin Jazz, see (Riley 94, p60).
@@ -310,6 +352,229 @@ Funk, pattern à la cloche, ou ride, ou rimshot, ou... see \url{https://www.yout
     >>
   }
 \end{lilypond}
+
+\newpage
+% ****************************************************************************
+% ******************************************************************** Cascara
+% ****************************************************************************
+\section{Cascara}
+
+% *******************
+\subsection{by David}
+
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upward = \drummode {
+    \time 4/4
+    \numericTimeSignature
+
+    hh4^\act  hh4^\act  hh8 hh^\act  r8 hh | hh4^\act  hh8 hh^\act  r8 hh^\act  r8 hh
+  }
+
+  downward = \drummode {
+    r4  <ss hhp>8 bd8  ss4  <hhp bd>4 | ss4  hhp8 <ss bd>8  r4  <ss hhp bd>4
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upward }
+    \new DrumVoice { \voiceTwo \downward }
+    >>
+    >>
+  }
+\end{lilypond}
+
+% ***********************
+\subsection{DrumSet tips}
+
+by \url{https://drumsettips.org/salsa-cascara-drum-style-latin-drum-set/}
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  signature = {
+    \time 4/4
+    \numericTimeSignature
+  }
+  upward = \drummode {
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh4  hh4  hh8 hh  r8 hh | hh4  hh8 hh  r8 hh  r8 hh
+  }
+
+  mclave = \drummode {
+    s4^\markup "2-3 clave"   ss ss s | ss4. ss4. ss4
+  }
+  mconga = \drummode {
+    s4^\markup "2-3 clave (w. conga)"  sn s tommh | s4 sn s tomfh
+  }
+  mnoconga = \drummode {
+    s4^\markup "2-3 clave (no conga)"  sn s tommh8 tommh | s4 sn s tomfh8 tomfh
+  }
+
+  downward = \drummode {
+    r4  hhp8 bd8  r4  <hhp bd>4 | r4  hhp8 bd8  r4  <hhp bd>4
+  }
+
+  \score {
+    {
+    \new DrumStaff
+    <<
+      %% \textMark "2-3 clave"
+      \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+      \new DrumVoice { \voiceOne {\signature
+          << \upward \mclave >>
+          << \upward \mconga >>
+          << \upward \mnoconga >>
+      } }
+      \new DrumVoice { \voiceTwo {
+          \downward
+          \downward
+          \downward
+        }
+      }
+    >>
+    }
+  }
+\end{lilypond}
+
+% **********************
+\subsection{RythmsNotes}
+
+by \url{https://rhythmnotes.net/cascara-rhythm/}
+
+L'origine vient du ``Palito'' (petit baton), qui se joue sur le côté du fut et sur une peau ``grave''. Deux pattern:
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  signature = {
+    \time 4/4
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+  }
+
+  palitoUno = \drummode {
+    hh4  hh8 hh  r8 hh  r8 hh | hh4  hh4 hh8 hh  r8 hh
+  }
+  palitoDos = \drummode {
+    hh8 hh  r8 hh  hh8 hh  r8 hh | hh4  hh4 hh8 hh  r8 hh
+  }
+
+  footpattern = \drummode {
+    bd4  r8 bd  r4  r8 bd | r4  bd  bd  r
+  }
+
+  \score {
+    \new DrumStaff
+    <<
+      \textMark "Palito 1"
+      \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+      \new DrumVoice { \voiceOne {\signature
+          \palitoUno
+      } }
+      \new DrumVoice { \voiceTwo {
+          \footpattern
+        }
+      }
+    >>
+  }
+
+  \score {
+    \new DrumStaff
+    <<
+      \textMark "Palito 2"
+      \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+      \new DrumVoice { \voiceOne {\signature
+          \palitoDos
+      } }
+      \new DrumVoice { \voiceTwo {
+          \footpattern
+        }
+      }
+    >>
+  }
+\end{lilypond}
+
+A la batterie, place le charley sur 1 et 3. Avec une cloche au pied si pas de conga.
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  signature = {
+    \time 4/4
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+  }
+
+  cascara = \drummode {
+    hh4^\act  hh4^\act  hh8 hh^\act  r8 hh | hh4^\act  hh8 hh^\act  r8 hh^\act  r8 hh
+  }
+
+  mclave = \drummode {
+    s4  ss ss s | ss4. ss4. ss4
+  }
+  footlight = \drummode {
+    hhp4  r8 bd  hhp4  r4 | hhp4  r8 bd  hhp4  r4
+  }
+
+  mconga = \drummode {
+    s4  ss  s  tommh8 tommh | s4  ss  s  tomfh8 tomfh
+  }
+  footconga = \drummode {
+    r4  cbp8 bd cbp4  r4 | cbp4.  <bd cbp>8  r4 cbp4
+  }
+
+  \score {
+    \new DrumStaff
+    <<
+      \textMark "Cascara (with conga)"
+      \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+      \new DrumVoice { \voiceOne {\signature
+          << \cascara \mclave >>
+      } }
+      \new DrumVoice { \voiceTwo {
+          \footlight
+        }
+      }
+    >>
+  }
+
+  \score {
+    \new DrumStaff
+    <<
+      \textMark "Casacara (no conga)"
+      \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+      \new DrumVoice { \voiceOne {\signature
+          << \cascara \mconga >>
+      } }
+      \new DrumVoice { \voiceTwo {
+          \footconga
+        }
+      }
+    >>
+  }
+\end{lilypond}
+
+
+
+
+
+
+
+
 % ****************************************************************************
 % ******************************************************************* Notation
 % ****************************************************************************
