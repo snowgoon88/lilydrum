@@ -2,6 +2,15 @@
 %% ***************************************************************************
 %% ** notes, \swing, \ghost sn ***********************************************
 %% ***************************************************************************
+
+%% add a new drumPitchName
+drumPitchNames =
+  #(append
+    '((cowbellpedal . cowbellpedal)
+      (cbp . cowbellpedal))
+    drumPitchNames)
+%%#drumPitchName.sb = #'bothside
+
 % ====== Drum notations customized
 #(define md '(
   (ridecymbal    cross    #f          6)
@@ -24,6 +33,7 @@
   (bassdrum      default    #f         -4)
   (oneup         default    #f          5)
   (longwhistle   slash      #t          0)
+  (cowbellpedal  triangle    #f         -6)
 ))
 %% drumPitchNames =
 %%   #(append
@@ -45,7 +55,7 @@ allheads = \drummode {
 
 defnote = \drummode {
   sn4^"snare" ss ssl s |
-  bd4^"feet" s hhp s |
+  bd4^"feet" s hhp cbp |
   hh4^"hat" hho hhho hhc
   cymr4^"ride" s rb s |  
   tommh4^"tom" tomml tomfh tomfl |
@@ -54,7 +64,7 @@ defnote = \drummode {
 
 defname = \lyricmode {
   sn ss ssl |
-  bd hhp |
+  bd hhp cbp |
   hh hho hhho hhc |
   cymr rb |
   tommh tomml tomfh tomfl |
