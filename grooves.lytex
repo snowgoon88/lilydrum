@@ -570,6 +570,82 @@ A la batterie, place le charley sur 1 et 3. Avec une cloche au pied si pas de co
 
 
 
+% ****************************************************************************
+% ***************************************************************** Seven Seas
+% ****************************************************************************
+\section{Seven seas}
+
+Sur le disque, version avec percu de la rythmique au piano.
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upward = \drummode {
+    \time 7/4
+    \numericTimeSignature
+    % prevent time signature to be put at end of line also
+    \override Staff.TimeSignature.break-visibility = ##(#f #f #t)
+
+    hh4 hh hh hh hh hh hh |
+    \time 7/4 hh4 hh hh hh hh hh hh
+  }
+
+  downward = \drummode {
+    \override Beam.positions = #'(-3 . -3)   %% left right
+    sn8. sn16  r8 sn8  r16 sn8.  sn8 sn8  r16 sn8 sn16  r16 sn8.  sn8 sn8 |
+    sn8. sn16  sn8 sn8  sn8. sn16  r8 sn8  r16 sn8 sn16  r16 sn8.  sn8 sn8
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    %% each note take space proportional to its duration
+    \set Score.proportionalNotationDuration = #(ly:make-moment 1/16)
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upward }
+    \new DrumVoice { \voiceTwo \downward }
+    >>
+    >>
+  }
+\end{lilypond}
+
+Travailler avec pulse d'un membre et mélodie avec l'un des trois autres membres, et tourner.
+
+A travailler aussi, le rythme de base en 7 double croches: 2 2 3
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% Notes
+  upward = \drummode {
+    \time 7/4
+    \numericTimeSignature
+
+    hh4 hh hh hh hh hh hh
+  }
+
+  downward = \drummode {
+    \override Beam.positions = #'(-3 . -3)   %% left right
+
+    sn8_\act sn8  sn8. sn16_\act  r16 sn8 sn16  r8 sn8_\act  sn8 sn8  r16 sn8_\act sn16  r16 sn8.
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set Score.proportionalNotationDuration = #(ly:make-moment 1/16)
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upward }
+    \new DrumVoice { \voiceTwo \downward }
+    >>
+    >>
+  }
+\end{lilypond}
 
 
 
