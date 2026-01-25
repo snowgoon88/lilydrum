@@ -34,7 +34,7 @@
 
 %%\lilypondfile[staffsize=18]{all_notes.ly}
 \begin{lilypond}[staffsize=18]
-  \version "2.24.0"
+  %% \version "2.24.0"
 
 %% Affiche tous les frappes possibles
 
@@ -77,7 +77,7 @@
 \subsection{Traditionnal}
 
 \begin{lilypond}[staffsize=18]
-  \version "2.24.0"
+  %% \version "2.24.0"
   \include "general_def.ly"
 
   %% Notes
@@ -173,7 +173,7 @@
 Latin Jazz, see (Riley 94, p60).
 
 \begin{lilypond}[staffsize=18]
-  \version "2.24.0"
+  %% \version "2.24.0"
   \include "general_def.ly"
 
   %% Notes
@@ -207,7 +207,7 @@ Latin Jazz, see (Riley 94, p60).
 Afro-cuban, see (Malabe \& Weiner, 1994).
 
 \begin{lilypond}[staffsize=18]
-  \version "2.24.0"
+  %% \version "2.24.0"
   \include "general_def.ly"
 
   %% Notes
@@ -241,7 +241,7 @@ Afro-cuban, see (Malabe \& Weiner, 1994).
 Pop rock, in ``Late in the evening'' by Paul Simon. see (version 1) \url{https://www.youtube.com/watch?v=8zV2mjpSx4A} ou (version 2) \url{https://www.youtube.com/watch?v=NEDGI497_fE}.
 
 \begin{lilypond}[staffsize=18]
-  \version "2.24.0"
+  %% \version "2.24.0"
   \include "general_def.ly"
 
   %% Notes
@@ -290,7 +290,7 @@ Pop rock, in ``Late in the evening'' by Paul Simon. see (version 1) \url{https:/
 samba, la cloche est jouée sur la caisse claire, à penser en double croches en fait. see \url{https://www.youtube.com/watch?v=8zV2mjpSx4A}
 
 \begin{lilypond}[staffsize=18]
-  \version "2.24.0"
+  %% \version "2.24.0"
   \include "general_def.ly"
 
   %% Notes
@@ -325,7 +325,7 @@ samba, la cloche est jouée sur la caisse claire, à penser en double croches en
 Funk, pattern à la cloche, ou ride, ou rimshot, ou... see \url{https://www.youtube.com/watch?v=8zV2mjpSx4A}
 
 \begin{lilypond}[staffsize=18]
-  \version "2.24.0"
+  %% \version "2.24.0"
   \include "general_def.ly"
 
   %% Notes
@@ -364,7 +364,7 @@ Funk, pattern à la cloche, ou ride, ou rimshot, ou... see \url{https://www.yout
 
 
 \begin{lilypond}[staffsize=18]
-  \version "2.24.0"
+  %% \version "2.24.0"
   \include "general_def.ly"
 
   %% Notes
@@ -397,7 +397,7 @@ Funk, pattern à la cloche, ou ride, ou rimshot, ou... see \url{https://www.yout
 by \url{https://drumsettips.org/salsa-cascara-drum-style-latin-drum-set/}
 
 \begin{lilypond}[staffsize=18]
-  \version "2.24.0"
+  %% \version "2.24.0"
   \include "general_def.ly"
 
   signature = {
@@ -455,7 +455,7 @@ L'origine vient du ``Palito'' (petit baton), qui se joue sur le côté du fut et
 
 \vspace{5mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.24.0"
+  %% \version "2.24.0"
   \include "general_def.ly"
 
   signature = {
@@ -510,7 +510,7 @@ A la batterie, place le charley sur 1 et 3. Avec une cloche au pied si pas de co
 
 \vspace{5mm}
 \begin{lilypond}[staffsize=18]
-  \version "2.24.0"
+  %% \version "2.24.0"
   \include "general_def.ly"
 
   signature = {
@@ -578,7 +578,7 @@ A la batterie, place le charley sur 1 et 3. Avec une cloche au pied si pas de co
 Sur le disque, version avec percu de la rythmique au piano.
 
 \begin{lilypond}[staffsize=18]
-  \version "2.24.0"
+  %% \version "2.24.0"
   \include "general_def.ly"
 
   %% Notes
@@ -617,7 +617,7 @@ Travailler avec pulse d'un membre et mélodie avec l'un des trois autres membres
 A travailler aussi, le rythme de base en 7 double croches: 2 2 3
 
 \begin{lilypond}[staffsize=18]
-  \version "2.24.0"
+  %% \version "2.24.0"
   \include "general_def.ly"
 
   %% Notes
