@@ -3451,6 +3451,56 @@ Ou n'utiiser que le pattern HH des 4 premiers temps, ou des patterns de 4 temps 
 \item (quintolets)
 \end{itemize}
 
+% ****************************************************************************
+% ***************************************** Bernard Schimpelsberger - 04/03/26
+% ****************************************************************************
+\section{Bernard Schimpelsberger - 04/03/26}
+
+Version à 5 temps de ``Smells like Teen Spirit'', interprétée par Bernard Schimpelsberger. C'est l'occasion de parler konakhol, doubler le rythme et Tihai.
+
+\url{https://www.youtube.com/watch?v=tzQucIOEIuo}
+
+Par exemple, doubler la tourne qui ressemble à:
+
+
+\vspace{5mm}
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% accent
+  act = \markup { \left-align \musicglyph "scripts.sforzato" }
+
+  %% Notes
+  upnotes = \drummode {
+    \time 5/4
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh4 hh hh hh hh |
+    hh4 hh hh hh hh |
+    hh8 hh hh hh hh  hh hh hh hh hh
+  }
+  downnotes = \drummode {
+    bd4. bd8  r8 sn8  r4  r8 bd8 |
+    bd4. bd8  r8 sn8  r4  r8 bd8 |
+    bd8. bd16  r16 sn16  r8  r16 bd16   bd8. bd16  r16 sn16  r8  r16 bd16
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+
+  Et regarder où commencer des Tihai de 5 (RLRLL), 4 (RLRL) ou 3 (RLL ou RLK).
+\end{lilypond}
+
 
 
 
