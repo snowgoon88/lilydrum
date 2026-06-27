@@ -5,12 +5,15 @@
 \usepackage[french]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage[OT1]{fontenc}
-\usepackage{fullpage}
+%% \usepackage{fullpage}
+\usepackage[top=1cm, left=1cm, right=1cm, bottom=0.5cm,
+            includefoot]{geometry}
 \usepackage{hyperref}
 \usepackage{xspace}
 \usepackage{pbox} % parbox of variable width
 \usepackage{framed}
 %%\usepackage{bibunits} %% separate biblio into several parts (section or chapter)
+\usepackage{multirow}  %% merge cells in tabular
 
 %% %\usepackage[timeinterval=10]{tdclock}
 \usepackage{graphicx}
@@ -89,6 +92,7 @@
 \def\Taa{\bol{Ta!}{g4}}
 \def\Tin{\bol{Tin}{sn1}}
 \def\Tu{\bol{Tun}{sn1}}
+\def\Thu{\bol{Thun}{sn1/k}}
 \def\TIN{\bol{Tin}{gsn4}}
 
 \def\Da{\bol{Dha}{k/2}}
@@ -148,6 +152,11 @@
 
 \setlength{\parindent}{0cm} % Default is 15pt.
 %\linespread{1.3}
+
+% Raised Rule Command:
+%  Arg 1 (Optional) - How high to raise the rule
+%  Arg 2            - Thickness of the rule
+\newcommand{\raisedrule}[2][0em]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}
 
 % Document title, author, date and institution
 % ---------------------------------------------
@@ -753,8 +762,74 @@ Avec des variations et breaks
 
 \matra{\Ta \Ta TRKT} \matra{\Ta \Ta TRKT} 
 
+% ****************************************************************************
+% ********************************************************************* Kherva
+% ****************************************************************************
+\newpage
+\subtitle{Kaida de la Présidente. (\tintal)}
 
+\textbf{Thème} \raisedrule[0.5em]{1pt}
 
+\begin{tabular}{llll}
+  \matra{\Da \Da} & \matra{\N \cont} & \matra{\Da \Ti} & \matra{\N \cont} \\
+  \matra{\Da \cont} & \matra{\N \N} & \matra{\Da \cont} & \TRKT \\
+  \matra{\Ta \Ta} & \matra{\Ta \cont} & \matra{\Ta \Ti} & \matra{\Ta \cont} \\
+  \matra{\Da\cont \Tt\Ro} & \KTTK & \matra{\Thu \N} & \matra{\K \N}
+\end{tabular}
+
+\textbf{Var 1} \raisedrule[0.5em]{1pt}
+
+\begin{tabular}{llll}
+  \matra{\Da \cont} & \matra{\Da \Da} & \matra{\N \cont} & \matra{\Ti \N} \\
+  \matra{\Da\cont \Tt\Ro} & \matra{\Ke\Tt \Da\cont} & \matra{\Da \Ti} & \matra{\N \Da} \\
+  \matra{\Ta \cont} & \matra{\Ta \Ta} & \matra{\Ta \cont} & \matra{\Ti \Ta} \\
+  \matra{\Da\cont \Tt\Ro} & \KTTK & \matra{\Thu \N} & \matra{\K \N}
+\end{tabular}
+
+\textbf{Var 2} \raisedrule[0.5em]{1pt}
+
+\begin{tabular}{llll}
+  \TRKT & \matra{\Da\cont \Tt\Ro} & \matra{\Ke\Tt \Da\cont} & \TRKT \\
+  \matra{\Da \Da} & \matra{\N \cont} & \matra{\Da \Ti} & \matra{\N \cont} \\
+  \TRKT & \matra{\Ta\cont \Tt\Ro} & \matra{\Ke\Tt \Ta\cont} & \TRKT \\
+  \matra{\Da\cont \Tt\Ro} & \KTTK & \matra{\Thu \N} & \matra{\K \N}
+\end{tabular}
+
+\textbf{Var 3} \raisedrule[0.5em]{1pt}
+
+\begin{tabular}{llll}
+  \matra{\Da\cont \Tt\Ro} & \matra{\Ke\Tt \Da\cont} & \matra{\Ti \N} & \TRKT \\
+  \matra{\Da \cont} & \matra{\N \N} & \matra{\Da \cont} & \TRKT \\
+  \matra{\N\cont \Tt\Ro} & \matra{\Ke\Tt \N\cont} & \matra{\Ti \N} & \TRKT \\
+  \matra{\Da\cont \Tt\Ro} & \KTTK &  \matra{\Thu \N} & \matra{\K \N}
+\end{tabular}
+
+\textbf{Var 4} \raisedrule[0.5em]{1pt}
+
+\begin{tabular}{llll}
+  \matra{\Da\cont} & \matra{\cont \Da} & \matra{\cont \Da} & \matra{\Da \Da} \\
+  \TRKT & \matra{\Da\cont \Tt\Ro} & \matra{\Ke\Tt \Da\cont} & \TRKT \\
+  \matra{\N\cont} & \matra{\cont \N} & \matra{\cont \N} & \matra{\N \N} \\
+  \matra{\Da\cont \Tt\Ro} & \KTTK &  \matra{\Thu \N} & \matra{\K \N}
+\end{tabular}
+
+\textbf{Var 5} \raisedrule[0.5em]{1pt}
+
+\begin{tabular}{llll}
+  \matra{\Da \Ti} & \matra{\Da \Ti} & \matra{\Da \Ti} & \matra{\N \cont} \\
+  \matra{\Da\cont \Tt\Ro} & \matra{\Ke\Tt \Da\cont} & \matra{\Ti \Da} & \TRKT \\
+  \matra{\N \Ti} & \matra{\N \Ti} & \matra{\N \Ti} & \matra{\N \cont} \\
+  \matra{\Da\cont \Tt\Ro} & \KTTK &  \matra{\Thu \N} & \matra{\K \N}
+\end{tabular}
+
+\textbf{Tihaï} \raisedrule[0.5em]{1pt}
+
+\begin{tabular}{llllr}
+  \matra{\Da \Ti} & \matra{\Da \cont} & \matra{\N \N} & \matra{\N \cont} & \multirow{4}{4em}{$ \Biggr\} \times 3$}\\
+  \matra{\Da \Ti} & \matra{\Da \cont} & \TRKT & \matra{\N \cont} & \\
+  \matra{\Da \Ti} & \matra{\Da\cont \Tt\Ro} & \matra{\Ke\Tt \N\cont} & \matra{\N \N} &\\
+  \matra{\Da \Ti} & \matra{\Da\cont \Tt\Ro} & \matra{\Ke\Tt \N\cont} & \matra{\N \N} &
+\end{tabular}
 % ****************************************************************************
 % ***************************************************************** Références 
 % ****************************************************************************
