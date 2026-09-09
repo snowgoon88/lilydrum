@@ -7,6 +7,18 @@
 \usepackage[OT1]{fontenc}
 \usepackage{hyperref}
 
+% ****************************************************************************
+% **************************************************************** NewCommands
+% ****************************************************************************
+%%% Matra from Math
+\usepackage{amsmath,mathabx}
+\newcommand{\matra}[1]{$\undergroup{\text{#1}}$}
+
+
+
+% ****************************************************************************
+% ******************************************************************* Document
+% ****************************************************************************
 \begin{document}
 
 \title{Cours 2018-2020}
@@ -3502,6 +3514,281 @@ Par exemple, doubler la tourne qui ressemble à:
 \end{lilypond}
 
 
+% ****************************************************************************
+% ********************************************* Tabla vers Batterie - 26/06/26
+% ****************************************************************************
+\section{Tabla vers Batterie - 26/06/26}
 
+\textbf{Khearva}
+
+\vspace{5mm}
+\matra{Dha Ge} - \matra{Na Tin} - \matra{Na Ge} - \matra{dhin Na}
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% accent
+  act = \markup { \left-align \musicglyph "scripts.sforzato" }
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    <hh sn>4^\act  hh8 rb8  hh4  <rb tomfl>8^\act hh8 |
+    <hh sn>4^\act  hh8 rb8  hh4  <rb tomfl>8^\act rb8 |
+  }
+  downnotes = \drummode {
+    r8 bd8  r4  r8 bd8  bd4 |
+    r8 bd8  r4  r8 bd8  bd4 |
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+
+\vspace{5mm}
+\matra{Gi Na} - \matra{Dha Dhi} - \matra{Ga Dhi} - \matra{Na Ti}
+\hspace{3mm}+\hspace{3mm}
+\matra{Gi Na} - \matra{Dha Ti} - \matra{Ka Dhi} - \matra{Na Ti}
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% accent
+  act = \markup { \left-align \musicglyph "scripts.sforzato" }
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    r8 hh8  <hh sn>8[ hho8]  r8 hho8  sn8[ hh8] |
+    r8 hh8  <hh sn>8[ hho8]  r8 hho8  sn8[ hh8] |
+  }
+  downnotes = \drummode {
+    bd4  r8 bd8  bd8 bd8  r4 |
+    bd4  r8 bd8  bd4  r4 |
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+
+\end{lilypond}
+Peut aussi commencer sur le 2ème temps.
+
+\vspace{5mm}
+\matra{Dha +} - \matra{ge ge} - \matra{ta ge} - \matra{Ti Na}
+\hspace{3mm}+\hspace{3mm}
+\matra{Na Na} - \matra{ge ge} - \matra{Ta ge} - \matra{Dhi Na}
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% accent
+  act = \markup { \left-align \musicglyph "scripts.sforzato" }
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh4  r4  sn4  hh8 hh |
+    rb8 rb8  r4  sn4  rb8 rb8
+  }
+  downnotes = \drummode {
+    bd4  bd8 bd8  r8 bd8  r4 |
+    r4  bd8 bd8  r8 bd8  r4
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+Peut commencer sur 2ème ou 3ème temps.
+
+\vspace{5mm}
+\matra{Dha Ti} - \matra{Ge Ge} - \matra{Na Ge} - \matra{Dhin Na}
+\hspace{3mm}+\hspace{3mm}
+\matra{Dhi Na} - \matra{Ge Ge} - \matra{Na Ge} - \matra{Dhin Na}
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% accent
+  act = \markup { \left-align \musicglyph "scripts.sforzato" }
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh8 sn8  r4  sn4  hho8 sn8 |
+    hho8 sn8  r4 sn4  hho8 sn8
+  }
+  downnotes = \drummode {
+    bd4  bd8 bd8  r8 bd8  bd4 |
+    bd4  bd8 bd8  r8 bd8  bd4 |
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+
+\vspace{5mm}
+\matra{Dha Ge} - \matra{Ge Na} - \matra{Ti Ge} - \matra{Dha Ti}
+\hspace{3mm}+\hspace{3mm}
+\matra{Ta Ge} - \matra{Ge Na} - \matra{Ti Ge} - \matra{Dha Ti}
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% accent
+  act = \markup { \left-align \musicglyph "scripts.sforzato" }
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    <hh sn>4  r8 sn8  rb4  <hh sn>8 rb8 |
+    <hh sn>4  r8 sn8  rb4  <hh sn>8 rb8 |
+  }
+  downnotes = \drummode {
+    r8 bd8  bd4  r8 bd8  r4 |
+    r4  r4  r8 bd8  bd4 |
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+
+\vspace{5mm}
+\matra{Dhi Ge} - \matra{Dha Dhin} - \matra{Ge Dhin} - \matra{Na Ge}
+\hspace{3mm}+\hspace{3mm}
+\matra{Dhi Ge} - \matra{Dha Ti} - \matra{Ke Ti} - \matra{Na Ge}
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% accent
+  act = \markup { \left-align \musicglyph "scripts.sforzato" }
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hho4  hh8 hho8  hh8 hho8  <hh sn>4 |
+    hho4  hh8 hho8  hh8 hho8  <hh sn>4 |
+  }
+  downnotes = \drummode {
+    bd8 bd8  r8 bd  bd8 bd  r8 bd |
+    bd8 bd8  r8 bd  bd8 bd  r8 bd |
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+Peut ausis commencer au 2ème temps.
+
+\newpage
+\vspace{5mm}
+\matra{Dha Dha} - \matra{Te Dhin} - \matra{Na Ge} - \matra{Ti Na}
+\hspace{3mm}+\hspace{3mm}
+\matra{Ta Te} - \matra{Te Dhin} - \matra{Na Ge} - \matra{Dhi Na}
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% accent
+  act = \markup { \left-align \musicglyph "scripts.sforzato" }
+
+  %% Notes
+  upnotes = \drummode {
+    \time 4/4
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+
+    hh8 <hh sn>8  hh8 hho  sn4  hho8 sn |
+    hh8 <hh sn>8  hh8 hho  sn4  hho8 sn |
+  }
+  downnotes = \drummode {
+    bd4  r8 bd  r8 bd  r4 |
+    r4  r8 bd  r8 bd  bd4
+  }
+
+  \score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+\end{lilypond}
+Peut aussi commener au 4ème temps de la mesure 2.
 
 \end{document}
