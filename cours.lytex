@@ -3685,7 +3685,6 @@ Peut commencer sur 2ème ou 3ème temps.
 
   %% accent
   act = \markup { \left-align \musicglyph "scripts.sforzato" }
-
   %% Notes
   upnotes = \drummode {
     \time 4/4
@@ -3808,6 +3807,149 @@ Et la thématique de l'année: ``inverser''
 Peut jouer 1ère parenthèse 2 fois, puis deuxième 2 fois. Mais on retrouve aussi un moulin.
 
 ($ \circ \bullet \bullet \circ$) ($\bullet \circ \circ \bullet$)
+
+% ****************************************************************************
+% **************************************************** Pitagoro Oro - 27/09/26
+% ****************************************************************************
+\section{Pitagorinoo Oro - 27/09/26}
+
+Essai de transcription/compréhension de ``Pitagorino Oro'', à l'origine de Slobodan Trkulja
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  rythmdy = \drummode {
+    \numericTimeSignature
+    \override Beam.positions = #'(4 . 4)   %% left right
+    \bar ".|:-|"
+    \time 7/8
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn]
+
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn]
+
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn]
+
+    \time 6/8
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+
+    %% double bar
+    ||
+
+    \time 5/8
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn]
+
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn]
+
+    \time 6/8
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+
+    \time 7/8
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn]
+    \override NoteHead.transparent = ##f
+    sn8[ \override NoteHead.transparent = ##t sn sn sn]
+    \bar ":|."
+    }
+
+\score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \rythmdy }
+    >>
+    >>
+  }
+
+\end{lilypond}
+
+
+Une possibilité à la batterie.
+
+\begin{lilypond}[staffsize=18]
+  \version "2.24.0"
+  \include "general_def.ly"
+
+  %% accent
+  act = \markup { \left-align \musicglyph "scripts.sforzato" }
+
+  upnotes = \drummode {
+    \numericTimeSignature
+    \override Beam.positions = #'(5 . 5)   %% left right
+    \bar ".|:-|"
+    \time 7/16
+    hh4 <hh ss>8[ hh16] | hh8^\act hh8.^\act <hh ss>8 | hh4 <hh ss>8[ hh16]
+
+    \time 6/8
+    hh8 <hh ss>4
+
+    ||
+
+    \time 5/8
+    <hh ss>8 hh8. | <hh ss>8 hh8.
+
+    \time 6/8
+    <hh ss>8 hh8 hh8
+
+    \time 7/8
+    <hh ss>8[ hh16] hh8[ hh16 ss16]
+%%     \override NoteHead.transparent = ##f
+%%     sn8[ \override NoteHead.transparent = ##t sn sn]
+%%     \override NoteHead.transparent = ##f
+%%     sn8[ \override NoteHead.transparent = ##t sn sn sn]
+    \bar ":|."
+    }
+
+  downnotes = \drummode {
+   \stemDown
+
+   bd4 r8. | r8 r8. bd8 | bd4 r8.
+   bd8 bd4
+
+   r8 bd8. | r8 bd8. |
+   r8 bd4 |
+   bd8. r4
+
+  }
+
+\score {
+    <<
+    \new DrumStaff
+    <<
+    \set DrumStaff.drumStyleTable = #(alist->hash-table md)
+    \new DrumVoice { \voiceOne \upnotes }
+    \new DrumVoice { \voiceTwo \downnotes }
+    >>
+    >>
+  }
+
+\end{lilypond}
+
+
 
 
 \end{document}
