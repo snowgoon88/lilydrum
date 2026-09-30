@@ -3904,23 +3904,22 @@ Une possibilité à la batterie.
     \time 7/16
     hh4 <hh ss>8[ hh16] | hh8^\act hh8.^\act <hh ss>8 | hh4 <hh ss>8[ hh16]
 
-    \time 6/8
+    \time 6/16
     hh8 <hh ss>4
+    \break
 
-    ||
-
-    \time 5/8
+    \time 5/16
     <hh ss>8 hh8. | <hh ss>8 hh8.
 
-    \time 6/8
+    \time 6/16
     <hh ss>8 hh8 hh8
 
-    \time 7/8
+    \time 7/16
     <hh ss>8[ hh16] hh8[ hh16 ss16]
 %%     \override NoteHead.transparent = ##f
-%%     sn8[ \override NoteHead.transparent = ##t sn sn]
+%%     sn16[ \override NoteHead.transparent = ##t sn sn]
 %%     \override NoteHead.transparent = ##f
-%%     sn8[ \override NoteHead.transparent = ##t sn sn sn]
+%%     sn16[ \override NoteHead.transparent = ##t sn sn sn]
     \bar ":|."
     }
 
