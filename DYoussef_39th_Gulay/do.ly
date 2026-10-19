@@ -6,12 +6,19 @@ ton = ""
 
 \include "main.ly"
 
+% pour générer du MIDI
 \score {
   <<
-    \new Staff \with {midiInstrument = #"electric piano 1"}<< \transpose c \noteCibleTransposition { \unfoldRepeats{\melodie 
-                                 }}  >>
-    \new Staff \with {midiInstrument = #"electric piano 1"} << \unfoldRepeats{\harmonie
-                          } >> 
+    \new Staff \with {midiInstrument = #"electric piano 1"}
+        <<
+            \transpose c \noteCibleTransposition {
+              \unfoldRepeats{\melodie}
+            }
+        >>
+    \new Staff \with {midiInstrument = #"electric piano 1"}
+        <<
+            \unfoldRepeats{\harmonie}
+        >>
   >>
 \midi{ \tempo 4 = 140 }
 }
